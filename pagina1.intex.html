@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Operação Altitude — Campanha de Incentivo 2026</title>
+  <style>
+    :root{
+      --gran-orange:#FA5300;
+      --navy:#0D134C;
+      --ink:#111827;
+      --ice:#F3F4F6;
+      --cloud:#E5E7EB;
+      --white:#FFFFFF;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color:var(--ink);
+      line-height:1.6;
+      background:var(--white);
+    }
+    a{color:var(--gran-orange);text-decoration:none}
+    .wrapper{max-width:1100px;margin:0 auto;padding:24px}
+    .hero{
+      position:relative;
+      border-radius:16px;
+      overflow:hidden;
+      padding:56px 32px;
+      background: linear-gradient(135deg, rgba(13,19,76,0.9), rgba(13,19,76,0.55)),
+                  url('https://images.unsplash.com/photo-1500043357865-c6b8827edf60?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      color:var(--white);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    }
+    .badge{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:999px;font-size:12px;letter-spacing:.04em}
+    h1{font-size:40px;line-height:1.15;margin:12px 0 8px}
+    .subtitle{font-size:18px;opacity:.95;max-width:720px}
+    .cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:12px 18px;border-radius:12px;font-weight:600;
+      border:1px solid rgba(255,255,255,0.35);color:var(--white)
+    }
+    .btn.primary{background:var(--gran-orange);border-color:var(--gran-orange)}
+    section{margin:56px 0}
+    .section-title{font-size:28px;margin:0 0 12px;color:var(--navy)}
+    .kicker{color:var(--gran-orange);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .card{
+      background:var(--white);border:1px solid var(--cloud);border-radius:14px;padding:18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .pill{display:inline-block;background:var(--ice);border:1px solid var(--cloud);padding:6px 10px;border-radius:999px;font-size:12px}
+    .timeline{position:relative;padding-left:18px}
+    .timeline::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(var(--cloud),var(--gran-orange))}
+    .step{position:relative;padding-left:12px;margin:14px 0}
+    .step::before{content:"";position:absolute;left:-6px;top:8px;width:12px;height:12px;background:var(--gran-orange);border-radius:50%;box-shadow:0 0 0 4px rgba(250,83,0,.15)}
+    .prize-img{
+      width:100%;height:170px;border-radius:12px;border:1px solid var(--cloud);
+      background:linear-gradient(180deg,#ffffff,#f7f7f9);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#6B7280;
+    }
+    .ranking-table{width:100%;border-collapse:separate;border-spacing:0 10px}
+    .ranking-table thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#6B7280;text-align:left;padding:0 10px}
+    .ranking-table tbody tr{background:var(--white);border:1px solid var(--cloud)}
+    .ranking-table td{padding:12px 10px}
+    .footer-quote{
+      padding:28px;border-radius:16px;background:linear-gradient(135deg,#f8fafc,#eef2ff);
+      border:1px solid var(--cloud);font-size:18px;color:#111827
+    }
+    .flag{
+      display:inline-flex;align-items:center;gap:10px;background:var(--ice);border:1px solid var(--cloud);padding:8px 12px;border-radius:999px;font-weight:600
+    }
+    @media (max-width:900px){
+      .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-2{grid-template-columns:1fr}
+      h1{font-size:32px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="badge">Campanha de Incentivo 2026</div>
+      <h1>Operação Altitude: você ainda não conhece os seus limites!</h1>
+      <p class="subtitle">Uma expedição coletiva rumo ao topo — onde cada entrega é um passo mais alto. 2026 será o nosso Everest.</p>
+      <div class="cta">
+        <a href="#conceito" class="btn primary">Comece sua jornada</a>
+        <a href="#premiacao" class="btn">Premiações</a>
+      </div>
+    </section>
+
+    <!-- CONCEITO CRIATIVO -->
+    <section id="conceito">
+      <div class="kicker">Conceito</div>
+      <h2 class="section-title">A jornada até o topo</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <p>A Campanha de Incentivo 2026 reconhece a performance de forma contínua, justa e inspiradora. Cada meta é um acampamento conquistado; cada entrega, um passo em direção ao cume.</p>
+          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+            <span class="pill">Propósito: engajamento o ano todo</span>
+            <span class="pill">Missão: ultrapassar limites</span>
+            <span class="pill">Resultado: conquistas memoráveis</span>
+          </div>
+        </div>
+        <div class="card">
+          <strong>Vigência:</strong> 1º jan a 31 dez de 2026.<br/>
+          <strong>Governança:</strong> Comitê de Performance (acompanhamento mensal, homologação e transparência).<br/>
+          <strong>Site oficial:</strong> este hub concentra comunicados, rankings, regras e premiações.
+          <div style="margin-top:10px" class="flag">🎯 Metas liberam prêmios por ciclo</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JORNADA / ETAPAS -->
+    <section id="jornada">
+      <div class="kicker">Jornada</div>
+      <h2 class="section-title">Etapas da Escalada</h2>
+      <div class="timeline">
+        <div class="step">
+          <h3>🏕️ Campo Base — Lançamento</h3>
+          <p>Base da coragem: preparação emocional, montagem das barracas e espírito de equipe.</p>
+        </div>
+        <div class="step">
+          <h3>🧊 Acampamento 1 — Meta de Janeiro</h3>
+          <p>Face de Gelo: recomeços desafiadores e coragem para o primeiro passo.</p>
+        </div>
+        <div class="step">
+          <h3>⛰️ Acampamento 2 — Fechamento do 1º Trimestre</h3>
+          <p>Zona de Aclimatação: constância como força e prova de resiliência.</p>
+        </div>
+        <div class="step">
+          <h3>🧗 Acampamento 3 — Fechamento do 2º Trimestre</h3>
+          <p>Escalada Técnica: foco absoluto e execução precisa.</p>
+        </div>
+        <div class="step">
+          <h3>🫁 Acampamento 4 — Fechamento do 3º Trimestre</h3>
+          <p>Zona da Morte: onde a mente forte sustenta o corpo — superação máxima.</p>
+        </div>
+        <div class="step">
+          <h3>🏔️ Cume — Meta Anual</h3>
+          <p>Onde só os lendários chegam: o topo como marca de coragem e resultado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIAÇÕES -->
+    <section id="premiacao">
+      <div class="kicker">Recompensas</div>
+      <h2 class="section-title">Premiações da Jornada</h2>
+
+      <div class="grid cols-3" style="margin-bottom:16px">
+        <div class="card">
+          <div class="prize-img">Semanal</div>
+          <h3>Reconhecimento individual</h3>
+          <p><strong>R$ 200,00</strong> em crédito iFood para o melhor desempenho semanal por gerência.</p>
+        </div>
+        <div class="card">
+          <div class="prize-img">Mensal</div>
+          <h3>Ranking individual</h3>
+          <ul>
+            <li>🥇 1º lugar: <strong>R$ 1.000,00</strong></li>
+            <li>🥈 2º lugar: <strong>R$ 800,00</strong></li>
+            <li>🥉 3º lugar: <strong>R$ 600,00</strong></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="prize-img">Mensal</div>
+          <h3>Atingimento de meta (cupons)</h3>
+          <p>🎟️ 70% = 1 cupom · 80% = 2 cupons · +10 p.p. = +1 cupom (sem limite)</p>
+          <p><em>Urna 1:</em> 70%–99% · <em>Urna 2:</em> ≥100%</p>
+        </div>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <div class="prize-img">Trimestral</div>
+          <h3>Sorteios por trimestre</h3>
+          <p>Premiação estimada em <strong>R$ 25.000,00</strong> a cada trimestre, para participantes habilitados.</p>
+        </div>
+        <div class="card">
+          <div class="prize-img">Anual</div>
+          <h3>Grandes reconhecimentos</h3>
+          <ul>
+            <li>🏍️ <strong>4 motos</strong></li>
+            <li>✈️ <strong>4 viagens</strong> nacionais com acompanhante</li>
+            <li>🚗 <strong>1 automóvel 0 km</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h3>Benefícios adicionais</h3>
+        <ul>
+          <li>Experiências mensais para os 20 maiores desempenhos gerais.</li>
+          <li>Home office garantido para os 40% melhores colocados de cada gerência (com ≥100% da meta).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RANKING (EXEMPLO) -->
+    <section id="ranking">
+      <div class="kicker">Ranking</div>
+      <h2 class="section-title">Quem está chegando mais alto?</h2>
+      <p style="margin-top:-4px">Exemplo visual de como o ranking pode aparecer. Substitua pelos dados oficiais quando estiverem prontos.</p>
+      <table class="ranking-table">
+        <thead>
+          <tr><th>Posição</th><th>Nome</th><th>Gerência</th><th>Pontuação</th><th>Etapa</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🥇 1</td><td>Ana Souza</td><td>Comercial</td><td>98%</td><td>Acampamento 4</td></tr>
+          <tr><td>🥈 2</td><td>João Lima</td><td>Permanência</td><td>96%</td><td>Acampamento 3</td></tr>
+          <tr><td>🥉 3</td><td>Carla Mendes</td><td>Relacionamento</td><td>95%</td><td>Acampamento 3</td></tr>
+        </tbody>
+      </table>
+      <div class="cta"><a class="btn primary" href="#">Ver ranking completo</a></div>
+    </section>
+
+    <!-- REGULAMENTO / GOVERNANÇA -->
+    <section id="regras">
+      <div class="kicker">Transparência</div>
+      <h2 class="section-title">Regulamento e Governança</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Regulamento</h3>
+          <p>O regulamento oficial ficará disponível para leitura e aceite. Ele detalha cronograma, critérios, metas e elegibilidade para cada premiação.</p>
+          <div class="cta"><a class="btn" href="#">Baixar regulamento (PDF)</a></div>
+        </div>
+        <div class="card">
+          <h3>Comitê de Performance</h3>
+          <p>Acompanha mensalmente os resultados, valida atingimento de metas e homologa os premiados, assegurando transparência.</p>
+          <div class="flag">🧭 Site oficial = fonte única da verdade</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section id="manifesto">
+      <div class="kicker">Manifesto</div>
+      <h2 class="section-title">Convocação à Altitude</h2>
+      <div class="footer-quote">
+        <p><strong>Todo grande feito começa com um passo.</strong> E grandes conquistas exigem mais do que técnica, esforço e talento: exigem coragem.</p>
+        <p>Esta não é apenas uma campanha de incentivo. É uma convocação para desafiar seus próprios limites, conquistar alturas inéditas e fazer história.</p>
+        <p><strong>Vamos juntos. O topo é logo ali.</strong></p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
