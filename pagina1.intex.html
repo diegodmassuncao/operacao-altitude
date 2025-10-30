@@ -1,252 +1,705 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Operação Altitude — Campanha de Incentivo 2026</title>
-  <style>
-    :root{
-      --gran-orange:#FA5300;
-      --navy:#0D134C;
-      --ink:#111827;
-      --ice:#F3F4F6;
-      --cloud:#E5E7EB;
-      --white:#FFFFFF;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      color:var(--ink);
-      line-height:1.6;
-      background:var(--white);
-    }
-    a{color:var(--gran-orange);text-decoration:none}
-    .wrapper{max-width:1100px;margin:0 auto;padding:24px}
-    .hero{
-      position:relative;
-      border-radius:16px;
-      overflow:hidden;
-      padding:56px 32px;
-      background: linear-gradient(135deg, rgba(13,19,76,0.9), rgba(13,19,76,0.55)),
-                  url('https://images.unsplash.com/photo-1500043357865-c6b8827edf60?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-      color:var(--white);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    }
-    .badge{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);padding:6px 12px;border-radius:999px;font-size:12px;letter-spacing:.04em}
-    h1{font-size:40px;line-height:1.15;margin:12px 0 8px}
-    .subtitle{font-size:18px;opacity:.95;max-width:720px}
-    .cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      display:inline-block;padding:12px 18px;border-radius:12px;font-weight:600;
-      border:1px solid rgba(255,255,255,0.35);color:var(--white)
-    }
-    .btn.primary{background:var(--gran-orange);border-color:var(--gran-orange)}
-    section{margin:56px 0}
-    .section-title{font-size:28px;margin:0 0 12px;color:var(--navy)}
-    .kicker{color:var(--gran-orange);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
-    .grid{display:grid;gap:16px}
-    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .card{
-      background:var(--white);border:1px solid var(--cloud);border-radius:14px;padding:18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    }
-    .pill{display:inline-block;background:var(--ice);border:1px solid var(--cloud);padding:6px 10px;border-radius:999px;font-size:12px}
-    .timeline{position:relative;padding-left:18px}
-    .timeline::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(var(--cloud),var(--gran-orange))}
-    .step{position:relative;padding-left:12px;margin:14px 0}
-    .step::before{content:"";position:absolute;left:-6px;top:8px;width:12px;height:12px;background:var(--gran-orange);border-radius:50%;box-shadow:0 0 0 4px rgba(250,83,0,.15)}
-    .prize-img{
-      width:100%;height:170px;border-radius:12px;border:1px solid var(--cloud);
-      background:linear-gradient(180deg,#ffffff,#f7f7f9);
-      display:flex;align-items:center;justify-content:center;font-weight:700;color:#6B7280;
-    }
-    .ranking-table{width:100%;border-collapse:separate;border-spacing:0 10px}
-    .ranking-table thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#6B7280;text-align:left;padding:0 10px}
-    .ranking-table tbody tr{background:var(--white);border:1px solid var(--cloud)}
-    .ranking-table td{padding:12px 10px}
-    .footer-quote{
-      padding:28px;border-radius:16px;background:linear-gradient(135deg,#f8fafc,#eef2ff);
-      border:1px solid var(--cloud);font-size:18px;color:#111827
-    }
-    .flag{
-      display:inline-flex;align-items:center;gap:10px;background:var(--ice);border:1px solid var(--cloud);padding:8px 12px;border-radius:999px;font-weight:600
-    }
-    @media (max-width:900px){
-      .grid.cols-3{grid-template-columns:1fr}
-      .grid.cols-2{grid-template-columns:1fr}
-      h1{font-size:32px}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operação Altitude 2026</title>
+<meta name="description" content="Operação Altitude 2026 — campanha de incentivos. Regulamento, metas, jornada, premiações e ranking.">
+<meta property="og:title" content="Operação Altitude 2026">
+<meta property="og:description" content="Campanha de incentivos: metas, premiações, regulamento e ranking.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0d134c">
+<style>
+:root{
+  --bg:#0d134c;            /* principal */
+  --bg-2:#141a66;          /* gradiente */
+  --primary:#dd303e;       /* secundária/ação */
+  --primary-2:#ff5b68;     /* hover */
+  --ice:#e6edf7;           /* texto claro */
+  --muted:#aeb7d3;         /* texto secundário */
+  --card:#161b4f;          /* cards */
+  --line:#222a73;          /* linhas/bordas */
+  --radius:14px;
+  --shadow-1:0 6px 16px rgba(0,0,0,.18);
+  --shadow-2:0 10px 24px rgba(0,0,0,.22);
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;height:100%;scroll-behavior:smooth;
+  background:radial-gradient(1200px 600px at 70% -10%, #1a237e 0%, var(--bg) 55%) fixed;
+  color:var(--ice);
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Helvetica, Arial, "Noto Sans";
+}
+a{color:var(--primary);text-decoration:none}
+a:focus-visible, button:focus-visible, .tab:focus-visible{outline:2px solid #fff9; outline-offset:2px; border-radius:8px}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3,h4{margin:0 0 12px}
+h3{font-size:1.6rem}
+.lead{color:var(--muted);font-size:1.03rem}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:#0a0f3c;border-bottom:2px solid var(--primary)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:28px;width:auto;object-fit:contain;border-radius:6px}
+.brand h1{font-size:1rem;font-weight:700;margin:0}
+.badge{font-size:.72rem;padding:.25rem .5rem;border:1px solid #2b327c;border-radius:12px;color:#cfd6f2;background:#151a57}
+.navlinks a{padding:.35rem .6rem;border-radius:8px;color:#e8edff;opacity:.9}
+.navlinks a:hover{opacity:1;background:#ffffff12}
+
+/* CTA fixa */
+.cta-bar{position:fixed;left:0;right:0;bottom:18px;display:flex;justify-content:center;z-index:60;transition:transform .25s ease, opacity .25s ease}
+.cta-bar.hide{transform:translateY(120%);opacity:.0;pointer-events:none}
+.cta-bar .wrap{display:flex;gap:10px;background:#0a0f3ce6;border:1px solid #ffffff22;border-radius:999px;padding:8px 10px;backdrop-filter:saturate(110%) blur(6px);box-shadow:var(--shadow-2)}
+.btn{appearance:none;border:0;cursor:pointer;background:var(--primary);color:#fff;padding:.8rem 1.1rem;border-radius:999px;font-weight:800;letter-spacing:.3px;box-shadow:0 10px 20px rgba(221,48,62,.25), inset 0 -2px 0 #0003;transition:background .25s ease, transform .12s ease}
+.btn:hover{background:var(--primary-2)}
+.btn:active{transform:translateY(1px)}
+.btn.secondary{background:#ffffff12;border:1px solid #ffffff22}
+
+/* Faixa do título (KV) */
+.hero-title{position:relative;overflow:hidden;text-align:center;
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);
+  padding:54px 20px 38px;border-bottom:3px solid var(--primary)}
+.hero-title::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    url("./assets/Everest.png") center 25%/cover no-repeat,
+    radial-gradient(1200px 420px at 50% -120px, rgba(0,0,0,.35), transparent 60%);
+  opacity:.16;filter:saturate(105%) contrast(105%) blur(1px);transform:scale(1.02);z-index:0}
+.hero-title::after{content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(1200px 420px at 50% -120px, rgba(0,0,0,.35), transparent 60%),
+    linear-gradient(180deg, rgba(13,19,76,.55), rgba(20,26,102,.62));
+  z-index:1}
+.hero-title h1{position:relative;z-index:2;margin:0;font-size:2.6rem;
+  font-weight:900;letter-spacing:.6px;text-transform:uppercase;color:var(--primary);
+  text-shadow:0 0 20px rgba(0,0,0,.35);animation:fadeInDown 700ms ease-out}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+
+/* Sumário (TOC) */
+.toc{position:sticky;top:64px;z-index:45;background:#0a0f3ccc;
+  backdrop-filter:saturate(120%) blur(6px);padding:.4rem .7rem;border:1px solid #ffffff22;
+  border-radius:999px;margin:0 auto 18px;max-width:max-content;box-shadow:var(--shadow-1)}
+.toc a{color:#e8edff;padding:.1rem .4rem;border-radius:8px}
+.toc a.is-active{background:#ffffff18}
+
+/* Cards & utilitários */
+.card{background:linear-gradient(180deg, var(--card), #121a58);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-1)}
+.tiny{font-size:.82rem;color:#cbd2ff}
+
+/* ===== HERO V2 ===== */
+.hero.v2{
+  position:relative; overflow:hidden;
+}
+.hero.v2::before{
+  content:""; position:absolute; inset:0; z-index:-2;
+  /* Domínio público (Wikimedia Commons) */
+  background:url("https://upload.wikimedia.org/wikipedia/commons/1/12/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg") center/cover no-repeat;
+  filter:saturate(105%) contrast(105%) brightness(.85);
+}
+.hero.v2::after{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    radial-gradient(900px 380px at 65% -10%, rgba(10,15,60,.55), transparent 60%),
+    linear-gradient(180deg, rgba(7,10,44,.72), rgba(7,10,44,.86));
+}
+.hero-wrap{display:grid; gap:28px; align-items:start; min-height:60svh; grid-template-columns: 1.05fr .95fr;}
+.hero-left .pill{display:inline-flex;align-items:center;gap:8px;padding:.35rem .7rem;border:1px dashed #ffffff3c;border-radius:999px;color:#fff;background:#0006;font-size:.85rem}
+.hero-title-lg{font-size:clamp(2.1rem,3.6vw,3.8rem);line-height:1.05;margin:10px 0 8px;font-weight:900;color:#fff;text-shadow:0 10px 28px rgba(0,0,0,.25)}
+.hero-sub{color:#e4e9ff}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.hero-card{background:rgba(16,22,76,.82);border:1px solid #ffffff26;backdrop-filter:saturate(120%) blur(6px)}
+.hero-card-title{margin:0 0 6px}
+.kpi-tiles{display:grid;gap:10px;margin:12px 0 8px;grid-template-columns:1fr}
+.tile{border:1px solid var(--line);border-radius:12px;padding:.6rem .7rem;background:#0f1647;box-shadow:var(--shadow-1)}
+.tile-label{font-size:.9rem;color:#cbd4ff;margin-bottom:2px}
+.tile-value{font-weight:600;color:#fff}
+@media (max-width:980px){.hero-wrap{grid-template-columns:1fr}}
+
+/* Manifesto V2 */
+.manifesto.v2 { position: relative; }
+.m-head { margin-bottom: 14px; }
+.m-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width:1024px){ .m-grid{ grid-template-columns:1fr 1fr } }
+@media (max-width:680px){ .m-grid{ grid-template-columns:1fr } }
+.m-card { display:grid; grid-template-rows:160px auto; background:linear-gradient(180deg, var(--card), #121a58); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-1) }
+.m-photo{ position:relative; margin:0; background:#0b1432 }
+.m-photo::before{ content:""; position:absolute; inset:0; background-image:var(--img); background-size:cover; background-position:center; filter:saturate(105%) contrast(105%) }
+.m-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(11,20,50,.55)) }
+.m-photo img{ width:1px;height:1px;opacity:0;position:absolute }
+.m-body{ padding:14px 14px 16px }
+.m-chip{ display:inline-block; background:#ffffff12; border:1px solid #ffffff22; border-radius:999px; padding:.22rem .6rem; font-size:.78rem; margin-bottom:6px }
+.m-body h4{ margin:4px 0 6px }
+.m-body .lead{ margin:0 }
+
+/* Equipes */
+.grid{display:grid;gap:16px}
+.cols-3{grid-template-columns:repeat(3,1fr)}
+.cols-2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:980px){.cols-3,.cols-2{grid-template-columns:1fr}}
+.team-card{background:#131a60;border:1px solid #223077;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-1)}
+.team-card header{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.team-card header i{width:28px;height:28px;border-radius:8px;background:#ffffff18;display:inline-block}
+.team-ice {box-shadow:0 0 0 2px #00d4ff26}
+.team-wind{box-shadow:0 0 0 2px #4ea1ff26}
+.team-fire{box-shadow:0 0 0 2px #ffb02026}
+
+/* Tabs Regulamento */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 16px}
+.tab{padding:.55rem .8rem;border:1px solid var(--line);border-radius:10px;background:#0d1635;cursor:pointer;color:#fff}
+.tab:hover{background:#13206a;color:#fff}
+.tab[aria-selected="true"]{background:var(--primary);border-color:transparent;color:#fff;box-shadow:0 4px 18px rgba(221,48,62,.25)}
+.tabpanel{display:block}
+.tabpanel[hidden]{display:none}
+
+/* Tabela rápida (habilitação) */
+.quick-table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:10px 0 14px;background:#0b1432}
+.quick-table th,.quick-table td{padding:.55rem .6rem;border-bottom:1px solid var(--line);text-align:center}
+.quick-table th{text-transform:uppercase;font-size:.78rem;letter-spacing:.6px;background:#0b1432;color:#dfe6ff}
+.badge-chip{display:inline-block;padding:.18rem .5rem;border-radius:999px;font-size:.75rem;border:1px solid #ffffff22;background:#ffffff12}
+
+/* Ranking */
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+select,input[type="month"]{background:#0e173a;color:#fff;border:1px solid var(--line);border-radius:10px;padding:.55rem .6rem}
+table{border-collapse:collapse;width:100%;overflow:auto;border:1px solid var(--line);border-radius:12px}
+th,td{padding:.7rem;border-bottom:1px solid var(--line);text-align:left}
+tr:hover td{background:#ffffff07}
+th{background:#0b1432;position:sticky;top:0}
+.medal{font-weight:700}
+
+/* Back to top */
+#toTop{position:fixed;right:20px;bottom:92px;display:none;z-index:55}
+
+/* Footer */
+footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;background:#0a0f3c;text-align:center}
+</style>
 </head>
 <body>
-  <div class="wrapper">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="badge">Campanha de Incentivo 2026</div>
-      <h1>Operação Altitude: você ainda não conhece os seus limites!</h1>
-      <p class="subtitle">Uma expedição coletiva rumo ao topo — onde cada entrega é um passo mais alto. 2026 será o nosso Everest.</p>
-      <div class="cta">
-        <a href="#conceito" class="btn primary">Comece sua jornada</a>
-        <a href="#premiacao" class="btn">Premiações</a>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand">
+        <img src="./assets/gran-logo.png" alt="Gran">
+        <h1>Operação Altitude</h1>
+        <span class="badge">2026</span>
       </div>
-    </section>
-
-    <!-- CONCEITO CRIATIVO -->
-    <section id="conceito">
-      <div class="kicker">Conceito</div>
-      <h2 class="section-title">A jornada até o topo</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <p>A Campanha de Incentivo 2026 reconhece a performance de forma contínua, justa e inspiradora. Cada meta é um acampamento conquistado; cada entrega, um passo em direção ao cume.</p>
-          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-            <span class="pill">Propósito: engajamento o ano todo</span>
-            <span class="pill">Missão: ultrapassar limites</span>
-            <span class="pill">Resultado: conquistas memoráveis</span>
-          </div>
-        </div>
-        <div class="card">
-          <strong>Vigência:</strong> 1º jan a 31 dez de 2026.<br/>
-          <strong>Governança:</strong> Comitê de Performance (acompanhamento mensal, homologação e transparência).<br/>
-          <strong>Site oficial:</strong> este hub concentra comunicados, rankings, regras e premiações.
-          <div style="margin-top:10px" class="flag">🎯 Metas liberam prêmios por ciclo</div>
-        </div>
+      <div class="navlinks" role="navigation" aria-label="Seções">
+        <a href="#sobre">Sobre</a>
+        <a href="#equipes">Equipes</a>
+        <a href="#jornada">Jornada</a>
+        <a href="#regulamento">Regulamento</a>
+        <a href="#premios">Premiações</a>
+        <a href="#ranking">Ranking</a>
+        <a href="#faq">FAQ</a>
       </div>
-    </section>
+    </nav>
+  </div>
+</header>
 
-    <!-- JORNADA / ETAPAS -->
-    <section id="jornada">
-      <div class="kicker">Jornada</div>
-      <h2 class="section-title">Etapas da Escalada</h2>
-      <div class="timeline">
-        <div class="step">
-          <h3>🏕️ Campo Base — Lançamento</h3>
-          <p>Base da coragem: preparação emocional, montagem das barracas e espírito de equipe.</p>
-        </div>
-        <div class="step">
-          <h3>🧊 Acampamento 1 — Meta de Janeiro</h3>
-          <p>Face de Gelo: recomeços desafiadores e coragem para o primeiro passo.</p>
-        </div>
-        <div class="step">
-          <h3>⛰️ Acampamento 2 — Fechamento do 1º Trimestre</h3>
-          <p>Zona de Aclimatação: constância como força e prova de resiliência.</p>
-        </div>
-        <div class="step">
-          <h3>🧗 Acampamento 3 — Fechamento do 2º Trimestre</h3>
-          <p>Escalada Técnica: foco absoluto e execução precisa.</p>
-        </div>
-        <div class="step">
-          <h3>🫁 Acampamento 4 — Fechamento do 3º Trimestre</h3>
-          <p>Zona da Morte: onde a mente forte sustenta o corpo — superação máxima.</p>
-        </div>
-        <div class="step">
-          <h3>🏔️ Cume — Meta Anual</h3>
-          <p>Onde só os lendários chegam: o topo como marca de coragem e resultado.</p>
-        </div>
+<!-- Barra fixa de CTA -->
+<div class="cta-bar" aria-hidden="false">
+  <div class="wrap">
+    <a class="btn" href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank" rel="noopener">Assinar regulamento</a>
+    <a class="btn secondary" href="#ranking">Ver ranking do mês</a>
+  </div>
+</div>
+
+<!-- Faixa de título -->
+<section class="hero-title">
+  <h1>Operação Altitude 2026</h1>
+</section>
+
+<!-- Sumário de Seções (TOC) -->
+<nav id="toc" class="toc" aria-label="Sumário">
+  <a href="#sobre">Manifesto</a> ·
+  <a href="#equipes">Equipes</a> ·
+  <a href="#jornada">Jornada</a> ·
+  <a href="#regulamento">Regulamento</a> ·
+  <a href="#premios">Premiações</a> ·
+  <a href="#ranking">Ranking</a> ·
+  <a href="#faq">FAQ</a>
+</nav>
+
+<!-- HERO V2 -->
+<section class="hero v2" id="home" aria-label="Abertura">
+  <div class="container hero-wrap">
+    <div class="hero-left">
+      <span class="pill">Campanha de Incentivos • 01 jan — 31 dez 2026</span>
+      <h2 class="hero-title-lg">Você ainda não conhece os seus limites.</h2>
+      <p class="hero-sub">
+        2026 será o nosso Everest. Uma jornada coletiva rumo ao topo — com disciplina, trabalho em equipe e superação.
+        A <strong>Operação Altitude</strong> reconhece performance com premiações semanais, mensais, trimestrais e um grande prêmio anual.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn" href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank" rel="noopener">Assinar regulamento</a>
+        <a class="btn secondary" href="#ranking">Ver Ranking</a>
       </div>
-    </section>
+    </div>
 
-    <!-- PREMIAÇÕES -->
-    <section id="premiacao">
-      <div class="kicker">Recompensas</div>
-      <h2 class="section-title">Premiações da Jornada</h2>
+    <aside class="hero-card card" aria-label="Objetivo da campanha">
+      <h3 class="hero-card-title">Objetivo da campanha</h3>
+      <p class="lead">
+        Reconhecer e valorizar a performance dos times de forma contínua, justa e inspiradora, equilibrando mérito
+        individual, constância de resultados e sorteios entre os que entregam acima da média — promovendo protagonismo
+        e orgulho de fazer parte da jornada.
+      </p>
 
-      <div class="grid cols-3" style="margin-bottom:16px">
-        <div class="card">
-          <div class="prize-img">Semanal</div>
-          <h3>Reconhecimento individual</h3>
-          <p><strong>R$ 200,00</strong> em crédito iFood para o melhor desempenho semanal por gerência.</p>
+      <div class="kpi-tiles" role="list">
+        <div class="tile" role="listitem">
+          <div class="tile-label">🗓️ Vigência</div>
+          <div class="tile-value">01/01/2026 → 31/12/2026</div>
         </div>
-        <div class="card">
-          <div class="prize-img">Mensal</div>
-          <h3>Ranking individual</h3>
-          <ul>
-            <li>🥇 1º lugar: <strong>R$ 1.000,00</strong></li>
-            <li>🥈 2º lugar: <strong>R$ 800,00</strong></li>
-            <li>🥉 3º lugar: <strong>R$ 600,00</strong></li>
-          </ul>
+        <div class="tile" role="listitem">
+          <div class="tile-label">🎯 Gatilho</div>
+          <div class="tile-value">Metas por ciclo (mensal, trimestral e anual)</div>
         </div>
-        <div class="card">
-          <div class="prize-img">Mensal</div>
-          <h3>Atingimento de meta (cupons)</h3>
-          <p>🎟️ 70% = 1 cupom · 80% = 2 cupons · +10 p.p. = +1 cupom (sem limite)</p>
-          <p><em>Urna 1:</em> 70%–99% · <em>Urna 2:</em> ≥100%</p>
+        <div class="tile" role="listitem">
+          <div class="tile-label">👥 Público</div>
+          <div class="tile-value">Comercial • Permanência • Relacionamento • Lideranças*</div>
         </div>
       </div>
 
-      <div class="grid cols-2">
-        <div class="card">
-          <div class="prize-img">Trimestral</div>
-          <h3>Sorteios por trimestre</h3>
-          <p>Premiação estimada em <strong>R$ 25.000,00</strong> a cada trimestre, para participantes habilitados.</p>
-        </div>
-        <div class="card">
-          <div class="prize-img">Anual</div>
-          <h3>Grandes reconhecimentos</h3>
-          <ul>
-            <li>🏍️ <strong>4 motos</strong></li>
-            <li>✈️ <strong>4 viagens</strong> nacionais com acompanhante</li>
-            <li>🚗 <strong>1 automóvel 0 km</strong></li>
-          </ul>
-        </div>
-      </div>
+      <p class="tiny">*Critérios de participação de líderes poderão ter regras específicas.</p>
+    </aside>
+  </div>
+</section>
 
-      <div class="card" style="margin-top:16px">
-        <h3>Benefícios adicionais</h3>
-        <ul>
-          <li>Experiências mensais para os 20 maiores desempenhos gerais.</li>
-          <li>Home office garantido para os 40% melhores colocados de cada gerência (com ≥100% da meta).</li>
-        </ul>
-      </div>
-    </section>
+<!-- Manifesto (V2) -->
+<section id="sobre" class="manifesto v2">
+  <div class="container">
+    <header class="m-head">
+      <h3>Manifesto Altitude</h3>
+      <p class="lead">Nossa campanha traduz coragem, constância e espírito de equipe. Cada ciclo é um passo rumo ao cume.</p>
+    </header>
 
-    <!-- RANKING (EXEMPLO) -->
-    <section id="ranking">
-      <div class="kicker">Ranking</div>
-      <h2 class="section-title">Quem está chegando mais alto?</h2>
-      <p style="margin-top:-4px">Exemplo visual de como o ranking pode aparecer. Substitua pelos dados oficiais quando estiverem prontos.</p>
-      <table class="ranking-table">
+    <div class="m-grid">
+      <!-- Coragem -->
+      <article class="m-card">
+        <figure class="m-photo" style="--img:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop')">
+          <img loading="lazy" alt="Montanhista caminhando no amanhecer" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=60&w=800&auto=format&fit=crop">
+        </figure>
+        <div class="m-body">
+          <span class="m-chip">Coragem</span>
+          <h4>O primeiro passo exige decisão.</h4>
+          <p class="lead">Começamos no Campo Base, alinhando objetivos, pactuando metas e combinando como vamos vencer — juntos.</p>
+        </div>
+      </article>
+
+      <!-- Constância -->
+      <article class="m-card">
+        <figure class="m-photo" style="--img:url('https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=80&w=1600&auto=format&fit=crop')">
+          <img loading="lazy" alt="Cordada avançando na neve com vento" src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=60&w=800&auto=format&fit=crop">
+        </figure>
+        <div class="m-body">
+          <span class="m-chip">Constância</span>
+          <h4>Cada avanço é sustentado por disciplina.</h4>
+          <p class="lead">Mensal, trimestral e anual: constância de resultado habilita experiências, sorteios e o grande prêmio.</p>
+        </div>
+      </article>
+
+      <!-- Orgulho -->
+      <article class="m-card">
+        <figure class="m-photo" style="--img:url('https://images.unsplash.com/photo-1509644851146-d0f3f3f2c5f8?q=80&w=1600&auto=format&fit=crop')">
+          <img loading="lazy" alt="Bandeira no cume com céu límpido" src="https://images.unsplash.com/photo-1509644851146-d0f3f3f2c5f8?q=60&w=800&auto=format&fit=crop">
+        </figure>
+        <div class="m-body">
+          <span class="m-chip">Orgulho</span>
+          <h4>Chegar ao cume é transformar esforço em história.</h4>
+          <p class="lead">Celebramos conquistas reais — de quem entrega acima da média e puxa a corda do time.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Equipes -->
+<section id="equipes">
+  <div class="container">
+    <h3>Equipes da Expedição</h3>
+    <p class="lead">Três frentes, uma jornada. Cada time com seu papel na escalada.</p>
+    <div class="grid cols-3">
+      <article class="team-card team-ice">
+        <header><i></i><h4>Engenheiros do Gelo (Comercial)</h4></header>
+        <p>Constroem a passagem: coragem + estratégia que ligam desafios a conquistas.</p>
+        <a class="link-metas" href="#tab3">Ver metas do Comercial →</a>
+      </article>
+      <article class="team-card team-wind">
+        <header><i></i><h4>Domadores do Vento (Permanência)</h4></header>
+        <p>Seguram a barraca: estabilidade, retenção e visão de longo prazo.</p>
+        <a class="link-metas" href="#tab3">Ver metas de Permanência →</a>
+      </article>
+      <article class="team-card team-fire">
+        <header><i></i><h4>Portadores do Fogo (Relacionamento)</h4></header>
+        <p>Aquecem a jornada: ativação, experiência e proximidade com o aluno.</p>
+        <a class="link-metas" href="#tab3">Ver metas de Relacionamento →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Jornada -->
+<section id="jornada">
+  <div class="container">
+    <h3>Jornada da Expedição</h3>
+    <p class="lead">Avance por cada acampamento. Feche bem os trimestres até o cume.</p>
+    <div class="grid cols-2">
+      <div class="card"><h4>Campo Base</h4><p class="tiny">Lançamento e alinhamentos</p></div>
+      <div class="card"><h4>Acampamento 1</h4><p class="tiny">Meta de Janeiro</p></div>
+      <div class="card"><h4>Acampamento 2</h4><p class="tiny">Fechamento do 1º tri</p></div>
+      <div class="card"><h4>Acampamento 3</h4><p class="tiny">Fechamento do 2º tri</p></div>
+      <div class="card"><h4>Acampamento 4</h4><p class="tiny">Fechamento do 3º tri</p></div>
+      <div class="card"><h4>Cume</h4><p class="tiny">Meta anual 2026 e grandes reconhecimentos</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Regulamento -->
+<section id="regulamento">
+  <div class="container">
+    <h3>Regulamento (versão institucional)</h3>
+    <p class="lead">Leia cada aba para entender elegibilidade, metas, dinâmica, governança e critérios das premiações.</p>
+
+    <!-- Tabela-resumo de habilitação -->
+    <div class="card" aria-labelledby="resumo-hab-title">
+      <h4 id="resumo-hab-title">Resumo rápido — Habilita sorteios?</h4>
+      <table class="quick-table" role="table" aria-label="Tabela de habilitação de sorteios">
         <thead>
-          <tr><th>Posição</th><th>Nome</th><th>Gerência</th><th>Pontuação</th><th>Etapa</th></tr>
+          <tr><th>Gerência</th><th>Mensal</th><th>Trimestral</th><th>Anual</th></tr>
         </thead>
         <tbody>
-          <tr><td>🥇 1</td><td>Ana Souza</td><td>Comercial</td><td>98%</td><td>Acampamento 4</td></tr>
-          <tr><td>🥈 2</td><td>João Lima</td><td>Permanência</td><td>96%</td><td>Acampamento 3</td></tr>
-          <tr><td>🥉 3</td><td>Carla Mendes</td><td>Relacionamento</td><td>95%</td><td>Acampamento 3</td></tr>
+          <tr><td>Comercial</td><td>✅ Metas individuais</td><td>✅ Meta do período</td><td>✅ Meta anual</td></tr>
+          <tr><td>Permanência</td><td>✅ Metas individuais</td><td>✅ Meta do período</td><td>✅ Meta anual</td></tr>
+          <tr><td>Relacionamento</td><td>✅ Metas individuais</td><td>✅ Meta do período</td><td>✅ Meta anual</td></tr>
+          <tr><td>Lideranças*</td><td>⚠️ Regras específicas</td><td>⚠️ Regras específicas</td><td>⚠️ Regras específicas</td></tr>
         </tbody>
       </table>
-      <div class="cta"><a class="btn primary" href="#">Ver ranking completo</a></div>
-    </section>
+      <p class="tiny">*Critérios para líderes podem variar conforme diretrizes do comitê de performance.</p>
+    </div>
 
-    <!-- REGULAMENTO / GOVERNANÇA -->
-    <section id="regras">
-      <div class="kicker">Transparência</div>
-      <h2 class="section-title">Regulamento e Governança</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Regulamento</h3>
-          <p>O regulamento oficial ficará disponível para leitura e aceite. Ele detalha cronograma, critérios, metas e elegibilidade para cada premiação.</p>
-          <div class="cta"><a class="btn" href="#">Baixar regulamento (PDF)</a></div>
-        </div>
-        <div class="card">
-          <h3>Comitê de Performance</h3>
-          <p>Acompanha mensalmente os resultados, valida atingimento de metas e homologa os premiados, assegurando transparência.</p>
-          <div class="flag">🧭 Site oficial = fonte única da verdade</div>
+    <div class="tabs" role="tablist" aria-label="Regulamento">
+      <button class="tab" role="tab" aria-selected="true"  aria-controls="tab1" id="t1">Vigência e Objetivo</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="tab2" id="t2">Público e Elegibilidade</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="tab3" id="t3">Metas e Gatilhos</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="tab4" id="t4">Dinâmica por Gerência</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="tab5" id="t5">Governança</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="tab6" id="t6">Premiações</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="tab7" id="t7">Condições Gerais</button>
+    </div>
+
+    <div id="tab1" class="tabpanel" role="tabpanel" aria-labelledby="t1">
+      <div class="card">
+        <h4>Vigência</h4>
+        <p>De <strong>01/01/2026</strong> a <strong>31/12/2026</strong>, com acompanhamento mensal e marcos de premiação ao longo do ano.</p>
+        <h4>Objetivo</h4>
+        <p>Reconhecer performance de maneira contínua e transparente, estimulando protagonismo, superação e orgulho de fazer parte da jornada coletiva.</p>
+      </div>
+    </div>
+
+    <div id="tab2" class="tabpanel" role="tabpanel" hidden aria-labelledby="t2">
+      <div class="card">
+        <h4>Público-alvo</h4>
+        <ul>
+          <li>Consultores Comerciais</li>
+          <li>Equipes de Permanência do Aluno</li>
+          <li>Equipe de Relacionamento com o Aluno</li>
+          <li>Lideranças (supervisores/coordenadores) – regras específicas poderão ser estabelecidas</li>
+        </ul>
+        <p class="tiny">A participação requer adesão ao regulamento e atendimento às metas definidas pela gerência.</p>
+      </div>
+    </div>
+
+    <div id="tab3" class="tabpanel" role="tabpanel" hidden aria-labelledby="t3">
+      <div class="card">
+        <h4>Gatilhos de Premiação</h4>
+        <ul>
+          <li><strong>Mensal:</strong> Atingimento de metas individuais libera cupons e reconhecimentos.</li>
+          <li><strong>Trimestral:</strong> Sorteios condicionados ao atingimento das metas do período.</li>
+          <li><strong>Anual:</strong> Premiação principal condicionada ao atingimento da <strong>meta anual 2026</strong>.</li>
+        </ul>
+        <h4>Metas por Gerência (exemplos)</h4>
+        <div class="grid cols-2">
+          <div class="card"><h4>Comercial</h4><p>Receita de novas vendas como gatilho principal.</p></div>
+          <div class="card"><h4>Permanência</h4><ul><li>Taxa de retenção / renovações / rematrícula</li><li>Recuperação de crédito</li><li>CSAT, Churn holding</li></ul></div>
+          <div class="card"><h4>Relacionamento</h4><ul><li>Ativação no período de garantia</li><li>Aumento do “aha-moment”</li><li>Reativação, DAU/MAU</li><li>CSAT, Reputação RA</li></ul></div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- MANIFESTO -->
-    <section id="manifesto">
-      <div class="kicker">Manifesto</div>
-      <h2 class="section-title">Convocação à Altitude</h2>
-      <div class="footer-quote">
-        <p><strong>Todo grande feito começa com um passo.</strong> E grandes conquistas exigem mais do que técnica, esforço e talento: exigem coragem.</p>
-        <p>Esta não é apenas uma campanha de incentivo. É uma convocação para desafiar seus próprios limites, conquistar alturas inéditas e fazer história.</p>
-        <p><strong>Vamos juntos. O topo é logo ali.</strong></p>
+    <div id="tab4" class="tabpanel" role="tabpanel" hidden aria-labelledby="t4">
+      <div class="card">
+        <h4>Dinâmica por Gerência</h4>
+        <ul>
+          <li>O <strong>gatilho principal</strong> para desbloqueio global das premiações é a <strong>meta de receita</strong> do Comercial.</li>
+          <li>Se o colaborador bate a meta individual, ele recebe cupons — <em>desde que</em> a gerência alcance a meta global.</li>
+          <li>Sem meta global da gerência, os elegíveis acessam experiências mensais (sem sorteios trimestrais/anuais).</li>
+        </ul>
       </div>
-    </section>
+    </div>
+
+    <div id="tab5" class="tabpanel" role="tabpanel" hidden aria-labelledby="t5">
+      <div class="card">
+        <h4>Governança</h4>
+        <ul>
+          <li>Comitê de performance mensal para validar metas, homologar premiados e garantir transparência.</li>
+          <li>Comunicação centralizada neste site: regulamento, ranking, premiações e indicadores.</li>
+          <li>Assinatura do regulamento por todos os participantes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="tab6" class="tabpanel" role="tabpanel" hidden aria-labelledby="t6">
+      <div class="card">
+        <h4>Estrutura de Premiações</h4>
+        <div class="grid cols-2">
+          <div class="card">
+            <h4>Semanal – Reconhecimento</h4>
+            <p><strong>R$ 200,00</strong> em crédito iFood para o melhor desempenho da semana em cada estrutura.</p>
+          </div>
+          <div class="card">
+            <h4>Mensal – Ranking</h4>
+            <ul><li>1º: <strong>R$ 1.000,00</strong></li><li>2º: <strong>R$ 800,00</strong></li><li>3º: <strong>R$ 600,00</strong></li></ul>
+          </div>
+          <div class="card">
+            <h4>Mensal – Atingimento <span class="badge-chip">Urna 1: 70–99%</span> <span class="badge-chip">Urna 2: ≥100%</span></h4>
+            <ul>
+              <li>70% da meta: 1 cupom</li>
+              <li>80% da meta: 2 cupons</li>
+              <li>+10 p.p. acima de 80%: +1 cupom (sem limite)</li>
+            </ul>
+            <p class="tiny">Urna 1 premia constância; Urna 2 premia superação.</p>
+          </div>
+          <div class="card">
+            <h4>Trimestral – Sorteios*</h4>
+            <p>Premiação estimada: <strong>R$ 25.000,00</strong> por trimestre.</p>
+            <p class="tiny">*Vinculado ao atingimento das metas do período.</p>
+          </div>
+          <div class="card" style="grid-column:1/-1">
+            <h4>Anual – Grandes Reconhecimentos*</h4>
+            <ul><li><strong>4</strong> motos</li><li><strong>4</strong> viagens com acompanhante</li><li><strong>1</strong> automóvel 0 km</li></ul>
+            <p class="tiny">*Para participantes habilitados e condicionado à meta anual.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab7" class="tabpanel" role="tabpanel" hidden aria-labelledby="t7">
+      <div class="card">
+        <h4>Condições Gerais</h4>
+        <ul>
+          <li>Critérios de elegibilidade, apuração, desempate e prazos constarão no regulamento completo.</li>
+          <li>Em caso de divergência, prevalece o regulamento oficial aprovado.</li>
+          <li>Imagem e nome dos premiados poderão ser usados em comunicações internas.</li>
+        </ul>
+        <p class="tiny">Versão institucional. Consulte o regulamento integral (carimbo de versão no documento oficial).</p>
+      </div>
+    </div>
   </div>
+</section>
+
+<!-- Premiações (resumo) -->
+<section id="premios">
+  <div class="container">
+    <h3>Como desbloquear premiações</h3>
+    <p class="lead">Os prêmios são liberados conforme o avanço no ciclo e o atingimento das metas — individual e por gerência.</p>
+    <div class="grid cols-3">
+      <div class="card"><h4>1) Entregue sua meta</h4><p>Acima de 70% já gera cupons. A partir de 100%, você entra na Urna 2.</p></div>
+      <div class="card"><h4>2) Fortaleça o time</h4><p>As gerências precisam cumprir suas metas macro para habilitar sorteios.</p></div>
+      <div class="card"><h4>3) Feche bem os trinta</h4><p>Trimestre bem fechado é corda firme rumo ao cume — a meta anual.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Ranking -->
+<section id="ranking">
+  <div class="container">
+    <h3>Ranking de Destaques</h3>
+    <p class="lead">Selecione o mês e a gerência. Você pode importar um CSV padrão para atualizar a tabela.</p>
+    <div class="toolbar">
+      <input type="month" id="monthPicker" aria-label="Selecionar mês">
+      <select id="areaFilter" aria-label="Filtrar por gerência">
+        <option value="">Todas as gerências</option>
+        <option>Comercial</option>
+        <option>Permanência</option>
+        <option>Relacionamento</option>
+      </select>
+      <input type="file" id="csvInput" accept=".csv" aria-label="Importar CSV">
+      <button class="btn" id="downloadTemplate">Baixar modelo CSV</button>
+    </div>
+    <p id="csvStatus" class="tiny" aria-live="polite"></p>
+    <div class="card" role="region" aria-live="polite">
+      <table id="rankTable">
+        <thead>
+          <tr>
+            <th>Posição</th><th>Nome</th><th>Gerência</th><th>Score</th><th>% da Meta</th><th>Cupons</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="tiny">Modelo CSV: <code>mes(YYYY-MM),nome,gerencia,score,perc_meta,cupons</code></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <h3>FAQ – Perguntas frequentes</h3>
+    <div class="grid cols-2">
+      <div class="card"><h4>O que preciso para participar?</h4><p>Assinar o regulamento oficial, estar alocado em uma das gerências participantes e ter metas definidas para o ciclo vigente.</p></div>
+      <div class="card"><h4>Como funcionam as urnas dos cupons?</h4><p>Urna 1 (70%–99%) e Urna 2 (≥100%). A cada 10 p.p. acima de 80% você ganha +1 cupom adicional.</p></div>
+      <div class="card"><h4>Se a gerência não bater a meta macro, perco tudo?</h4><p>Não. Você mantém o reconhecimento e experiências mensais. Os sorteios trimestrais e anuais exigem a meta macro.</p></div>
+      <div class="card"><h4>Quem decide os premiados?</h4><p>O comitê de performance valida os resultados, homologa os premiados e publica aqui no site.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 – Operação Altitude. Site institucional de comunicação, regras e resultados da campanha.
+</footer>
+
+<!-- Back to top -->
+<button id="toTop" aria-label="Voltar ao topo" class="btn">↑</button>
+
+<script>
+/* ===== Barra de CTA: esconde no scroll down (mobile) e mostra no scroll up ===== */
+(function(){
+  const bar=document.querySelector('.cta-bar');
+  let lastY=window.scrollY;
+  const onScroll=()=>{ const y=window.scrollY; const down=y>lastY; lastY=y; if(window.innerWidth<980){ bar.classList.toggle('hide', down && y>120); } };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  // esconde ao focar inputs
+  window.addEventListener('focusin',e=>{
+    if(e.target.tagName==='INPUT' || e.target.tagName==='SELECT') bar.style.opacity=.0, bar.style.pointerEvents='none';
+  });
+  window.addEventListener('focusout',()=>{ bar.style.opacity=''; bar.style.pointerEvents=''; });
+})();
+
+/* ===== Back-to-top ===== */
+(function(){
+  const b=document.getElementById('toTop');
+  window.addEventListener('scroll',()=>{ b.style.display = window.scrollY>800 ? 'block' : 'none'; }, {passive:true});
+  b.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+})();
+
+/* ===== Sumário Scroll-Spy ===== */
+(function(){
+  const links=[...document.querySelectorAll('#toc a')];
+  const ids=links.map(a=>a.getAttribute('href'));
+  const secs=ids.map(id=>document.querySelector(id));
+  const io=new IntersectionObserver((entries)=>{
+    const vis=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if(!vis) return;
+    links.forEach(a=>a.classList.toggle('is-active', a.getAttribute('href')==='#'+vis.target.id));
+  },{rootMargin:"-40% 0px -55% 0px",threshold:[0,0.25,0.5,0.75,1]});
+  secs.forEach(s=>s && io.observe(s));
+})();
+
+/* ===== Tabs com Deep-Link (hash) + rolagem para o bloco ===== */
+(function(){
+  const tabs = document.querySelectorAll('#regulamento [role="tab"]');
+  const panels = document.querySelectorAll('#regulamento .tabpanel');
+  if(!tabs.length) return;
+
+  function open(id){
+    tabs.forEach(t=>{ t.setAttribute('aria-selected','false'); t.tabIndex=-1; });
+    const tab = Array.from(tabs).find(t=>t.getAttribute('aria-controls')===id) || tabs[0];
+    tab.setAttribute('aria-selected','true'); tab.tabIndex=0;
+
+    panels.forEach(p=>{
+      const on = p.id===id;
+      p.hidden = !on;
+      p.setAttribute('aria-hidden', String(!on));
+    });
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>{
+    const id=t.getAttribute('aria-controls');
+    location.hash = id;
+    document.getElementById('regulamento').scrollIntoView({behavior:'smooth'});
+  }));
+
+  window.addEventListener('hashchange',()=> {
+    const id = location.hash.slice(1) || tabs[0].getAttribute('aria-controls');
+    open(id);
+  });
+  open(location.hash.slice(1) || tabs[0].getAttribute('aria-controls'));
+})();
+
+/* ===== Links "Ver metas do time" abrem Tab 3 e rolam até o regulamento ===== */
+document.querySelectorAll('a.link-metas[href="#tab3"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    e.preventDefault();
+    location.hash = 'tab3';
+    document.getElementById('regulamento').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+/* ===== Ranking (demo + CSV + filtros + feedback) ===== */
+(function(){
+  const sample=[
+    {mes:'2026-01',nome:'Junia Melo',gerencia:'Comercial',score:980,perc_meta:112,cupom:5},
+    {mes:'2026-01',nome:'Diego Assuncao',gerencia:'Permanência',score:940,perc_meta:105,cupom:4},
+    {mes:'2026-01',nome:'Heliabe Feu',gerencia:'Relacionamento',score:910,perc_meta:101,cupom:3},
+    {mes:'2026-01',nome:'Grasiele Valente',gerencia:'Permanência',score:905,perc_meta:99,cupom:2},
+    {mes:'2026-01',nome:'Yago Martins',gerencia:'Comercial',score:880,perc_meta:96,cupom:2}
+  ];
+  const state={data:[...sample],month:'',area:''};
+  const tbody=document.querySelector('#rankTable tbody');
+  const statusEl=document.getElementById('csvStatus');
+  if(!tbody) return;
+
+  function medal(p){return p===1?'🥇 1º':p===2?'🥈 2º':p===3?'🥉 3º':p+'º';}
+  function render(){
+    const rows=state.data
+      .filter(r=>!state.month||r.mes===state.month)
+      .filter(r=>!state.area ||r.gerencia===state.area)
+      .sort((a,b)=>b.score-a.score)
+      .map((r,i)=>({pos:i+1,...r}));
+    tbody.innerHTML=rows.map(r=>`
+      <tr><td class="medal">${medal(r.pos)}</td><td>${r.nome}</td><td>${r.gerencia}</td>
+      <td>${r.score}</td><td>${r.perc_meta}%</td><td>${r.cupom}</td></tr>`).join('');
+  }
+  render();
+
+  const month=document.getElementById('monthPicker');
+  const area =document.getElementById('areaFilter');
+  const csv  =document.getElementById('csvInput');
+  const dl   =document.getElementById('downloadTemplate');
+
+  if(month) month.addEventListener('change',e=>{state.month=e.target.value;render();});
+  if(area)  area .addEventListener('change',e=>{state.area =e.target.value;render();});
+  if(csv)   csv  .addEventListener('change',async e=>{
+    const file=e.target.files?.[0]; if(!file) return;
+    const text=await file.text();
+    const lines=text.split(/\r?\n/).filter(Boolean);
+    const rows=[];
+    const header=lines[0].trim();
+    const expected='mes(YYYY-MM),nome,gerencia,score,perc_meta,cupons';
+    if(header!==expected){ statusEl.textContent='Cabeçalho inválido. Use o modelo CSV.'; return; }
+    for(let i=1;i<lines.length;i++){
+      const line=lines[i]; if(!line) continue;
+      const [mes,nome,gerencia,score,perc_meta,cupons]=line.split(',');
+      if(!mes||!nome||!gerencia) continue;
+      rows.push({
+        mes:(mes||'').trim(), nome:(nome||'').trim(), gerencia:(gerencia||'').trim(),
+        score:Number(score), perc_meta:Number(perc_meta), cupom:Number(cupons)
+      });
+    }
+    if(rows.length){
+      state.data=rows; render();
+      statusEl.textContent = `${rows.length} linhas carregadas · ${new Date().toLocaleString('pt-BR')}`;
+    }else{
+      statusEl.textContent = 'Nenhuma linha válida encontrada no CSV.';
+    }
+  });
+  if(dl) dl.addEventListener('click',()=>{
+    const header='mes(YYYY-MM),nome,gerencia,score,perc_meta,cupons\n';
+    const blob=new Blob([header+sample.map(r=>`${r.mes},${r.nome},${r.gerencia},${r.score},${r.perc_meta},${r.cupom}`).join('\n')],{type:'text/csv'});
+    const url=URL.createObjectURL(blob); const a=document.createElement('a');
+    a.href=url; a.download='modelo_ranking_operacao_altitude.csv'; document.body.appendChild(a); a.click();
+    a.remove(); URL.revokeObjectURL(url);
+  });
+})();
+</script>
 </body>
 </html>
+
