@@ -1,192 +1,253 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Operação Altitude 2026</title>
-<meta name="description" content="Operação Altitude 2026 — campanha de incentivos. Regulamento, metas, jornada, premiações e ranking.">
-<meta property="og:title" content="Operação Altitude 2026">
-<meta property="og:description" content="Campanha de incentivos: metas, premiações, regulamento e ranking.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#0d134c">
-<style>
-:root{
-  --bg:#0d134c;            /* principal */
-  --bg-2:#141a66;          /* gradiente */
-  --primary:#dd303e;       /* secundária/ação */
-  --primary-2:#ff5b68;     /* hover */
-  --ice:#e6edf7;           /* texto claro */
-  --muted:#aeb7d3;         /* texto secundário */
-  --card:#161b4f;          /* cards */
-  --line:#222a73;          /* linhas/bordas */
-  --radius:14px;
-  --shadow-1:0 6px 16px rgba(0,0,0,.18);
-  --shadow-2:0 10px 24px rgba(0,0,0,.22);
-}
-*{box-sizing:border-box}
-html,body{
-  margin:0;height:100%;scroll-behavior:smooth;
-  background:radial-gradient(1200px 600px at 70% -10%, #1a237e 0%, var(--bg) 55%) fixed;
-  color:var(--ice);
-  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Helvetica, Arial, "Noto Sans";
-}
-a{color:var(--primary);text-decoration:none}
-a:focus-visible, button:focus-visible, .tab:focus-visible{outline:2px solid #fff9; outline-offset:2px; border-radius:8px}
-.container{max-width:1180px;margin:0 auto;padding:0 20px}
-h1,h2,h3,h4{margin:0 0 12px}
-h3{font-size:1.6rem}
-.lead{color:var(--muted);font-size:1.03rem}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Operação Altitude 2026</title>
+  <meta name="description" content="Operação Altitude 2026 — campanha de incentivos. Regulamento, metas, jornada, premiações e ranking.">
+  <meta name="theme-color" content="#114297">
+  <style>
+  :root{
+    --bg:#114297;
+    --bg-2:#1a4dc4;
+    --primary:#dd303e;
+    --primary-hover:#ff5b68;
+    --text:#ffffff;
+    --text-muted:#cbd2ff;
+    --card:#121a58;
+    --line:#1e2a76;
+    --radius:14px;
+    --shadow-1:0 6px 16px rgba(0,0,0,.18);
+    --shadow-2:0 10px 24px rgba(0,0,0,.22);
+  }
+  *{box-sizing:border-box}
+  html,body{
+    margin:0;
+    min-height:100%;
+    scroll-behavior:smooth;
+    background:radial-gradient(1200px 600px at 70% -10%, var(--bg-2) 0%, var(--bg) 60%) fixed;
+    color:var(--text);
+    font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Helvetica, Arial, "Noto Sans";
+  }
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{margin:0 0 12px}
+  .lead{color:var(--text-muted);font-size:1.03rem}
+  .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
-/* Header */
-header{position:sticky;top:0;z-index:50;background:#0a0f3c;border-bottom:2px solid var(--primary)}
-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
-.brand{display:flex;align-items:center;gap:10px}
-.brand img{height:28px;width:auto;object-fit:contain;border-radius:6px}
-.brand h1{font-size:1rem;font-weight:700;margin:0}
-.badge{font-size:.72rem;padding:.25rem .5rem;border:1px solid #2b327c;border-radius:12px;color:#cfd6f2;background:#151a57}
-.navlinks a{padding:.35rem .6rem;border-radius:8px;color:#e8edff;opacity:.9}
-.navlinks a:hover{opacity:1;background:#ffffff12}
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:60;
+    background:#0b1339;
+    border-bottom:2px solid rgba(255,255,255,.03)
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:8px}
+  .brand img{height:28px;width:auto;object-fit:contain}
+  .brand-title{font-size:1rem;font-weight:700;color:#fff}
+  .brand-year{font-size:1rem;font-weight:700;color:#fff;opacity:.7}
+  .navlinks a{padding:.35rem .6rem;border-radius:8px;color:rgba(232,237,255,.85)}
+  .navlinks a:hover{background:rgba(255,255,255,.04);color:#fff}
 
-/* CTA fixa */
-.cta-bar{position:fixed;left:0;right:0;bottom:18px;display:flex;justify-content:center;z-index:60;transition:transform .25s ease, opacity .25s ease}
-.cta-bar.hide{transform:translateY(120%);opacity:.0;pointer-events:none}
-.cta-bar .wrap{display:flex;gap:10px;background:#0a0f3ce6;border:1px solid #ffffff22;border-radius:999px;padding:8px 10px;backdrop-filter:saturate(110%) blur(6px);box-shadow:var(--shadow-2)}
-.btn{appearance:none;border:0;cursor:pointer;background:var(--primary);color:#fff;padding:.8rem 1.1rem;border-radius:999px;font-weight:800;letter-spacing:.3px;box-shadow:0 10px 20px rgba(221,48,62,.25), inset 0 -2px 0 #0003;transition:background .25s ease, transform .12s ease}
-.btn:hover{background:var(--primary-2)}
-.btn:active{transform:translateY(1px)}
-.btn.secondary{background:#ffffff12;border:1px solid #ffffff22}
+  /* CTA fixa */
+  .cta-bar{
+    position:fixed;left:0;right:0;bottom:18px;
+    display:flex;justify-content:center;
+    z-index:80;
+    transition:transform .25s ease,opacity .25s ease;
+  }
+  .cta-bar.hide{transform:translateY(120%);opacity:0;pointer-events:none}
+  .cta-bar .wrap{
+    display:flex;gap:10px;
+    background:#0a0f3ce6;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:999px;
+    padding:8px 10px;
+    backdrop-filter:saturate(110%) blur(6px);
+    box-shadow:var(--shadow-2);
+  }
+  .btn{
+    appearance:none;border:0;cursor:pointer;
+    background:var(--primary);color:#fff;
+    padding:.6rem 1rem;
+    border-radius:999px;
+    font-weight:700;
+    letter-spacing:.3px;
+    box-shadow:0 10px 20px rgba(221,48,62,.22);
+    transition:background .2s ease,transform .12s ease;
+  }
+  .btn:hover{background:var(--primary-hover)}
+  .btn:active{transform:translateY(1px)}
+  .btn.secondary{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);box-shadow:none}
 
-/* Faixa do título (KV) */
-.hero-title{position:relative;overflow:hidden;text-align:center;
-  background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);
-  padding:54px 20px 38px;border-bottom:3px solid var(--primary)}
-.hero-title::before{content:"";position:absolute;inset:0;pointer-events:none;
+  /* FAIXA COM O EVEREST (AGORA TEXTO À DIREITA) */
+  .hero-title{
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-end;   /* <-- joga o texto pro lado direito */
+    min-height:170px;
+    padding:58px 20px 40px;
+    background:linear-gradient(180deg, rgba(17,66,151,1) 0%, rgba(17,66,151,.4) 100%);
+    border-bottom:3px solid rgba(255,255,255,.03);
+    overflow:hidden;
+  }
+  .hero-title::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  /* 1) monta primeiro a imagem, ocupando tudo */
   background:
-    url("./everest-peak.png") center top/cover no-repeat,
-    linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
-  opacity:.75; /* aumenta a visibilidade */
-  filter:saturate(120%) contrast(115%) brightness(1.05);
-  transform:scale(1.01);
+    url("./everest-peak.png") left center/cover no-repeat,
+    /* 2) depois um fade na direita pra não ficar corte */
+    linear-gradient(90deg, rgba(17,66,151,0) 55%, rgba(17,66,151,1) 92%),
+    /* 3) e o gradiente vertical de fundo */
+    linear-gradient(180deg, rgba(17,66,151,.25), rgba(17,66,151,.9));
   z-index:0;
-.hero-title::after{content:"";position:absolute;inset:0;
-  background:
-    radial-gradient(1200px 420px at 50% -120px, rgba(0,0,0,.35), transparent 60%),
-    linear-gradient(180deg, rgba(13,19,76,.55), rgba(20,26,102,.62));
-  z-index:1}
-.hero-title h1{position:relative;z-index:2;margin:0;font-size:2.6rem;
-  font-weight:900;letter-spacing:.6px;text-transform:uppercase;color:var(--primary);
-  text-shadow:0 0 20px rgba(0,0,0,.35);animation:fadeInDown 700ms ease-out}
-@keyframes fadeInDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
-
-/* Sumário (TOC) */
-.toc{position:sticky;top:64px;z-index:45;background:#0a0f3ccc;
-  backdrop-filter:saturate(120%) blur(6px);padding:.4rem .7rem;border:1px solid #ffffff22;
-  border-radius:999px;margin:0 auto 18px;max-width:max-content;box-shadow:var(--shadow-1)}
-.toc a{color:#e8edff;padding:.1rem .4rem;border-radius:8px}
-.toc a.is-active{background:#ffffff18}
-
-/* Cards & utilitários */
-.card{background:linear-gradient(180deg, var(--card), #121a58);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-1)}
-.tiny{font-size:.82rem;color:#cbd2ff}
-
-/* ===== HERO V2 ===== */
-.hero.v2{
-  position:relative; overflow:hidden;
+  filter:saturate(112%) contrast(110%);
 }
-.hero.v2::before{
-  content:""; position:absolute; inset:0; z-index:-2;
-  /* Domínio público (Wikimedia Commons) */
-  background:url("https://upload.wikimedia.org/wikipedia/commons/1/12/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg") center/cover no-repeat;
-  filter:saturate(105%) contrast(105%) brightness(.85);
-}
-.hero.v2::after{
-  content:""; position:absolute; inset:0; z-index:-1;
-  background:
-    radial-gradient(900px 380px at 65% -10%, rgba(10,15,60,.55), transparent 60%),
-    linear-gradient(180deg, rgba(7,10,44,.72), rgba(7,10,44,.86));
-}
-.hero-wrap{display:grid; gap:28px; align-items:start; min-height:60svh; grid-template-columns: 1.05fr .95fr;}
-.hero-left .pill{display:inline-flex;align-items:center;gap:8px;padding:.35rem .7rem;border:1px dashed #ffffff3c;border-radius:999px;color:#fff;background:#0006;font-size:.85rem}
-.hero-title-lg{font-size:clamp(2.1rem,3.6vw,3.8rem);line-height:1.05;margin:10px 0 8px;font-weight:900;color:#fff;text-shadow:0 10px 28px rgba(0,0,0,.25)}
-.hero-sub{color:#e4e9ff}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-.hero-card{background:rgba(16,22,76,.82);border:1px solid #ffffff26;backdrop-filter:saturate(120%) blur(6px)}
-.hero-card-title{margin:0 0 6px}
-.kpi-tiles{display:grid;gap:10px;margin:12px 0 8px;grid-template-columns:1fr}
-.tile{border:1px solid var(--line);border-radius:12px;padding:.6rem .7rem;background:#0f1647;box-shadow:var(--shadow-1)}
-.tile-label{font-size:.9rem;color:#cbd4ff;margin-bottom:2px}
-.tile-value{font-weight:600;color:#fff}
-@media (max-width:980px){.hero-wrap{grid-template-columns:1fr}}
+  }
+  .hero-title::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(17,66,151,0) 50%, rgba(17,66,151,1) 100%);
+    z-index:1;
+  }
+  .hero-title h1{
+    position:relative;
+    z-index:2;
+    margin:0;
+    font-size:2.5rem;
+    font-weight:900;
+    letter-spacing:.6px;
+    text-transform:uppercase;
+    color:#D4D801;
+    text-shadow:0 4px 18px rgba(0,0,0,.25);
+    text-align:right;
+  }
 
-/* Manifesto V2 */
-.manifesto.v2 { position: relative; }
-.m-head { margin-bottom: 14px; }
-.m-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-@media (max-width:1024px){ .m-grid{ grid-template-columns:1fr 1fr } }
-@media (max-width:680px){ .m-grid{ grid-template-columns:1fr } }
-.m-card { display:grid; grid-template-rows:160px auto; background:linear-gradient(180deg, var(--card), #121a58); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-1) }
-.m-photo{ position:relative; margin:0; background:#0b1432 }
-.m-photo::before{ content:""; position:absolute; inset:0; background-image:var(--img); background-size:cover; background-position:center; filter:saturate(105%) contrast(105%) }
-.m-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(11,20,50,.55)) }
-.m-photo img{ width:1px;height:1px;opacity:0;position:absolute }
-.m-body{ padding:14px 14px 16px }
-.m-chip{ display:inline-block; background:#ffffff12; border:1px solid #ffffff22; border-radius:999px; padding:.22rem .6rem; font-size:.78rem; margin-bottom:6px }
-.m-body h4{ margin:4px 0 6px }
-.m-body .lead{ margin:0 }
+  /* SUMÁRIO */
+  .toc{
+    position:sticky;top:65px;z-index:50;
+    background:rgba(7,11,40,.75);
+    backdrop-filter:saturate(120%) blur(6px);
+    border:1px solid rgba(255,255,255,.05);
+    border-radius:999px;
+    padding:.4rem .7rem;
+    margin:0 auto 20px;
+    max-width:max-content;
+    box-shadow:var(--shadow-1);
+  }
+  .toc a{color:rgba(232,237,255,.85);padding:.1rem .4rem;border-radius:8px}
+  .toc a.is-active{background:rgba(255,255,255,.07);color:#fff}
 
-/* Equipes */
-.grid{display:grid;gap:16px}
-.cols-3{grid-template-columns:repeat(3,1fr)}
-.cols-2{grid-template-columns:repeat(2,1fr)}
-@media (max-width:980px){.cols-3,.cols-2{grid-template-columns:1fr}}
-.team-card{background:#131a60;border:1px solid #223077;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-1)}
-.team-card header{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.team-card header i{width:28px;height:28px;border-radius:8px;background:#ffffff18;display:inline-block}
-.team-ice {box-shadow:0 0 0 2px #00d4ff26}
-.team-wind{box-shadow:0 0 0 2px #4ea1ff26}
-.team-fire{box-shadow:0 0 0 2px #ffb02026}
+  /* HERO PRINCIPAL */
+  .hero{padding:30px 0 40px}
+  .hero-wrap{
+    display:grid;
+    grid-template-columns:1.08fr .92fr;
+    gap:28px;
+    align-items:start;
+  }
+  .hero-left .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:.35rem .7rem;
+    border:1px dashed rgba(255,255,255,.25);
+    border-radius:999px;
+    background:rgba(0,0,0,.12);
+    font-size:.8rem;
+  }
+  .hero-title-lg{font-size:clamp(2.1rem,3.6vw,3.4rem);line-height:1.03;margin:10px 0 8px;font-weight:900}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+  .hero-card{
+    background:rgba(10,13,38,.45);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:var(--radius);
+    padding:18px;
+    box-shadow:var(--shadow-1);
+  }
+  .kpi-tiles{display:grid;gap:8px;margin-top:12px}
+  .tile{background:#111844;border:1px solid rgba(255,255,255,.03);border-radius:12px;padding:.55rem .65rem}
+  .tile-label{font-size:.78rem;color:rgba(234,238,255,.6)}
+  .tile-value{font-weight:600}
+  .tiny{font-size:.78rem;color:rgba(203,210,255,.7);margin-top:6px}
 
-/* Tabs Regulamento */
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 16px}
-.tab{padding:.55rem .8rem;border:1px solid var(--line);border-radius:10px;background:#0d1635;cursor:pointer;color:#fff}
-.tab:hover{background:#13206a;color:#fff}
-.tab[aria-selected="true"]{background:var(--primary);border-color:transparent;color:#fff;box-shadow:0 4px 18px rgba(221,48,62,.25)}
-.tabpanel{display:block}
-.tabpanel[hidden]{display:none}
+  /* MANIFESTO */
+  section{padding:18px 0 30px}
+  .manifesto .m-head{margin-bottom:12px}
+  .m-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .m-card{
+    background:linear-gradient(180deg, rgba(18,26,88,1) 0%, rgba(10,16,55,1) 100%);
+    border:1px solid rgba(255,255,255,.015);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow-1);
+  }
+  .m-photo{height:160px;background-size:cover;background-position:center}
+  .m-body{padding:14px}
+  .m-chip{display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:.2rem .6rem;font-size:.72rem;margin-bottom:6px}
 
-/* Tabela rápida (habilitação) */
-.quick-table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:10px 0 14px;background:#0b1432}
-.quick-table th,.quick-table td{padding:.55rem .6rem;border-bottom:1px solid var(--line);text-align:center}
-.quick-table th{text-transform:uppercase;font-size:.78rem;letter-spacing:.6px;background:#0b1432;color:#dfe6ff}
-.badge-chip{display:inline-block;padding:.18rem .5rem;border-radius:999px;font-size:.75rem;border:1px solid #ffffff22;background:#ffffff12}
+  /* GRIDS GERAIS */
+  .grid{display:grid;gap:16px}
+  .cols-3{grid-template-columns:repeat(3,1fr)}
+  .cols-2{grid-template-columns:repeat(2,1fr)}
+  .card{
+    background:linear-gradient(180deg, rgba(12,19,63,1) 0%, rgba(9,13,47,1) 100%);
+    border:1px solid rgba(255,255,255,.018);
+    border-radius:var(--radius);
+    padding:16px;
+    box-shadow:var(--shadow-1);
+  }
+  .team-card header{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .team-card header i{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.03);display:inline-block}
+  .team-ice{box-shadow:0 0 0 2px rgba(0,212,255,.12)}
+  .team-wind{box-shadow:0 0 0 2px rgba(68,164,255,.12)}
+  .team-fire{box-shadow:0 0 0 2px rgba(255,176,32,.12)}
+  .link-metas{color:rgba(255,255,255,.85);font-weight:600;font-size:.85rem}
 
-/* Ranking */
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-select,input[type="month"]{background:#0e173a;color:#fff;border:1px solid var(--line);border-radius:10px;padding:.55rem .6rem}
-table{border-collapse:collapse;width:100%;overflow:auto;border:1px solid var(--line);border-radius:12px}
-th,td{padding:.7rem;border-bottom:1px solid var(--line);text-align:left}
-tr:hover td{background:#ffffff07}
-th{background:#0b1432;position:sticky;top:0}
-.medal{font-weight:700}
+  /* TABS REGULAMENTO */
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 16px}
+  .tab{background:rgba(17,24,65,1);border:1px solid rgba(255,255,255,.02);border-radius:10px;padding:.5rem .8rem;cursor:pointer}
+  .tab[aria-selected="true"]{background:var(--primary);border-color:transparent;color:#fff;box-shadow:0 4px 16px rgba(221,48,62,.25)}
+  .tabpanel[hidden]{display:none}
 
-/* Back to top */
-#toTop{position:fixed;right:20px;bottom:92px;display:none;z-index:55}
+  .quick-table{width:100%;border-collapse:collapse;background:rgba(8,13,40,.5);border:1px solid rgba(255,255,255,.02);border-radius:12px;overflow:hidden;margin-top:10px}
+  .quick-table th,.quick-table td{padding:.55rem .6rem;border-bottom:1px solid rgba(255,255,255,.02);text-align:center;font-size:.78rem}
+  .quick-table th{background:rgba(5,10,27,.8)}
 
-/* Footer */
-footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;background:#0a0f3c;text-align:center}
-</style>
+  /* RANKING */
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:.55rem .5rem;border-bottom:1px solid rgba(255,255,255,.03);text-align:left}
+  th{background:rgba(7,10,38,.7)}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+  input[type="month"], select, input[type="file"]{background:rgba(6,9,29,.6);color:#fff;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:.45rem .5rem}
+
+  /* BACK TO TOP & FOOTER */
+  #toTop{position:fixed;right:20px;bottom:92px;display:none;z-index:99}
+  footer{padding:28px 0;border-top:2px solid rgba(255,255,255,.03);background:#0a0f37;text-align:center;color:rgba(203,210,255,.7);font-size:.78rem}
+
+  /* RESPONSIVO */
+  @media (max-width:980px){
+    .hero-wrap{grid-template-columns:1fr}
+    .m-grid,.cols-3,.cols-2{grid-template-columns:1fr}
+    .navlinks{display:none}
+    .hero-title{justify-content:center;text-align:center}
+    .hero-title h1{text-align:center}
+  }
+  </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="container">
     <nav>
       <div class="brand">
-        <img src="./assets/gran-logo.png" alt="Gran">
-        <h1>Operação Altitude</h1>
-        <span class="badge">2026</span>
+        <img src="./assets/gran-logo.png" alt="Gran" onerror="this.style.display='none'">
+        <span class="brand-title">Operação Altitude</span>
+        <span class="brand-year">2026</span>
       </div>
-      <div class="navlinks" role="navigation" aria-label="Seções">
+      <div class="navlinks" aria-label="Seções do site">
         <a href="#sobre">Sobre</a>
         <a href="#equipes">Equipes</a>
         <a href="#jornada">Jornada</a>
@@ -199,37 +260,27 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
   </div>
 </header>
 
-<!-- Barra fixa de CTA -->
-<div class="cta-bar" aria-hidden="false">
+<!-- CTA FIXA -->
+<div class="cta-bar">
   <div class="wrap">
     <a class="btn" href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank" rel="noopener">Assinar regulamento</a>
     <a class="btn secondary" href="#ranking">Ver ranking do mês</a>
   </div>
 </div>
 
-<!-- Faixa de título -->
+<!-- FAIXA COM O EVEREST -->
 <section class="hero-title">
   <h1>Operação Altitude 2026</h1>
 </section>
 
-<!-- Sumário de Seções (TOC) -->
-<nav id="toc" class="toc" aria-label="Sumário">
-  <a href="#sobre">Manifesto</a> ·
-  <a href="#equipes">Equipes</a> ·
-  <a href="#jornada">Jornada</a> ·
-  <a href="#regulamento">Regulamento</a> ·
-  <a href="#premios">Premiações</a> ·
-  <a href="#ranking">Ranking</a> ·
-  <a href="#faq">FAQ</a>
-</nav>
 
-<!-- HERO V2 -->
-<section class="hero v2" id="home" aria-label="Abertura">
+<!-- HERO PRINCIPAL -->
+<section class="hero" id="home" aria-label="Abertura">
   <div class="container hero-wrap">
     <div class="hero-left">
       <span class="pill">Campanha de Incentivos • 01 jan — 31 dez 2026</span>
       <h2 class="hero-title-lg">Você ainda não conhece os seus limites.</h2>
-      <p class="hero-sub">
+      <p class="lead">
         2026 será o nosso Everest. Uma jornada coletiva rumo ao topo — com disciplina, trabalho em equipe e superação.
         A <strong>Operação Altitude</strong> reconhece performance com premiações semanais, mensais, trimestrais e um grande prêmio anual.
       </p>
@@ -239,36 +290,34 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
       </div>
     </div>
 
-    <aside class="hero-card card" aria-label="Objetivo da campanha">
-      <h3 class="hero-card-title">Objetivo da campanha</h3>
+    <aside class="hero-card" aria-label="Objetivo da campanha">
+      <h3>Objetivo da campanha</h3>
       <p class="lead">
         Reconhecer e valorizar a performance dos times de forma contínua, justa e inspiradora, equilibrando mérito
         individual, constância de resultados e sorteios entre os que entregam acima da média — promovendo protagonismo
         e orgulho de fazer parte da jornada.
       </p>
-
-      <div class="kpi-tiles" role="list">
-        <div class="tile" role="listitem">
-          <div class="tile-label">🗓️ Vigência</div>
+      <div class="kpi-tiles">
+        <div class="tile">
+          <div class="tile-label">Vigência</div>
           <div class="tile-value">01/01/2026 → 31/12/2026</div>
         </div>
-        <div class="tile" role="listitem">
-          <div class="tile-label">🎯 Gatilho</div>
+        <div class="tile">
+          <div class="tile-label">Gatilho</div>
           <div class="tile-value">Metas por ciclo (mensal, trimestral e anual)</div>
         </div>
-        <div class="tile" role="listitem">
-          <div class="tile-label">👥 Público</div>
+        <div class="tile">
+          <div class="tile-label">Público</div>
           <div class="tile-value">Comercial • Permanência • Relacionamento • Lideranças*</div>
         </div>
       </div>
-
       <p class="tiny">*Critérios de participação de líderes poderão ter regras específicas.</p>
     </aside>
   </div>
 </section>
 
-<!-- Manifesto (V2) -->
-<section id="sobre" class="manifesto v2">
+<!-- MANIFESTO -->
+<section id="sobre" class="manifesto">
   <div class="container">
     <header class="m-head">
       <h3>Manifesto Altitude</h3>
@@ -276,11 +325,8 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
     </header>
 
     <div class="m-grid">
-      <!-- Coragem -->
       <article class="m-card">
-        <figure class="m-photo" style="--img:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop')">
-          <img loading="lazy" alt="Montanhista caminhando no amanhecer" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=60&w=800&auto=format&fit=crop">
-        </figure>
+        <div class="m-photo" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop');"></div>
         <div class="m-body">
           <span class="m-chip">Coragem</span>
           <h4>O primeiro passo exige decisão.</h4>
@@ -288,11 +334,8 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
         </div>
       </article>
 
-      <!-- Constância -->
       <article class="m-card">
-        <figure class="m-photo" style="--img:url('https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=80&w=1600&auto=format&fit=crop')">
-          <img loading="lazy" alt="Cordada avançando na neve com vento" src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=60&w=800&auto=format&fit=crop">
-        </figure>
+        <div class="m-photo" style="background-image:url('https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=80&w=1600&auto=format&fit=crop');"></div>
         <div class="m-body">
           <span class="m-chip">Constância</span>
           <h4>Cada avanço é sustentado por disciplina.</h4>
@@ -300,11 +343,8 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
         </div>
       </article>
 
-      <!-- Orgulho -->
       <article class="m-card">
-        <figure class="m-photo" style="--img:url('https://images.unsplash.com/photo-1509644851146-d0f3f3f2c5f8?q=80&w=1600&auto=format&fit=crop')">
-          <img loading="lazy" alt="Bandeira no cume com céu límpido" src="https://images.unsplash.com/photo-1509644851146-d0f3f3f2c5f8?q=60&w=800&auto=format&fit=crop">
-        </figure>
+        <div class="m-photo" style="background-image:url('https://images.unsplash.com/photo-1509644851146-d0f3f3f2c5f8?q=80&w=1600&auto=format&fit=crop');"></div>
         <div class="m-body">
           <span class="m-chip">Orgulho</span>
           <h4>Chegar ao cume é transformar esforço em história.</h4>
@@ -315,7 +355,7 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
   </div>
 </section>
 
-<!-- Equipes -->
+<!-- EQUIPES -->
 <section id="equipes">
   <div class="container">
     <h3>Equipes da Expedição</h3>
@@ -340,14 +380,14 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
   </div>
 </section>
 
-<!-- Jornada -->
+<!-- JORNADA -->
 <section id="jornada">
   <div class="container">
     <h3>Jornada da Expedição</h3>
     <p class="lead">Avance por cada acampamento. Feche bem os trimestres até o cume.</p>
     <div class="grid cols-2">
       <div class="card"><h4>Campo Base</h4><p class="tiny">Lançamento e alinhamentos</p></div>
-      <div class="card"><h4>Acampamento 1</h4><p class="tiny">Meta de Janeiro</p></div>
+      <div class="card"><h4>Acampamento 1</h4><p class="tiny">Meta de janeiro</p></div>
       <div class="card"><h4>Acampamento 2</h4><p class="tiny">Fechamento do 1º tri</p></div>
       <div class="card"><h4>Acampamento 3</h4><p class="tiny">Fechamento do 2º tri</p></div>
       <div class="card"><h4>Acampamento 4</h4><p class="tiny">Fechamento do 3º tri</p></div>
@@ -356,16 +396,15 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
   </div>
 </section>
 
-<!-- Regulamento -->
+<!-- REGULAMENTO -->
 <section id="regulamento">
   <div class="container">
     <h3>Regulamento (versão institucional)</h3>
     <p class="lead">Leia cada aba para entender elegibilidade, metas, dinâmica, governança e critérios das premiações.</p>
 
-    <!-- Tabela-resumo de habilitação -->
     <div class="card" aria-labelledby="resumo-hab-title">
       <h4 id="resumo-hab-title">Resumo rápido — Habilita sorteios?</h4>
-      <table class="quick-table" role="table" aria-label="Tabela de habilitação de sorteios">
+      <table class="quick-table" role="table">
         <thead>
           <tr><th>Gerência</th><th>Mensal</th><th>Trimestral</th><th>Anual</th></tr>
         </thead>
@@ -380,7 +419,7 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
     </div>
 
     <div class="tabs" role="tablist" aria-label="Regulamento">
-      <button class="tab" role="tab" aria-selected="true"  aria-controls="tab1" id="t1">Vigência e Objetivo</button>
+      <button class="tab" role="tab" aria-selected="true" aria-controls="tab1" id="t1">Vigência e Objetivo</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="tab2" id="t2">Público e Elegibilidade</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="tab3" id="t3">Metas e Gatilhos</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="tab4" id="t4">Dinâmica por Gerência</button>
@@ -463,7 +502,7 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
             <ul><li>1º: <strong>R$ 1.000,00</strong></li><li>2º: <strong>R$ 800,00</strong></li><li>3º: <strong>R$ 600,00</strong></li></ul>
           </div>
           <div class="card">
-            <h4>Mensal – Atingimento <span class="badge-chip">Urna 1: 70–99%</span> <span class="badge-chip">Urna 2: ≥100%</span></h4>
+            <h4>Mensal – Atingimento <span class="m-chip">Urna 1: 70–99%</span> <span class="m-chip">Urna 2: ≥100%</span></h4>
             <ul>
               <li>70% da meta: 1 cupom</li>
               <li>80% da meta: 2 cupons</li>
@@ -478,7 +517,11 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
           </div>
           <div class="card" style="grid-column:1/-1">
             <h4>Anual – Grandes Reconhecimentos*</h4>
-            <ul><li><strong>4</strong> motos</li><li><strong>4</strong> viagens com acompanhante</li><li><strong>1</strong> automóvel 0 km</li></ul>
+            <ul>
+              <li><strong>4</strong> motos</li>
+              <li><strong>4</strong> viagens com acompanhante</li>
+              <li><strong>1</strong> automóvel 0 km</li>
+            </ul>
             <p class="tiny">*Para participantes habilitados e condicionado à meta anual.</p>
           </div>
         </div>
@@ -499,7 +542,7 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
   </div>
 </section>
 
-<!-- Premiações (resumo) -->
+<!-- PREMIAÇÕES -->
 <section id="premios">
   <div class="container">
     <h3>Como desbloquear premiações</h3>
@@ -512,11 +555,12 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
   </div>
 </section>
 
-<!-- Ranking -->
+<!-- RANKING -->
 <section id="ranking">
   <div class="container">
     <h3>Ranking de Destaques</h3>
     <p class="lead">Selecione o mês e a gerência. Você pode importar um CSV padrão para atualizar a tabela.</p>
+
     <div class="toolbar">
       <input type="month" id="monthPicker" aria-label="Selecionar mês">
       <select id="areaFilter" aria-label="Filtrar por gerência">
@@ -529,6 +573,7 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
       <button class="btn" id="downloadTemplate">Baixar modelo CSV</button>
     </div>
     <p id="csvStatus" class="tiny" aria-live="polite"></p>
+
     <div class="card" role="region" aria-live="polite">
       <table id="rankTable">
         <thead>
@@ -557,86 +602,83 @@ footer{padding:30px 0;border-top:2px solid var(--primary);color:#cbd2ff;backgrou
 </section>
 
 <footer>
-  © 2026 – Operação Altitude. Site institucional de comunicação, regras e resultados da campanha.
+  © 2026 – Operação Altitude. Site institucional da campanha de incentivos.
 </footer>
 
-<!-- Back to top -->
-<button id="toTop" aria-label="Voltar ao topo" class="btn">↑</button>
+<button id="toTop" class="btn" aria-label="Voltar ao topo">↑</button>
 
 <script>
-/* ===== Barra de CTA: esconde no scroll down (mobile) e mostra no scroll up ===== */
+/* CTA bar show/hide on scroll (mobile) */
 (function(){
   const bar=document.querySelector('.cta-bar');
   let lastY=window.scrollY;
-  const onScroll=()=>{ const y=window.scrollY; const down=y>lastY; lastY=y; if(window.innerWidth<980){ bar.classList.toggle('hide', down && y>120); } };
-  window.addEventListener('scroll', onScroll, {passive:true});
-  // esconde ao focar inputs
-  window.addEventListener('focusin',e=>{
-    if(e.target.tagName==='INPUT' || e.target.tagName==='SELECT') bar.style.opacity=.0, bar.style.pointerEvents='none';
-  });
-  window.addEventListener('focusout',()=>{ bar.style.opacity=''; bar.style.pointerEvents=''; });
+  window.addEventListener('scroll',()=>{
+    const y=window.scrollY;
+    if(window.innerWidth<980){
+      const down = y>lastY;
+      bar.classList.toggle('hide', down && y>140);
+      lastY=y;
+    }
+  },{passive:true});
 })();
 
-/* ===== Back-to-top ===== */
+/* back to top */
 (function(){
   const b=document.getElementById('toTop');
-  window.addEventListener('scroll',()=>{ b.style.display = window.scrollY>800 ? 'block' : 'none'; }, {passive:true});
+  window.addEventListener('scroll',()=>{b.style.display=window.scrollY>800?'block':'none';},{passive:true});
   b.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 })();
 
-/* ===== Sumário Scroll-Spy ===== */
+/* scroll spy */
 (function(){
   const links=[...document.querySelectorAll('#toc a')];
-  const ids=links.map(a=>a.getAttribute('href'));
-  const secs=ids.map(id=>document.querySelector(id));
+  const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
   const io=new IntersectionObserver((entries)=>{
     const vis=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
     if(!vis) return;
     links.forEach(a=>a.classList.toggle('is-active', a.getAttribute('href')==='#'+vis.target.id));
-  },{rootMargin:"-40% 0px -55% 0px",threshold:[0,0.25,0.5,0.75,1]});
-  secs.forEach(s=>s && io.observe(s));
+  },{rootMargin:"-50% 0px -45% 0px"});
+  secs.forEach(s=>io.observe(s));
 })();
 
-/* ===== Tabs com Deep-Link (hash) + rolagem para o bloco ===== */
+/* tabs regulamento + deep link */
 (function(){
-  const tabs = document.querySelectorAll('#regulamento [role="tab"]');
-  const panels = document.querySelectorAll('#regulamento .tabpanel');
+  const tabs=document.querySelectorAll('#regulamento [role="tab"]');
+  const panels=document.querySelectorAll('#regulamento .tabpanel');
   if(!tabs.length) return;
 
   function open(id){
-    tabs.forEach(t=>{ t.setAttribute('aria-selected','false'); t.tabIndex=-1; });
-    const tab = Array.from(tabs).find(t=>t.getAttribute('aria-controls')===id) || tabs[0];
-    tab.setAttribute('aria-selected','true'); tab.tabIndex=0;
-
-    panels.forEach(p=>{
-      const on = p.id===id;
-      p.hidden = !on;
-      p.setAttribute('aria-hidden', String(!on));
-    });
+    tabs.forEach(t=>{t.setAttribute('aria-selected','false');t.tabIndex=-1;});
+    panels.forEach(p=>{p.hidden=p.id!==id;});
+    const t=[...tabs].find(t=>t.getAttribute('aria-controls')===id) || tabs[0];
+    t.setAttribute('aria-selected','true');t.tabIndex=0;
   }
+
   tabs.forEach(t=>t.addEventListener('click',()=>{
     const id=t.getAttribute('aria-controls');
-    location.hash = id;
+    location.hash=id;
+    open(id);
     document.getElementById('regulamento').scrollIntoView({behavior:'smooth'});
   }));
 
-  window.addEventListener('hashchange',()=> {
-    const id = location.hash.slice(1) || tabs[0].getAttribute('aria-controls');
-    open(id);
+  window.addEventListener('hashchange',()=>{
+    const id=location.hash.slice(1);
+    if(id) open(id);
   });
+
   open(location.hash.slice(1) || tabs[0].getAttribute('aria-controls'));
 })();
 
-/* ===== Links "Ver metas do time" abrem Tab 3 e rolam até o regulamento ===== */
+/* links de equipes abrindo tab 3 */
 document.querySelectorAll('a.link-metas[href="#tab3"]').forEach(a=>{
-  a.addEventListener('click', e=>{
+  a.addEventListener('click',e=>{
     e.preventDefault();
-    location.hash = 'tab3';
+    location.hash='tab3';
     document.getElementById('regulamento').scrollIntoView({behavior:'smooth'});
   });
 });
 
-/* ===== Ranking (demo + CSV + filtros + feedback) ===== */
+/* ranking demo + CSV */
 (function(){
   const sample=[
     {mes:'2026-01',nome:'Junia Melo',gerencia:'Comercial',score:980,perc_meta:112,cupom:5},
@@ -648,61 +690,73 @@ document.querySelectorAll('a.link-metas[href="#tab3"]').forEach(a=>{
   const state={data:[...sample],month:'',area:''};
   const tbody=document.querySelector('#rankTable tbody');
   const statusEl=document.getElementById('csvStatus');
-  if(!tbody) return;
 
   function medal(p){return p===1?'🥇 1º':p===2?'🥈 2º':p===3?'🥉 3º':p+'º';}
   function render(){
     const rows=state.data
-      .filter(r=>!state.month||r.mes===state.month)
-      .filter(r=>!state.area ||r.gerencia===state.area)
+      .filter(r=>!state.month || r.mes===state.month)
+      .filter(r=>!state.area  || r.gerencia===state.area)
       .sort((a,b)=>b.score-a.score)
       .map((r,i)=>({pos:i+1,...r}));
     tbody.innerHTML=rows.map(r=>`
-      <tr><td class="medal">${medal(r.pos)}</td><td>${r.nome}</td><td>${r.gerencia}</td>
-      <td>${r.score}</td><td>${r.perc_meta}%</td><td>${r.cupom}</td></tr>`).join('');
+      <tr>
+        <td>${medal(r.pos)}</td>
+        <td>${r.nome}</td>
+        <td>${r.gerencia}</td>
+        <td>${r.score}</td>
+        <td>${r.perc_meta}%</td>
+        <td>${r.cupom}</td>
+      </tr>
+    `).join('');
   }
   render();
 
-  const month=document.getElementById('monthPicker');
-  const area =document.getElementById('areaFilter');
-  const csv  =document.getElementById('csvInput');
-  const dl   =document.getElementById('downloadTemplate');
+  document.getElementById('monthPicker').addEventListener('change',e=>{state.month=e.target.value;render();});
+  document.getElementById('areaFilter').addEventListener('change',e=>{state.area=e.target.value;render();});
 
-  if(month) month.addEventListener('change',e=>{state.month=e.target.value;render();});
-  if(area)  area .addEventListener('change',e=>{state.area =e.target.value;render();});
-  if(csv)   csv  .addEventListener('change',async e=>{
+  document.getElementById('csvInput').addEventListener('change',async e=>{
     const file=e.target.files?.[0]; if(!file) return;
     const text=await file.text();
     const lines=text.split(/\r?\n/).filter(Boolean);
+    const header='mes(YYYY-MM),nome,gerencia,score,perc_meta,cupons';
+    if(lines[0].trim()!==header){statusEl.textContent='Cabeçalho inválido. Use o modelo CSV.';return;}
     const rows=[];
-    const header=lines[0].trim();
-    const expected='mes(YYYY-MM),nome,gerencia,score,perc_meta,cupons';
-    if(header!==expected){ statusEl.textContent='Cabeçalho inválido. Use o modelo CSV.'; return; }
     for(let i=1;i<lines.length;i++){
-      const line=lines[i]; if(!line) continue;
-      const [mes,nome,gerencia,score,perc_meta,cupons]=line.split(',');
-      if(!mes||!nome||!gerencia) continue;
+      const [mes,nome,gerencia,score,perc_meta,cupons]=lines[i].split(',');
+      if(!mes || !nome) continue;
       rows.push({
-        mes:(mes||'').trim(), nome:(nome||'').trim(), gerencia:(gerencia||'').trim(),
-        score:Number(score), perc_meta:Number(perc_meta), cupom:Number(cupons)
+        mes:mes.trim(),
+        nome:nome.trim(),
+        gerencia:(gerencia||'').trim(),
+        score:Number(score)||0,
+        perc_meta:Number(perc_meta)||0,
+        cupom:Number(cupons)||0
       });
     }
     if(rows.length){
-      state.data=rows; render();
-      statusEl.textContent = `${rows.length} linhas carregadas · ${new Date().toLocaleString('pt-BR')}`;
+      state.data=rows;
+      render();
+      statusEl.textContent=`${rows.length} linhas carregadas em ${new Date().toLocaleString('pt-BR')}`;
     }else{
-      statusEl.textContent = 'Nenhuma linha válida encontrada no CSV.';
+      statusEl.textContent='Nenhuma linha válida encontrada no CSV.';
     }
   });
-  if(dl) dl.addEventListener('click',()=>{
+
+  document.getElementById('downloadTemplate').addEventListener('click',()=>{
     const header='mes(YYYY-MM),nome,gerencia,score,perc_meta,cupons\n';
-    const blob=new Blob([header+sample.map(r=>`${r.mes},${r.nome},${r.gerencia},${r.score},${r.perc_meta},${r.cupom}`).join('\n')],{type:'text/csv'});
-    const url=URL.createObjectURL(blob); const a=document.createElement('a');
-    a.href=url; a.download='modelo_ranking_operacao_altitude.csv'; document.body.appendChild(a); a.click();
-    a.remove(); URL.revokeObjectURL(url);
+    const body=sample.map(r=>`${r.mes},${r.nome},${r.gerencia},${r.score},${r.perc_meta},${r.cupom}`).join('\n');
+    const blob=new Blob([header+body],{type:'text/csv'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;
+    a.download='modelo_ranking_operacao_altitude.csv';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
   });
 })();
 </script>
+
 </body>
 </html>
-
