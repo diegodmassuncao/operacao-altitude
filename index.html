@@ -80,17 +80,16 @@
   .btn.secondary{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);box-shadow:none}
 
   /* FAIXA COM O EVEREST (AGORA TEXTO À DIREITA) */
-  .hero-title{
-    position:relative;
-    display:flex;
-    align-items:flex-end;
-    justify-content:flex-end;   /* <-- joga o texto pro lado direito */
-    min-height:170px;
-    padding:58px 20px 40px;
-    background:linear-gradient(180deg, rgba(17,66,151,1) 0%, rgba(17,66,151,.4) 100%);
-    border-bottom:3px solid rgba(255,255,255,.03);
-    overflow:hidden;
-  }
+  ..hero-title {
+  position: relative;
+  min-height: 220px; /* aumenta a faixa */
+  display: flex;
+  align-items: flex-end; /* texto desce */
+  justify-content: flex-end;
+  padding: 0 3.5rem 20px; /* margem inferior pro texto */
+  background: url("./Elemento.png") center top/cover no-repeat,
+              linear-gradient(180deg, #114297 0%, #114297 100%);
+}
   .hero-title::before{
   content:"";
   position:absolute;
