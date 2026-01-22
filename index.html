@@ -230,6 +230,45 @@
       font-weight:850;
       letter-spacing:.2px;
     }
+/* termômetro da escalada */
+.meter{
+  margin-top:10px;
+}
+.meter-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+.meter-top .label{
+  font-size:.72rem;
+  opacity:.82;
+}
+.meter-top .value{
+  font-size:.95rem;
+  font-weight:850;
+}
+.meter-bar{
+  height:12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.12);
+  overflow:hidden;
+}
+.meter-fill{
+  height:100%;
+  width:var(--progress, 0%);
+  background:linear-gradient(90deg, rgba(212,216,1,.95), rgba(221,48,62,.95));
+  border-radius:999px;
+}
+.meter-legend{
+  display:flex;
+  justify-content:space-between;
+  font-size:.68rem;
+  opacity:.72;
+  margin-top:6px;
+}
 
     .tiny{
       font-size:.7rem;
@@ -441,11 +480,22 @@
             <div class="tile-value">R$ 5.838.753</div>
           </div>
           <div class="tile">
-            <div class="tile-label">Ritmo atual da escalada</div>
-            <div class="tile-value">79,34%</div>
-          </div>
-        </div>
+  <div class="meter" style="--progress:79.34%;">
+    <div class="meter-top">
+      <div class="label">Ritmo atual da escalada</div>
+      <div class="value">79,34%</div>
+    </div>
 
+    <div class="meter-bar" aria-label="Termômetro da escalada">
+      <div class="meter-fill"></div>
+    </div>
+
+    <div class="meter-legend">
+      <span>0%</span>
+      <span>100%</span>
+    </div>
+  </div>
+</div>
         <p class="tiny">*Considerando receita do Presencial.</p>
         <img src="Icone_escalada.png" class="icone-campanha" alt="Ícone da Operação Altitude">
       </aside>
