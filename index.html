@@ -375,6 +375,64 @@
       .hero-title h1{text-align:center;font-size:2.05rem}
       .cta-bar .wrap{width:96%;justify-content:center}
     }
+    /* AJUSTES DO PAINEL (cole acima do </style>) */
+.hero-card{
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.08);
+  overflow: hidden;
+}
+
+/* faixa de destaque no topo */
+.hero-card::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  background: rgba(212,216,1,.9);
+  opacity:.9;
+  pointer-events:none;
+}
+
+/* tiles mais “dashboard” */
+.hero-card .kpi-tiles{ gap:10px; }
+
+.hero-card .tile{
+  padding: 12px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.hero-card .tile-label{
+  font-size: .72rem;
+  opacity: .82;
+  margin-bottom: 4px;
+}
+
+.hero-card .tile-value{
+  font-size: 1.05rem;
+  font-weight: 850;
+  letter-spacing: .2px;
+}
+
+/* rodapé mais legível */
+.hero-card .tiny{
+  margin-top: 10px;
+  color: rgba(220,228,255,.72);
+}
+
+/* ícone vira marca d’água e para de competir com os números */
+.hero-card .icone-campanha{
+  width: 96px;
+  opacity: 0.10;
+  bottom: 10px;
+  right: 10px;
+  filter: saturate(0) brightness(1.6);
+  pointer-events: none;
+}
   </style>
 </head>
 <body>
