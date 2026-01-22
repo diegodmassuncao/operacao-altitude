@@ -17,6 +17,7 @@
       --shadow-1:0 6px 16px rgba(0,0,0,.12);
       --shadow-2:0 10px 24px rgba(0,0,0,.2);
       --line:#dfe3ff;
+      --accent:#D4D801;
     }
     *{box-sizing:border-box}
     body{
@@ -112,20 +113,19 @@
     .hero-title{
       position:relative;
       min-height:360px;
-      background:
-      url("./Topo.png") center 80% / contain no-repeat;
-              display:flex;
+      background:url("./Topo.png") center 80% / contain no-repeat;
+      display:flex;
       align-items:flex-end;
       padding:0 20px 20px;
     }
-        .hero-title h1{
+    .hero-title h1{
       position:relative;
       z-index:1;
       margin:0 auto;
       max-width:1180px;
       width:100%;
       text-align:right;
-      color:#d4d801;
+      color:var(--accent);
       font-size:2.4rem;
       font-weight:900;
       text-shadow:0 6px 16px rgba(0,0,0,.35);
@@ -171,35 +171,70 @@
       margin-top:14px;
       flex-wrap:wrap;
     }
-  .hero-card{
-  position: relative;
-  background: #D4D801;
-  border-radius: var(--radius);
-  padding: 18px;
-  color: #0f1535;
-  box-shadow: var(--shadow-1);
-}
-    .icone-campanha{
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  width: 72px;
-  opacity: 0.9;
-}
+
+    /* painel de resultado */
+    .hero-card{
+      position: relative;
+      background: linear-gradient(180deg,#0f1535 0%,#091538 100%);
+      border-radius: var(--radius);
+      padding: 18px;
+      color: #fff;
+      box-shadow: var(--shadow-1);
+      border: 1px solid rgba(212,216,1,.22);
+      overflow: hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius: var(--radius);
+      background: radial-gradient(900px 260px at 10% 0%, rgba(212,216,1,.18), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-card h3{
+      color:var(--accent);
+    }
+    .hero-card .lead{
+      color: rgba(255,255,255,.88) !important;
+    }
+
     .kpi-tiles{
       display:grid;
       gap:8px;
       margin-top:12px;
     }
     .tile{
-      background:rgba(7,11,40,.35);
-      border:1px solid rgba(255,255,255,.03);
-      border-radius:10px;
-      padding:.5rem .6rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 12px;
+      padding: .65rem .75rem;
     }
-    .tile-label{font-size:.7rem;opacity:.7}
-    .tile-value{font-weight:600;font-size:.85rem}
-    .tiny{font-size:.7rem;color:rgba(203,210,255,.7);margin-top:6px}
+    .tile-label{
+      font-size: .72rem;
+      opacity: .78;
+    }
+    .tile-value{
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: .2px;
+    }
+    .tiny{
+      font-size:.7rem;
+      color:rgba(203,210,255,.7);
+      margin-top:6px;
+    }
+
+    /* ícone como marca d'água */
+    .icone-campanha{
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      width: 82px;
+      opacity: 0.22;
+      filter: saturate(0) brightness(1.4);
+      pointer-events: none;
+      z-index: 1;
+    }
 
     /* seções gerais */
     section{padding:20px 0 28px}
@@ -370,12 +405,11 @@
   <div class="cta-bar">
     <div class="wrap">
       <a class="btn" href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank" rel="noopener">Regulamento</a>
-          </div>
+    </div>
   </div>
 
   <!-- faixa visual -->
-  <section class="hero-title">
-  </section>
+  <section class="hero-title"></section>
 
   <!-- hero principal -->
   <section class="hero" id="home">
@@ -391,14 +425,18 @@
           <a class="btn" href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank" rel="noopener">Regulamento</a>
         </div>
       </div>
+
       <aside class="hero-card" aria-label="Resultado acumulado da Operação Altitude.">
-        <h3 style="margin-top:0">Resultado acumulado da Operação Altitude</h3>
-        <p class="lead" style="color:rgba(234,238,255,.92);max-width:none">
+        <h3 style="margin-top:0; position:relative; z-index:2;">Resultado acumulado da Operação Altitude</h3>
+
+        <!-- removi o inline style de cor, deixando só max-width -->
+        <p class="lead" style="max-width:none; position:relative; z-index:2;">
           Receita acumulada das operações elegíveis da campanha, mostrando o avanço coletivo rumo à meta do período.
         </p>
-        <div class="kpi-tiles">
+
+        <div class="kpi-tiles" style="position:relative; z-index:2;">
           <div class="tile">
-            <div class="tile-label"> Meta do período (Janeiro 2026)</div>
+            <div class="tile-label">Meta do período (Janeiro 2026)</div>
             <div class="tile-value">R$ 11.100.828</div>
           </div>
           <div class="tile">
@@ -410,7 +448,8 @@
             <div class="tile-value">79,34%</div>
           </div>
         </div>
-        <p class="tiny">*Considerando receita do Presencial.</p>
+
+        <p class="tiny" style="position:relative; z-index:2;">*Considerando receita do Presencial.</p>
         <img src="Icone_escalada.png" class="icone-campanha" alt="Ícone da Operação Altitude">
       </aside>
     </div>
@@ -611,7 +650,7 @@
             </div>
             <div class="card">
               <h4>Mensal – urnas</h4>
-              <p>70% da meta: 1 cupom. 80% da meta: 2 cupons. A cada 10 p.p. acima de 80% você ganha mais 1.</p>
+              <p>70% da meta: 1 cupom. 80% da meta: 2 cupons. A cada 10 p.p. acima de 80% você ganha cupom extra.</p>
             </div>
             <div class="card">
               <h4>Trimestral</h4>
