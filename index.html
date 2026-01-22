@@ -19,6 +19,7 @@
       --line:#dfe3ff;
       --accent:#D4D801;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -30,14 +31,12 @@
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
 
-    /* estrutura principal */
     .container{
       max-width:1180px;
       margin:0 auto;
       padding:0 20px;
     }
 
-    /* topo */
     header{
       position:sticky;
       top:0;
@@ -71,7 +70,6 @@
       color:#fff;
     }
 
-    /* barra fixa embaixo */
     .cta-bar{
       position:fixed;
       left:0;
@@ -109,7 +107,6 @@
       border:1px solid rgba(255,255,255,.18);
     }
 
-    /* faixa do topo com montanhas */
     .hero-title{
       position:relative;
       min-height:360px;
@@ -118,21 +115,7 @@
       align-items:flex-end;
       padding:0 20px 20px;
     }
-    .hero-title h1{
-      position:relative;
-      z-index:1;
-      margin:0 auto;
-      max-width:1180px;
-      width:100%;
-      text-align:right;
-      color:var(--accent);
-      font-size:2.4rem;
-      font-weight:900;
-      text-shadow:0 6px 16px rgba(0,0,0,.35);
-      letter-spacing:.5px;
-    }
 
-    /* hero principal */
     .hero{
       padding:36px 0 40px;
       background:#fff;
@@ -143,6 +126,7 @@
       gap:26px;
       align-items:start;
     }
+
     .pill{
       display:inline-flex;
       align-items:center;
@@ -154,17 +138,20 @@
       font-size:.75rem;
       color:#0f1535;
     }
+
     .hero-title-lg{
       font-size:clamp(2rem,3.4vw,3.2rem);
       margin:12px 0 8px;
       font-weight:900;
       letter-spacing:.1px;
     }
+
     .lead{
       color:#4a5373;
       font-size:.98rem;
       max-width:580px;
     }
+
     .hero-ctas{
       display:flex;
       gap:12px;
@@ -172,75 +159,99 @@
       flex-wrap:wrap;
     }
 
-    /* painel de resultado */
+    /* ===== painel (versão final, única) ===== */
     .hero-card{
-      position: relative;
-      background: linear-gradient(180deg,#0f1535 0%,#091538 100%);
-      border-radius: var(--radius);
-      padding: 18px;
-      color: #fff;
-      box-shadow: var(--shadow-1);
-      border: 1px solid rgba(212,216,1,.22);
-      overflow: hidden;
+      position:relative;
+      border-radius:16px;
+      padding:18px;
+      color:#fff;
+      overflow:hidden;
+
+      background:linear-gradient(180deg,#0f1535 0%,#091538 100%);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 12px 28px rgba(0,0,0,.18);
     }
+
     .hero-card::before{
       content:"";
       position:absolute;
       inset:0;
-      border-radius: var(--radius);
-      background: radial-gradient(900px 260px at 10% 0%, rgba(212,216,1,.18), transparent 55%);
+      background:radial-gradient(900px 260px at 10% 0%, rgba(212,216,1,.18), transparent 55%);
       pointer-events:none;
     }
+
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:3px;
+      background:rgba(212,216,1,.9);
+      pointer-events:none;
+    }
+
+    .hero-card > *{
+      position:relative;
+      z-index:2;
+    }
+
     .hero-card h3{
+      margin-top:0;
       color:var(--accent);
     }
+
     .hero-card .lead{
-      color: rgba(255,255,255,.88) !important;
+      color:rgba(255,255,255,.88);
+      max-width:none;
     }
 
     .kpi-tiles{
       display:grid;
-      gap:8px;
+      gap:10px;
       margin-top:12px;
     }
+
     .tile{
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 12px;
-      padding: .65rem .75rem;
+      padding:12px;
+      border-radius:14px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
     }
+
     .tile-label{
-      font-size: .72rem;
-      opacity: .78;
+      font-size:.72rem;
+      opacity:.82;
+      margin-bottom:4px;
     }
+
     .tile-value{
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: .2px;
+      font-size:1.05rem;
+      font-weight:850;
+      letter-spacing:.2px;
     }
+
     .tiny{
       font-size:.7rem;
-      color:rgba(203,210,255,.7);
-      margin-top:6px;
+      color:rgba(220,228,255,.72);
+      margin-top:10px;
     }
 
-    /* ícone como marca d'água */
     .icone-campanha{
-      position: absolute;
-      bottom: 14px;
-      right: 14px;
-      width: 82px;
-      opacity: 0.22;
-      filter: saturate(0) brightness(1.4);
-      pointer-events: none;
-      z-index: 1;
+      position:absolute;
+      right:12px;
+      bottom:12px;
+      width:96px;
+
+      opacity:.10;
+      filter:saturate(0) brightness(1.6);
+      pointer-events:none;
+      z-index:1;
     }
 
-    /* seções gerais */
     section{padding:20px 0 28px}
     h3{margin-bottom:6px}
 
-    /* manifesto */
     .m-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -265,7 +276,6 @@
       margin-bottom:6px;
     }
 
-    /* cards padrão */
     .grid{display:grid;gap:16px}
     .cols-3{grid-template-columns:repeat(3,1fr)}
     .cols-2{grid-template-columns:repeat(2,1fr)}
@@ -277,7 +287,6 @@
       box-shadow:var(--shadow-1);
     }
 
-    /* equipes */
     .team-card header{
       display:flex;
       gap:10px;
@@ -297,7 +306,6 @@
       font-weight:600;
     }
 
-    /* tabela rápida */
     .quick-table{
       width:100%;
       border-collapse:collapse;
@@ -313,7 +321,6 @@
     }
     .quick-table th{background:rgba(5,10,27,.4)}
 
-    /* tabs */
     .tabs{
       display:flex;
       gap:6px;
@@ -335,7 +342,6 @@
     }
     .tabpanel[hidden]{display:none}
 
-    /* ranking */
     table{width:100%;border-collapse:collapse}
     th,td{padding:.5rem .5rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.03)}
     th{background:rgba(7,10,38,.15);color:#fff}
@@ -349,7 +355,6 @@
       padding:.45rem .5rem;
     }
 
-    /* botão subir */
     #toTop{
       position:fixed;
       right:20px;
@@ -367,77 +372,16 @@
       border-top:1px solid rgba(11,19,49,.04);
     }
 
-    /* responsivo */
     @media (max-width:980px){
       .navlinks{display:none}
       .hero-wrap{grid-template-columns:1fr}
       .m-grid,.cols-3,.cols-2{grid-template-columns:1fr}
-      .hero-title h1{text-align:center;font-size:2.05rem}
       .cta-bar .wrap{width:96%;justify-content:center}
     }
-    /* AJUSTES DO PAINEL (cole acima do </style>) */
-
-  .hero-card{
-  position:relative;
-  border-radius:16px;
-  box-shadow:0 12px 28px rgba(0,0,0,.18);
-  border:1px solid rgba(255,255,255,.08);
-  overflow:hidden;
-}
-
-.hero-card::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:3px;
-  background:rgba(212,216,1,.9);
-  pointer-events:none;
-}
-
-.hero-card .kpi-tiles{
-  gap:10px;
-}
-
-.hero-card .tile{
-  padding:12px;
-  border-radius:14px;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-}
-
-.hero-card .tile-label{
-  font-size:.72rem;
-  opacity:.82;
-  margin-bottom:4px;
-}
-
-.hero-card .tile-value{
-  font-size:1.05rem;
-  font-weight:850;
-}
-
-.hero-card .tiny{
-  margin-top:10px;
-  color:rgba(220,228,255,.72);
-}
-
-.hero-card .icone-campanha{
-  position:absolute;
-  width:96px;
-  opacity:.10;
-  bottom:10px;
-  right:10px;
-  filter:saturate(0) brightness(1.6);
-  pointer-events:none;
-}
-
   </style>
 </head>
 <body>
 
-  <!-- topo -->
   <header>
     <div class="container">
       <nav>
@@ -459,17 +403,14 @@
     </div>
   </header>
 
-  <!-- barra fixa -->
   <div class="cta-bar">
     <div class="wrap">
       <a class="btn" href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank" rel="noopener">Regulamento</a>
     </div>
   </div>
 
-  <!-- faixa visual -->
   <section class="hero-title"></section>
 
-  <!-- hero principal -->
   <section class="hero" id="home">
     <div class="container hero-wrap">
       <div>
@@ -485,14 +426,12 @@
       </div>
 
       <aside class="hero-card" aria-label="Resultado acumulado da Operação Altitude.">
-        <h3 style="margin-top:0; position:relative; z-index:2;">Resultado acumulado da Operação Altitude</h3>
-
-        <!-- removi o inline style de cor, deixando só max-width -->
-        <p class="lead" style="max-width:none; position:relative; z-index:2;">
+        <h3>Resultado acumulado da Operação Altitude</h3>
+        <p class="lead">
           Receita acumulada das operações elegíveis da campanha, mostrando o avanço coletivo rumo à meta do período.
         </p>
 
-        <div class="kpi-tiles" style="position:relative; z-index:2;">
+        <div class="kpi-tiles">
           <div class="tile">
             <div class="tile-label">Meta do período (Janeiro 2026)</div>
             <div class="tile-value">R$ 11.100.828</div>
@@ -507,13 +446,12 @@
           </div>
         </div>
 
-        <p class="tiny" style="position:relative; z-index:2;">*Considerando receita do Presencial.</p>
+        <p class="tiny">*Considerando receita do Presencial.</p>
         <img src="Icone_escalada.png" class="icone-campanha" alt="Ícone da Operação Altitude">
       </aside>
     </div>
   </section>
 
-  <!-- manifesto -->
   <section id="sobre">
     <div class="container">
       <h3>Manifesto Altitude</h3>
@@ -547,7 +485,6 @@
     </div>
   </section>
 
-  <!-- equipes -->
   <section id="equipes">
     <div class="container">
       <h3>Equipes da Expedição</h3>
@@ -581,7 +518,6 @@
     </div>
   </section>
 
-  <!-- jornada -->
   <section id="jornada">
     <div class="container">
       <h3>Jornada da Expedição</h3>
@@ -597,7 +533,6 @@
     </div>
   </section>
 
-  <!-- regulamento -->
   <section id="regulamento">
     <div class="container">
       <h3>Regulamento (versão institucional)</h3>
@@ -740,7 +675,6 @@
     </div>
   </section>
 
-  <!-- premiações simplificadas -->
   <section id="premios">
     <div class="container">
       <h3>Como desbloquear premiações</h3>
@@ -753,7 +687,6 @@
     </div>
   </section>
 
-  <!-- ranking -->
   <section id="ranking">
     <div class="container">
       <h3>Ranking de destaques</h3>
@@ -791,7 +724,6 @@
     </div>
   </section>
 
-  <!-- faq -->
   <section id="faq">
     <div class="container">
       <h3>FAQ – perguntas frequentes</h3>
@@ -811,7 +743,6 @@
   <button id="toTop" class="btn" aria-label="Voltar ao topo">↑</button>
 
   <script>
-    /* esconder barra fixa ao rolar no mobile */
     (function(){
       const bar=document.querySelector('.cta-bar');
       let lastY=window.scrollY;
@@ -826,7 +757,6 @@
       },{passive:true});
     })();
 
-    /* botão voltar ao topo */
     (function(){
       const btn=document.getElementById('toTop');
       window.addEventListener('scroll',()=>{
@@ -835,7 +765,6 @@
       btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
     })();
 
-    /* tabs do regulamento */
     (function(){
       const tabs=document.querySelectorAll('#regulamento [role="tab"]');
       const panels=document.querySelectorAll('#regulamento .tabpanel');
@@ -863,7 +792,6 @@
       open(first);
     })();
 
-    /* links das equipes abrindo metas */
     document.querySelectorAll('a.link-metas[href="#tab3"]').forEach(a=>{
       a.addEventListener('click',e=>{
         e.preventDefault();
@@ -873,7 +801,6 @@
       });
     });
 
-    /* ranking demo + csv */
     (function(){
       const sample=[
         {mes:'2026-01',nome:'Junia Melo',gerencia:'Comercial',score:980,perc_meta:112,cupons:5},
