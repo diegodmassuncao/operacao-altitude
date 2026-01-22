@@ -297,6 +297,46 @@ body .tiny{
 }
 
     section{padding:20px 0 28px}
+    /* seção "Como funciona" */
+.steps-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:12px;
+}
+
+.step-card{
+  background:linear-gradient(180deg,#0c123f 0%,#090d2f 100%);
+  border-radius:var(--radius);
+  padding:14px;
+  color:#fff;
+  box-shadow:var(--shadow-1);
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.step-ico{
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  object-fit:contain;
+}
+
+.step-card h4{
+  margin:2px 0 6px;
+}
+
+.step-card .tiny{
+  margin-top:0;
+  color:rgba(232,237,255,.78);
+}
+
+/* responsivo */
+@media (max-width:980px){
+  .steps-grid{grid-template-columns:1fr}
+}
+
     /* destaques da semana */
 .highlights{
   padding:10px 0 28px;
@@ -685,6 +725,63 @@ body .tiny{
       </div>
     </div>
   </section>
+  <section id="como-funciona">
+  <div class="container">
+    <h3>Como funciona a escalada</h3>
+    <p class="lead">Em poucos passos você entende a dinâmica e onde acompanhar seus resultados.</p>
+
+    <div class="steps-grid">
+      <article class="step-card">
+        <img class="step-ico" src="./icons/ico_rota.png" alt="">
+        <div>
+          <h4>Entenda a rota</h4>
+          <p class="tiny">Campo Base, rota e cume. Tudo explicado em um lugar só.</p>
+        </div>
+      </article>
+
+      <article class="step-card">
+        <img class="step-ico" src="./icons/ico_metas.png" alt="">
+        <div>
+          <h4>Confira as metas</h4>
+          <p class="tiny">Clique em “Ver metas” para ir direto ao regulamento.</p>
+        </div>
+      </article>
+
+      <article class="step-card">
+        <img class="step-ico" src="./icons/ico_cupons.png" alt="">
+        <div>
+          <h4>Ganhe cupons</h4>
+          <p class="tiny">Bateu sua meta, você entra nas urnas e acumula chances.</p>
+        </div>
+      </article>
+
+      <article class="step-card">
+        <img class="step-ico" src="./icons/ico_ranking.png" alt="">
+        <div>
+          <h4>Acompanhe o ranking</h4>
+          <p class="tiny">Veja a tabela por mês e por gerência.</p>
+        </div>
+      </article>
+
+      <article class="step-card">
+        <img class="step-ico" src="./icons/ico_destaques.png" alt="">
+        <div>
+          <h4>Destaques da semana</h4>
+          <p class="tiny">O que mudou nos últimos dias e quem puxou o time.</p>
+        </div>
+      </article>
+
+      <article class="step-card">
+        <img class="step-ico" src="./icons/ico_premios.png" alt="">
+        <div>
+          <h4>Premiações</h4>
+          <p class="tiny">Semanal, mensal, trimestral e anual, conforme o regulamento.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 
   <section id="equipes">
     <div class="container">
