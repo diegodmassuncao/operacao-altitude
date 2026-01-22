@@ -1091,12 +1091,16 @@ body .tiny{
       }
 
       tabs.forEach(t=>{
-        t.addEventListener('click',()=>{
-          const id=t.getAttribute('aria-controls');
-          open(id);
-          location.hash=id;
-                  });
-      });
+  t.addEventListener('click', e=>{
+    e.preventDefault();
+
+    const id = t.getAttribute('aria-controls');
+    open(id);
+
+    // Atualiza a URL sem causar scroll
+    history.replaceState(null, '', '#'+id);
+  });
+});
 
       const first=location.hash.slice(1) || tabs[0].getAttribute('aria-controls');
       open(first);
