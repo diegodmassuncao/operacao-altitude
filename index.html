@@ -674,41 +674,148 @@ html {
         </div>
       </div>
 
-      <aside class="hero-card" aria-label="Resultado acumulado da Operação Altitude.">
-        <h3>Resultado acumulado da Operação Altitude</h3>
-        <p class="lead">
-          Receita acumulada das operações elegíveis da campanha, mostrando o avanço coletivo rumo à meta do período.
-        </p>
+      <div id="meta"></div>
+<div style="
+  max-width:520px;
+  padding:36px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#0B1C48,#081433);
+  color:white;
+  font-family:Arial, sans-serif;
+  box-shadow:0 25px 50px rgba(0,0,0,0.28);
+">
 
-        <div class="kpi-tiles">
-          <div class="tile">
-            <div class="tile-label">Meta do período (Janeiro 2026)</div>
-            <div class="tile-value">R$ 11.100.828</div>
-          </div>
-          <div class="tile">
-            <div class="tile-label">Receita acumulada</div>
-            <div class="tile-value">R$ 5.838.753</div>
-          </div>
-          <div class="tile">
-  <div class="meter" style="--progress:79.34%;">
-    <div class="meter-top">
-      <div class="label">Ritmo atual da escalada</div>
-      <div class="value">79,34%</div>
-    </div>
+  <div style="font-size:20px; font-weight:700; margin-bottom:24px; color:#C7F000;">
+    Resultado acumulado da Operação Altitude
+  </div>
 
-    <div class="meter-bar" aria-label="Termômetro da escalada">
-      <div class="meter-fill"></div>
-    </div>
-
-    <div class="meter-legend">
-      <span>0%</span>
-      <span>100%</span>
+  <!-- META OFICIAL -->
+  <div style="background:rgba(255,255,255,0.04); padding:18px 20px; border-radius:16px; margin-bottom:14px;">
+    <div style="font-size:12px; opacity:0.6; margin-bottom:4px;">Meta 2026</div>
+    <div style="font-size:22px; font-weight:700;">R$ 128.000.000</div>
+    <div style="font-size:11px; opacity:0.5; margin-top:4px;">
+      Meta representa +35% sobre o resultado de 2025
     </div>
   </div>
+
+  <!-- RECEITA ACUMULADA -->
+  <div style="background:rgba(255,255,255,0.04); padding:18px 20px; border-radius:16px; margin-bottom:14px;">
+    <div style="font-size:12px; opacity:0.6; margin-bottom:4px;">Receita acumulada no ano</div>
+    <div id="receitaAnoTexto" style="font-size:22px; font-weight:700;">R$ 0</div>
+  </div>
+
+  <!-- FALTA PARA META -->
+  <div style="background:rgba(255,255,255,0.04); padding:16px 20px; border-radius:16px; margin-bottom:26px;">
+    <div style="font-size:12px; opacity:0.6; margin-bottom:4px;">Faltam para a meta</div>
+    <div id="faltaMeta" style="font-size:18px; font-weight:700;">R$ 0</div>
+  </div>
+
+  <div style="font-size:13px; opacity:0.6; margin-bottom:8px;">
+    Progresso rumo à meta 2026
+  </div>
+
+  <div id="percentualAnual" style="
+    font-size:36px;
+    font-weight:800;
+    color:#C7F000;
+    margin-bottom:10px;
+  ">
+    0%
+  </div>
+
+  <!-- STATUS AUTOMÁTICO -->
+  <div id="statusMeta" style="
+    margin-bottom:18px;
+    font-size:13px;
+    font-weight:600;
+    opacity:0.85;
+  ">
+  </div>
+
+  <div style="
+    width:100%;
+    background:rgba(255,255,255,0.12);
+    border-radius:20px;
+    height:14px;
+    overflow:hidden;
+  ">
+    <div id="barraAnual" style="
+      width:0%;
+      height:100%;
+      background:#C7F000;
+      border-radius:20px;
+      transition:width 1.8s ease-out;
+    "></div>
+  </div>
+
+  <div style="
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    opacity:0.5;
+    margin-top:6px;
+  ">
+    <span>0%</span>
+    <span>100%</span>
+  </div>
+
 </div>
-        <p class="tiny">*Considerando receita do Presencial.</p>
-        <img src="Icone_escalada.png" class="icone-campanha" alt="Ícone da Operação Altitude">
-      </aside>
+
+<script>
+  const meta = 128000000;
+
+  // ATUALIZE AQUI MENSALMENTE
+  const receitaAno = 9332582; 
+
+  const percentual = (receitaAno / meta) * 100;
+  const falta = meta - receitaAno;
+
+  document.getElementById("receitaAnoTexto").innerText =
+    receitaAno.toLocaleString("pt-BR", {style:"currency", currency:"BRL"});
+
+  document.getElementById("faltaMeta").innerText =
+    falta.toLocaleString("pt-BR", {style:"currency", currency:"BRL"});
+
+  // STATUS INTELIGENTE
+  let mensagemStatus = "";
+
+  if (percentual < 25) {
+    mensagemStatus = "Início da jornada rumo aos R$ 128 milhões.";
+  }
+  else if (percentual < 75) {
+    mensagemStatus = "Ritmo consistente. Seguimos avançando.";
+  }
+  else if (percentual < 100) {
+    mensagemStatus = "Fase final. O topo está próximo.";
+  }
+  else {
+    mensagemStatus = "Meta atingida. Topo conquistado.";
+  }
+
+  document.getElementById("statusMeta").innerText = mensagemStatus;
+
+  // ANIMAÇÃO
+  let atual = 0;
+  const alvo = percentual;
+  const duracao = 1800;
+  const incremento = 20;
+  const passos = duracao / incremento;
+  const aumento = alvo / passos;
+
+  const contador = setInterval(() => {
+    atual += aumento;
+    if (atual >= alvo) {
+      atual = alvo;
+      clearInterval(contador);
+    }
+    document.getElementById("percentualAnual").innerText =
+      atual.toFixed(1) + "%";
+  }, incremento);
+
+  setTimeout(function(){
+    document.getElementById("barraAnual").style.width = alvo + "%";
+  }, 200);
+</script>
     </div>
   </section>
 <section class="highlights" id="destaques">
