@@ -1,536 +1,304 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Operação Altitude 2026</title>
 
 <style>
+html{scroll-behavior:smooth;}
+body{margin:0;background:#f4f6fa;font-family:Arial, sans-serif;}
 
-/* =====================================================
-   VARIÁVEIS GLOBAIS
-===================================================== */
-
-:root{
-  --primary:#dd303e;
-  --primary-hover:#ff5b68;
-  --dark:#0B1C48;
-  --dark-2:#081433;
-  --accent:#C7F000;
-  --gold:#F2B705;
+.topbar{
+background:#0B1C48;
+color:white;
+padding:14px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+width:100%;
+z-index:999;
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-
-body{
-  margin:0;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  background:#fff;
-  color:#0f1535;
+.topbar a{
+color:white;
+margin-left:18px;
+text-decoration:none;
+font-size:14px;
+opacity:.85;
 }
 
-.container{
-  max-width:1200px;
-  margin:0 auto;
-  padding:0 20px;
-}
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-header{
-  background:var(--dark-2);
-  padding:14px 0;
-  position:sticky;
-  top:0;
-  z-index:999;
-}
-
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.brand{
-  color:#fff;
-  font-weight:700;
-}
-
-.menu{
-  display:flex;
-  gap:18px;
-}
-
-.menu a{
-  color:#fff;
-  text-decoration:none;
-  font-size:14px;
-  opacity:.85;
-  transition:.3s;
-}
-
-.menu a:hover{
-  opacity:1;
-  color:var(--accent);
-}
-
-/* =====================================================
-   HERO IMAGEM
-===================================================== */
-
-.hero-title{
-  min-height:380px;
-  background:url("./Topo.png") center 80% / contain no-repeat;
-}
-
-/* =====================================================
-   HERO PRINCIPAL + META
-===================================================== */
+.topbar a:hover{opacity:1;}
 
 .hero{
-  padding:70px 0;
+margin-top:60px;
+width:100%;
 }
 
-.hero-wrap{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
+.hero img{
+width:100%;
+display:block;
 }
-
-.pill{
-  display:inline-block;
-  padding:6px 12px;
-  border-radius:999px;
-  font-size:13px;
-  background:#eef2ff;
-}
-
-.hero-heading{
-  font-size:42px;
-  font-weight:900;
-  margin:20px 0;
-}
-
-.lead{
-  font-size:16px;
-  line-height:1.6;
-  color:#4a5373;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:20px;
-  background:var(--primary);
-  color:#fff;
-  padding:12px 22px;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:600;
-}
-
-.meta-card{
-  padding:32px;
-  border-radius:22px;
-  background:linear-gradient(135deg,#0B1C48,#081433);
-  color:white;
-  box-shadow:0 25px 50px rgba(0,0,0,.28);
-}
-
-.meta-box{
-  background:rgba(255,255,255,.05);
-  padding:16px;
-  border-radius:14px;
-  margin-bottom:14px;
-}
-
-.progress{
-  height:14px;
-  background:rgba(255,255,255,.2);
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.progress-bar{
-  height:100%;
-  width:7.3%;
-  background:var(--accent);
-  transition:width 1.5s ease;
-}
-
-/* =====================================================
-   SEÇÕES PADRÃO
-===================================================== */
 
 .section{
-  padding:90px 0;
+max-width:1200px;
+margin:0 auto;
+padding:60px 30px;
 }
 
-.section-title{
-  font-size:28px;
-  margin-bottom:50px;
-  color:var(--dark);
+.cta-floating{
+position:fixed;
+right:30px;
+bottom:30px;
+background:#E63946;
+padding:14px 22px;
+border-radius:999px;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+z-index:999;
 }
 
-/* =====================================================
-   MANIFESTOS
-===================================================== */
-
-.manifesto-container{
-  display:flex;
-  gap:30px;
+.cta-floating a{
+color:white;
+text-decoration:none;
+font-weight:bold;
 }
-
-.manifesto-card{
-  flex:1;
-  background:var(--dark);
-  border-radius:30px;
-  padding:42px 36px;
-  color:white;
-  text-align:center;
-  box-shadow:0 20px 45px rgba(0,0,0,0.18);
-  transition:.3s;
-}
-
-.manifesto-card:hover{
-  transform:translateY(-6px);
-}
-
-.manifesto-card img{
-  width:110px;
-  margin-bottom:24px;
-}
-
-.manifesto-text{
-  font-size:15px;
-  line-height:1.7;
-  opacity:.92;
-  text-align:left;
-}
-
-/* =====================================================
-   ESCALADA
-===================================================== */
-
-.escalada-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.escalada-card{
-  background:linear-gradient(145deg,#0B1C48,#122A66);
-  color:white;
-  border-radius:26px;
-  padding:26px 28px;
-  box-shadow:0 14px 35px rgba(0,0,0,.15);
-  position:relative;
-}
-
-.escalada-number{
-  position:absolute;
-  right:22px;
-  top:18px;
-  font-size:52px;
-  font-weight:800;
-  opacity:.06;
-}
-
-/* RESPONSIVO */
-
-@media(max-width:980px){
-  .hero-wrap{grid-template-columns:1fr}
-  .manifesto-container{flex-direction:column}
-  .escalada-grid{grid-template-columns:1fr}
-  .menu{display:none}
-}
-
 </style>
 </head>
+
 <body>
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
-<header>
-  <div class="container">
-    <nav>
-      <div class="brand">Operação Altitude 2026</div>
-      <div class="menu">
-        <a href="#home">Início</a>
-        <a href="#manifestos">Manifestos</a>
-        <a href="#escalada">Escalada</a>
-        <a href="#regras">Regras</a>
-        <a href="#simulador">Simulador</a>
-        <a href="#ranking">Ranking</a>
-        <a href="#premiacao">Premiações</a>
-        <a href="#faq">FAQ</a>
-      </div>
-    </nav>
+<div class="topbar">
+  <div><strong>Operação Altitude 2026</strong></div>
+  <div>
+    <a href="#inicio">Início</a>
+    <a href="#manifestos">Manifestos</a>
+    <a href="#escalada">Escalada</a>
+    <a href="#regras">Regras</a>
+    <a href="#simulador">Simulador</a>
+    <a href="#ranking">Ranking</a>
+    <a href="#premiacao">Premiações</a>
+    <a href="#faq">FAQ</a>
   </div>
-</header>
+</div>
 
+<section id="inicio" class="hero">
+<img src="SUA-IMAGEM-DA-MONTANHA-AQUI">
+</section>
 <!-- =====================================================
-     HERO IMAGEM
+     HERO + META
 ===================================================== -->
 
-<section class="hero-title"></section>
+<section class="section">
 
-<!-- =====================================================
-     HERO PRINCIPAL
-===================================================== -->
+<div style="display:flex;gap:60px;flex-wrap:wrap;align-items:center;">
 
-<section class="hero" id="home">
-  <div class="container hero-wrap">
+<div style="flex:1;min-width:300px;">
+<span style="background:#e6ecf5;padding:6px 12px;border-radius:999px;font-size:12px;">
+Campanha de Incentivos • 01 jan – 31 dez 2026
+</span>
 
-    <div>
-      <span class="pill">Campanha de Incentivos • 01 jan – 31 dez 2026</span>
-      <h1 class="hero-heading">Você ainda não conhece os seus limites!</h1>
-      <p class="lead">
-        2026 será o nosso Everest. Uma jornada coletiva rumo ao topo, com disciplina, trabalho em equipe e superação.
-        A Operação Altitude reconhece performance com premiações semanais, mensais, trimestrais e um grande prêmio anual.
-      </p>
+<h1 style="font-size:38px;margin:20px 0;color:#0B1C48;">
+Você ainda não conhece os seus limites!
+</h1>
 
-      <a class="btn"
-         href="https://docs.google.com/document/d/1GiB-JRvpjppz62VAk55f9qui7JCrsgfi/edit?usp=sharing&ouid=109176490159837285946&rtpof=true&sd=true"
-         target="_blank">
-         Regulamento
-      </a>
-    </div>
+<p style="line-height:1.6;color:#4a5568;">
+2026 será o nosso Everest. Uma jornada coletiva rumo ao topo, com disciplina, trabalho em equipe e superação.
+A Operação Altitude reconhece performance com premiações semanais, mensais, trimestrais e um grande prêmio anual.
+</p>
 
-    <div>
-      <div class="meta-card">
-        <h3>Resultado acumulado da Operação Altitude</h3>
+<a href="https://docs.google.com/document/d/1GiB-JRvpjppz62VAk55f9qui7JCrsgfi/edit?usp=sharing&ouid=109176490159837285946&rtpof=true&sd=true"
+target="_blank"
+style="display:inline-block;margin-top:20px;background:#E63946;color:white;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:bold;">
+Regulamento
+</a>
+</div>
 
-        <div class="meta-box">
-          <div>Meta 2026</div>
-          <strong>R$ 128.000.000</strong>
-        </div>
+<div style="flex:1;min-width:300px;max-width:450px;background:#0B1C48;color:white;padding:30px;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,.2);">
 
-        <div class="meta-box">
-          <div>Receita acumulada no ano</div>
-          <strong>R$ 9.332.582,00</strong>
-        </div>
+<h3 style="margin-top:0;">Resultado acumulado da Operação Altitude</h3>
 
-        <div class="meta-box">
-          <div>Faltam para a meta</div>
-          <strong>R$ 118.667.418,00</strong>
-        </div>
+<p><strong>Meta 2026</strong><br>R$ 128.000.000</p>
+<p><strong>Receita acumulada</strong><br>R$ 9.332.582,00</p>
+<p><strong>Faltam para a meta</strong><br>R$ 118.667.418,00</p>
 
-        <div style="margin-top:20px;">Progresso rumo à meta</div>
-        <div style="font-size:32px;font-weight:800;color:#C7F000;">7.3%</div>
+<p style="margin-top:20px;">Progresso rumo à meta</p>
+<div style="background:#243b6b;height:12px;border-radius:20px;overflow:hidden;">
+<div style="width:7.3%;height:100%;background:#C7F000;"></div>
+</div>
+<p style="color:#C7F000;font-weight:bold;">7.3%</p>
 
-        <div class="progress">
-          <div class="progress-bar"></div>
-        </div>
-      </div>
-    </div>
+</div>
 
-  </div>
+</div>
 </section>
 
 <!-- =====================================================
      MANIFESTOS
 ===================================================== -->
 
-<section class="section" id="manifestos">
-  <div class="container">
-    <h2 class="section-title">Manifestos das Tribos Altitude</h2>
+<section id="manifestos" class="section">
+<h2 style="color:#0B1C48;">Manifestos das Tribos Altitude</h2>
 
-    <div class="manifesto-container">
+<div style="display:flex;gap:30px;flex-wrap:wrap;margin-top:40px;">
 
-      <div class="manifesto-card">
-        <img src="https://drive.google.com/thumbnail?id=10TfeDJnS8ZtH320q_Azgxr10KoeZ4w2D&sz=w1000">
-        <h3 style="color:#2cc4f4;">Engenheiros do Gelo</h3>
-        <p class="manifesto-text">
-          Sem essa engenharia, não existiria o caminho.
-          Com coragem e estratégia, constroem as passagens que ligam desafios às conquistas.
-          Cada negociação é um passo firme sobre o terreno congelado.
-          Transformam oportunidades em resultados com precisão e confiança.
-        </p>
-      </div>
+<div style="flex:1;min-width:280px;background:#0B1C48;color:white;padding:30px;border-radius:20px;">
+<h3 style="color:#2cc4f4;">Engenheiros do Gelo</h3>
+<p>Sem essa engenharia, não existiria o caminho. Constroem as passagens que ligam desafios às conquistas.</p>
+</div>
 
-      <div class="manifesto-card">
-        <img src="https://drive.google.com/thumbnail?id=1Y1IOvkVXzRMItc6RAaSgJJYBlsGhvrLZ&sz=w1000">
-        <h3 style="color:#cc0000;">Portadores do Fogo</h3>
-        <p class="manifesto-text">
-          São a chama que mantém viva a conexão.
-          Em meio ao frio das incertezas e às tempestades da jornada,
-          irradiam calor, proximidade e confiança.
-          Transformam cada desafio em luz e cada contato em vínculo.
-        </p>
-      </div>
+<div style="flex:1;min-width:280px;background:#0B1C48;color:white;padding:30px;border-radius:20px;">
+<h3 style="color:#cc0000;">Portadores do Fogo</h3>
+<p>São a chama que mantém viva a conexão. Transformam cada desafio em luz.</p>
+</div>
 
-      <div class="manifesto-card">
-        <img src="https://drive.google.com/thumbnail?id=1KTzwb3S5HanMVfW0DkCjW2u4FOpba0Mb&sz=w1000">
-        <h3 style="color:#387a5e;">Domadores dos Ventos</h3>
-        <p class="manifesto-text">
-          Guardiões da estabilidade em meio ao imprevisível.
-          Onde as correntes mudam e tudo parece escapar,
-          mantêm o controle e garantem que a jornada continue firme.
-          Transformam turbulência em constância e sopros incertos em ventos favoráveis.
-        </p>
-      </div>
+<div style="flex:1;min-width:280px;background:#0B1C48;color:white;padding:30px;border-radius:20px;">
+<h3 style="color:#387a5e;">Domadores dos Ventos</h3>
+<p>Guardam estabilidade no imprevisível. Transformam turbulência em constância.</p>
+</div>
 
-    </div>
-  </div>
+</div>
 </section>
 
 <!-- =====================================================
      ESCALADA
 ===================================================== -->
 
-<section class="section" id="escalada">
-  <div class="container">
-    <h2 class="section-title">Como funciona a escalada</h2>
+<section id="escalada" class="section">
 
-    <div class="escalada-grid">
+<h2 style="color:#0B1C48;">Como funciona a escalada</h2>
 
-      <div class="escalada-card">
-        <div class="escalada-number">01</div>
-        <h4>Entenda a jornada</h4>
-        <p>A Operação Altitude é dividida em Campo Base, Rota e Cume.</p>
-      </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px;">
 
-      <div class="escalada-card">
-        <div class="escalada-number">02</div>
-        <h4>Cumpra sua meta</h4>
-        <p>O desempenho é medido pelo atingimento da meta individual.</p>
-      </div>
+<div style="background:#0B1C48;color:white;padding:20px;border-radius:20px;">
+<strong>01</strong>
+<p>Entenda a jornada</p>
+</div>
 
-      <div class="escalada-card">
-        <div class="escalada-number">03</div>
-        <h4>Acumule cupons</h4>
-        <p>Ao bater sua meta no período você acumula cupons.</p>
-      </div>
+<div style="background:#0B1C48;color:white;padding:20px;border-radius:20px;">
+<strong>02</strong>
+<p>Cumpra sua meta</p>
+</div>
 
-      <div class="escalada-card">
-        <div class="escalada-number">04</div>
-        <h4>Suba no ranking</h4>
-        <p>Rankings atualizados por mês e gerência.</p>
-      </div>
+<div style="background:#0B1C48;color:white;padding:20px;border-radius:20px;">
+<strong>03</strong>
+<p>Acumule cupons</p>
+</div>
 
-      <div class="escalada-card">
-        <div class="escalada-number">05</div>
-        <h4>Resultados validados</h4>
-        <p>Todos os resultados passam por validação oficial.</p>
-      </div>
+<div style="background:#0B1C48;color:white;padding:20px;border-radius:20px;">
+<strong>04</strong>
+<p>Suba no ranking</p>
+</div>
 
-      <div class="escalada-card">
-        <div class="escalada-number">06</div>
-        <h4>Desbloqueie premiações</h4>
-        <p>Cada etapa libera novas oportunidades de reconhecimento.</p>
-      </div>
+<div style="background:#0B1C48;color:white;padding:20px;border-radius:20px;">
+<strong>05</strong>
+<p>Resultados validados</p>
+</div>
 
-    </div>
-  </div>
+<div style="background:#0B1C48;color:white;padding:20px;border-radius:20px;">
+<strong>06</strong>
+<p>Desbloqueie premiações</p>
+</div>
+
+</div>
+
 </section>
 <!-- =====================================================
      REGRAS
 ===================================================== -->
 
-<section class="section" id="regras">
-  <div class="container">
-    <h2 class="section-title">Regras que você precisa saber</h2>
+<section id="regras" class="section">
 
-    <div class="regras-exp">
+<h2 style="color:#0B1C48;">Regras que você precisa saber</h2>
 
-      <div class="regras-buttons">
-        <button onclick="showRegra(1)">Vínculo ativo</button>
-        <button onclick="showRegra(2)">Meta coletiva</button>
-        <button onclick="showRegra(3)">Meta individual</button>
-        <button onclick="showRegra(4)">Tempo mínimo</button>
-        <button onclick="showRegra(5)">Desligamento</button>
-        <button onclick="showRegra(6)">Natureza</button>
-        <button onclick="showRegra(7)">Transferência</button>
-        <button onclick="showRegra(8)">Comitê</button>
-      </div>
+<div style="margin-top:20px;">
+<button onclick="mostrarRegra(1)">Vínculo ativo</button>
+<button onclick="mostrarRegra(2)">Meta coletiva</button>
+<button onclick="mostrarRegra(3)">Meta individual</button>
+<button onclick="mostrarRegra(4)">Tempo mínimo</button>
+<button onclick="mostrarRegra(5)">Desligamento</button>
+<button onclick="mostrarRegra(6)">Natureza</button>
+<button onclick="mostrarRegra(7)">Transferência</button>
+<button onclick="mostrarRegra(8)">Comitê</button>
+</div>
 
-      <div class="regras-content" id="regraContent">
-        Somente colaboradores com vínculo ativo na data da apuração final e da entrega do prêmio fazem jus à premiação.
-      </div>
+<p id="textoRegra" style="margin-top:20px;max-width:800px;">
+Somente colaboradores com vínculo ativo na data da apuração final e da entrega do prêmio fazem jus à premiação.
+</p>
 
-    </div>
-  </div>
 </section>
 
 <!-- =====================================================
      SIMULADOR
 ===================================================== -->
 
-<section class="section" id="simulador">
-  <div class="container">
-    <h2 class="section-title">Simule sua escalada rumo ao Everest</h2>
+<section id="simulador" class="section">
 
-    <input type="number" id="percentualInput" placeholder="Digite seu percentual" oninput="calcularCupons()" />
+<h2 style="color:#0B1C48;">Simule sua escalada rumo ao Everest</h2>
 
-    <div class="progress" style="margin-top:20px;">
-      <div id="barraSimulador" class="progress-bar"></div>
-    </div>
+<input type="number" id="percentualInput" placeholder="Digite seu percentual"
+oninput="calcular()" style="margin-top:20px;padding:10px;border-radius:10px;border:1px solid #ccc;">
 
-    <div id="resultadoSimulador" style="margin-top:20px;"></div>
-  </div>
+<div style="margin-top:20px;background:#ddd;height:14px;border-radius:20px;overflow:hidden;">
+<div id="barra" style="height:100%;width:0%;background:#C7F000;"></div>
+</div>
+
+<p id="resultado" style="margin-top:15px;"></p>
+
 </section>
 
 <!-- =====================================================
      RANKING
 ===================================================== -->
 
-<section class="section" id="ranking">
-  <div class="container">
-    <h2 class="section-title">Top 20 performances</h2>
+<section id="ranking" class="section">
 
-    <div class="ranking-list">
-      <div class="ranking-item"><strong>1º</strong> Nome 1 — 112%</div>
-      <div class="ranking-item"><strong>2º</strong> Nome 2 — 109%</div>
-      <div class="ranking-item"><strong>3º</strong> Nome 3 — 105%</div>
-      <div class="ranking-item">4º Nome 4 — 104%</div>
-      <div class="ranking-item">5º Nome 5 — 103%</div>
-    </div>
-  </div>
+<h2 style="color:#0B1C48;">Top 20 performances</h2>
+
+<div style="margin-top:20px;">
+<p>1º Nome 1 — 112%</p>
+<p>2º Nome 2 — 109%</p>
+<p>3º Nome 3 — 105%</p>
+<p>4º Nome 4 — 104%</p>
+<p>5º Nome 5 — 103%</p>
+</div>
+
 </section>
 
 <!-- =====================================================
-     PREMIAÇÕES
+     PREMIAÇÃO
 ===================================================== -->
 
-<section class="section" id="premiacao">
-  <div class="container">
-    <h2 class="section-title">Premiação Anual – O Topo da Montanha</h2>
+<section id="premiacao" class="section">
 
-    <p><strong>🚗 1 CARRO 0 KM</strong></p>
-    <p>🏍 4 MOTOS 0 KM</p>
-    <p>✈ 2 viagens nacionais</p>
-    <p>🌎 2 viagens internacionais</p>
+<h2 style="color:#0B1C48;">Premiação Anual – O Topo da Montanha</h2>
 
-    <h3 style="margin-top:40px;">⏳ Contagem regressiva</h3>
-    <div id="countdown"></div>
+<p><strong>🚗 1 CARRO 0 KM</strong></p>
+<p>🏍 4 MOTOS 0 KM</p>
+<p>✈ 2 viagens nacionais</p>
+<p>🌎 2 viagens internacionais</p>
 
-  </div>
+<h3 style="margin-top:40px;">⏳ Contagem regressiva</h3>
+<p id="contador"></p>
+
 </section>
 
 <!-- =====================================================
      FAQ
 ===================================================== -->
 
-<section class="section" id="faq">
-  <div class="container">
-    <h2 class="section-title">FAQ – Operação Altitude 2026</h2>
+<section id="faq" class="section">
 
-    <div class="faq-item">
-      <strong>Quem pode participar?</strong>
-      <p>Colaboradores com vínculo CLT ativo.</p>
-    </div>
+<h2 style="color:#0B1C48;">FAQ – Operação Altitude 2026</h2>
 
-    <div class="faq-item">
-      <strong>Qual a vigência?</strong>
-      <p>De 01/01/2026 a 31/12/2026.</p>
-    </div>
+<div style="margin-top:20px;">
+<p><strong>Quem pode participar?</strong><br>
+Colaboradores com vínculo CLT ativo.</p>
 
-  </div>
+<p><strong>Qual a vigência?</strong><br>
+De 01/01/2026 a 31/12/2026.</p>
+</div>
+
 </section>
 
 <!-- =====================================================
@@ -538,10 +306,8 @@ nav{
 ===================================================== -->
 
 <div class="cta-floating">
-  <a href="https://docs.google.com/document/d/1GiB-JRvpjppz62VAk55f9qui7JCrsgfi/edit?usp=sharing&ouid=109176490159837285946&rtpof=true&sd=true"
-     target="_blank">
-     Regulamento
-  </a>
+<a href="https://docs.google.com/document/d/1GiB-JRvpjppz62VAk55f9qui7JCrsgfi/edit?usp=sharing&ouid=109176490159837285946&rtpof=true&sd=true"
+target="_blank">Regulamento</a>
 </div>
 
 <!-- =====================================================
@@ -550,35 +316,33 @@ nav{
 
 <script>
 
-function showRegra(n){
-  const textos = {
-    1:"Somente colaboradores com vínculo ativo na data da apuração final fazem jus à premiação.",
-    2:"A meta coletiva habilita os sorteios trimestrais.",
-    3:"Meta individual gera cupons.",
-    4:"É necessário cumprir 4 meses contínuos.",
-    5:"Desligamento elimina elegibilidade.",
-    6:"Premiação tem natureza não salarial.",
-    7:"Transferências podem alterar elegibilidade.",
-    8:"O Comitê valida resultados e sorteios."
-  };
-  document.getElementById("regraContent").innerText = textos[n];
+function mostrarRegra(n){
+const regras={
+1:"Vínculo ativo é obrigatório na data da apuração final.",
+2:"Meta coletiva habilita sorteios trimestrais.",
+3:"Meta individual gera cupons.",
+4:"É necessário cumprir 4 meses contínuos.",
+5:"Desligamento elimina elegibilidade.",
+6:"Premiação possui natureza não salarial.",
+7:"Transferências podem impactar elegibilidade.",
+8:"Comitê valida resultados e sorteios."
+};
+document.getElementById("textoRegra").innerText=regras[n];
 }
 
-function calcularCupons(){
-  const percentual = parseFloat(document.getElementById("percentualInput").value) || 0;
-  document.getElementById("barraSimulador").style.width = percentual + "%";
-  document.getElementById("resultadoSimulador").innerText =
-    "Percentual informado: " + percentual + "%";
+function calcular(){
+let p=parseFloat(document.getElementById("percentualInput").value)||0;
+document.getElementById("barra").style.width=p+"%";
+document.getElementById("resultado").innerText="Percentual informado: "+p+"%";
 }
 
-const targetDate = new Date("December 31, 2026 23:59:59").getTime();
+const dataFinal=new Date("December 31, 2026 23:59:59").getTime();
 
 setInterval(function(){
-  const now = new Date().getTime();
-  const distance = targetDate - now;
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  document.getElementById("countdown").innerText =
-    days + " dias restantes";
+let agora=new Date().getTime();
+let distancia=dataFinal-agora;
+let dias=Math.floor(distancia/(1000*60*60*24));
+document.getElementById("contador").innerText=dias+" dias restantes";
 },1000);
 
 </script>
