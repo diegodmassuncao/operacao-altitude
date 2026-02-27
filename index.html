@@ -220,51 +220,38 @@
   <section class="hero-title" aria-label="Topo da campanha"></section>
 
   <!-- HERO -->
-  <section class="hero-section" id="home">
-
-  <!-- CAMADA DE PROFUNDIDADE -->
-  <div class="hero-depth-layer"></div>
-
-  <div class="hero-highlight">
+  <section class="hero" id="home">
     <div class="container hero-wrap">
 
-      <!-- CARD ESQUERDO -->
-      <div class="hero-left-card reveal-left">
-
-        <span class="pill">
-          Campanha de Incentivos • 01 jan – 31 dez 2026
-        </span>
-
-        <h1 class="hero-title-lg">
-          Você ainda não conhece os seus limites!
-        </h1>
-
+      <!-- Texto -->
+      <div>
+        <span class="pill">Campanha de Incentivos • 01 jan – 31 dez 2026</span>
+        <h2 class="hero-title-lg">Você ainda não conhece os seus limites!</h2>
         <p class="lead">
-          2026 será o nosso Everest. Uma jornada coletiva rumo ao topo,
-          com disciplina, trabalho em equipe e superação.
-          A Operação Altitude reconhece performance com premiações semanais,
-          mensais, trimestrais e um grande prêmio anual.
+          2026 será o nosso Everest. Uma jornada coletiva rumo ao topo, com disciplina, trabalho em equipe e superação.
+          A Operação Altitude reconhece performance com premiações semanais, mensais, trimestrais e um grande prêmio anual.
         </p>
-
         <div class="hero-ctas">
-          <a class="btn" href="https://docs.google.com/document/d/1GiB-JRvpjppz62VAk55f9qui7JCrsgfi/edit?usp=sharing" target="_blank">
-            Regulamento
-          </a>
-        </div>
-
-      </div>
-
-      <!-- CARD META -->
-      <div class="hero-meta-wrapper reveal-right">
-        <div id="meta">
-          <!-- SEU CARD DA META CONTINUA EXATAMENTE IGUAL -->
+          <a class="btn" href="https://docs.google.com/document/d/1GiB-JRvpjppz62VAk55f9qui7JCrsgfi/edit?usp=sharing&ouid=109176490159837285946&rtpof=true&sd=true" target="_blank" rel="noopener">Regulamento</a>
         </div>
       </div>
 
-    </div>
-  </div>
+      <!-- Card Meta -->
+      <div id="meta">
+        <div style="
+          max-width:520px;
+          padding:36px;
+          border-radius:22px;
+          background:linear-gradient(135deg,#0B1C48,#081433);
+          color:white;
+          font-family:Arial, sans-serif;
+          box-shadow:0 25px 50px rgba(0,0,0,0.28);
+        ">
 
-</section>
+          <div style="font-size:20px; font-weight:700; margin-bottom:24px; color:#C7F000;">
+            Resultado acumulado da Operação Altitude
+          </div>
+
           <!-- META OFICIAL -->
           <div style="background:rgba(255,255,255,0.04); padding:18px 20px; border-radius:16px; margin-bottom:14px;">
             <div style="font-size:12px; opacity:0.6; margin-bottom:4px;">Meta 2026</div>
@@ -388,126 +375,6 @@
     <div style="padding:70px 0; font-family:Arial, sans-serif;">
 
       <style>
-        /* ===== HERO BASE ===== */
-
-.hero-section{
-  position:relative;
-  padding:80px 0 100px 0;
-  background:#f6f8fc;
-  overflow:hidden;
-}
-
-/* Camada para efeito de profundidade */
-.hero-depth-layer{
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at 20% 30%, rgba(17,66,151,.06), transparent 60%),
-             radial-gradient(circle at 80% 70%, rgba(221,48,62,.06), transparent 60%);
-  transform:translateY(0px);
-  transition:transform .2s ease-out;
-  pointer-events:none;
-}
-
-.hero-highlight{
-  position:relative;
-  background:linear-gradient(180deg,#ffffff 0%, #f1f4fb 100%);
-  border-radius:28px;
-  padding:60px;
-  box-shadow:0 25px 70px rgba(15,21,53,.06);
-}
-
-.hero-wrap{
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:40px;
-  align-items:stretch;
-}
-
-/* ===== CARD ESQUERDO ===== */
-
-.hero-left-card{
-  background:#ffffff;
-  padding:48px 52px;
-  border-radius:24px;
-  box-shadow:0 20px 60px rgba(15,21,53,.08);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.hero-meta-wrapper{
-  display:flex;
-}
-
-/* ===== TIPOGRAFIA ===== */
-
-.hero-title-lg{
-  font-size:clamp(2.8rem,4vw,3.8rem);
-  line-height:1.08;
-  font-weight:900;
-  margin:22px 0;
-  letter-spacing:-0.5px;
-  color:#0f1535;
-}
-
-.lead{
-  font-size:1.15rem;
-  line-height:1.8;
-  color:#404b6b;
-  margin-bottom:30px;
-}
-
-.pill{
-  font-size:.78rem;
-  font-weight:600;
-  letter-spacing:.5px;
-  background:#eef2ff;
-  border:1px solid #d9e1ff;
-  padding:6px 14px;
-}
-
-.btn{
-  padding:12px 26px;
-  font-size:.9rem;
-  font-weight:700;
-  border-radius:999px;
-  box-shadow:0 10px 25px rgba(221,48,62,.3);
-}
-
-/* ===== MICRO ANIMAÇÃO ===== */
-
-.reveal-left,
-.reveal-right{
-  opacity:0;
-  transform:translateY(40px);
-  transition:all .8s cubic-bezier(.22,.61,.36,1);
-}
-
-.reveal-left.active{
-  opacity:1;
-  transform:translateY(0) translateX(0);
-}
-
-.reveal-right.active{
-  opacity:1;
-  transform:translateY(0) translateX(0);
-}
-
-/* ===== RESPONSIVO ===== */
-
-@media(max-width:980px){
-  .hero-wrap{
-    grid-template-columns:1fr;
-  }
-
-  .hero-highlight{
-    padding:40px 28px;
-  }
-
-  .hero-left-card{
-    padding:36px;
-  }
-}
       .manifesto-wrapper{
         max-width:1200px;
         margin:0 auto;
@@ -1831,36 +1698,6 @@
   <footer style="padding:26px 0 36px;text-align:center;font-size:.74rem;color:#6a759c;background:#fff;border-top:1px solid rgba(11,19,49,.04);">
     © 2026 – Operação Altitude. Site institucional da campanha de incentivos.
   </footer>
-<script>
 
-/* Animação ao entrar na tela */
-const reveals = document.querySelectorAll(".reveal-left, .reveal-right");
-
-function revealOnScroll(){
-  const trigger = window.innerHeight * 0.85;
-
-  reveals.forEach(el=>{
-    const top = el.getBoundingClientRect().top;
-    if(top < trigger){
-      el.classList.add("active");
-    }
-  });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
-
-
-/* Profundidade leve no hero */
-window.addEventListener("scroll", function(){
-  const scrolled = window.scrollY;
-  const depthLayer = document.querySelector(".hero-depth-layer");
-
-  if(depthLayer){
-    depthLayer.style.transform = "translateY(" + (scrolled * 0.15) + "px)";
-  }
-});
-
-</script>
 </body>
 </html>
