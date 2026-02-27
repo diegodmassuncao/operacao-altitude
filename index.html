@@ -8,18 +8,20 @@
 <style>
 
 /* =====================================================
-   CONFIGURAÇÕES GERAIS
+   VARIÁVEIS GLOBAIS
 ===================================================== */
 
 :root{
   --primary:#dd303e;
   --primary-hover:#ff5b68;
   --dark:#0B1C48;
+  --dark-2:#081433;
   --accent:#C7F000;
+  --gold:#F2B705;
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
@@ -35,11 +37,11 @@ body{
 }
 
 /* =====================================================
-   HEADER + MENU
+   HEADER
 ===================================================== */
 
 header{
-  background:#081433;
+  background:var(--dark-2);
   padding:14px 0;
   position:sticky;
   top:0;
@@ -153,7 +155,7 @@ nav{
 
 .progress-bar{
   height:100%;
-  width:0%;
+  width:7.3%;
   background:var(--accent);
   transition:width 1.5s ease;
 }
@@ -163,48 +165,86 @@ nav{
 ===================================================== */
 
 .section{
-  padding:80px 0;
+  padding:90px 0;
 }
 
 .section-title{
   font-size:28px;
-  margin-bottom:40px;
+  margin-bottom:50px;
   color:var(--dark);
 }
 
 /* =====================================================
-   BOTÃO FLUTUANTE
+   MANIFESTOS
 ===================================================== */
 
-.cta-floating{
-  position:fixed;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:999;
+.manifesto-container{
+  display:flex;
+  gap:30px;
 }
 
-.cta-floating a{
-  background:var(--primary);
-  color:#fff;
-  padding:14px 26px;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 10px 25px rgba(0,0,0,.3);
+.manifesto-card{
+  flex:1;
+  background:var(--dark);
+  border-radius:30px;
+  padding:42px 36px;
+  color:white;
+  text-align:center;
+  box-shadow:0 20px 45px rgba(0,0,0,0.18);
+  transition:.3s;
+}
+
+.manifesto-card:hover{
+  transform:translateY(-6px);
+}
+
+.manifesto-card img{
+  width:110px;
+  margin-bottom:24px;
+}
+
+.manifesto-text{
+  font-size:15px;
+  line-height:1.7;
+  opacity:.92;
+  text-align:left;
 }
 
 /* =====================================================
-   RESPONSIVO
+   ESCALADA
 ===================================================== */
 
+.escalada-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.escalada-card{
+  background:linear-gradient(145deg,#0B1C48,#122A66);
+  color:white;
+  border-radius:26px;
+  padding:26px 28px;
+  box-shadow:0 14px 35px rgba(0,0,0,.15);
+  position:relative;
+}
+
+.escalada-number{
+  position:absolute;
+  right:22px;
+  top:18px;
+  font-size:52px;
+  font-weight:800;
+  opacity:.06;
+}
+
+/* RESPONSIVO */
+
 @media(max-width:980px){
-  .hero-wrap{
-    grid-template-columns:1fr;
-  }
-  .menu{
-    display:none;
-  }
+  .hero-wrap{grid-template-columns:1fr}
+  .manifesto-container{flex-direction:column}
+  .escalada-grid{grid-template-columns:1fr}
+  .menu{display:none}
 }
 
 </style>
@@ -212,14 +252,13 @@ nav{
 <body>
 
 <!-- =====================================================
-     HEADER + MENU
+     HEADER
 ===================================================== -->
 
 <header>
   <div class="container">
     <nav>
       <div class="brand">Operação Altitude 2026</div>
-
       <div class="menu">
         <a href="#home">Início</a>
         <a href="#manifestos">Manifestos</a>
@@ -241,7 +280,7 @@ nav{
 <section class="hero-title"></section>
 
 <!-- =====================================================
-     HERO PRINCIPAL + META
+     HERO PRINCIPAL
 ===================================================== -->
 
 <section class="hero" id="home">
@@ -249,9 +288,7 @@ nav{
 
     <div>
       <span class="pill">Campanha de Incentivos • 01 jan – 31 dez 2026</span>
-
       <h1 class="hero-heading">Você ainda não conhece os seus limites!</h1>
-
       <p class="lead">
         2026 será o nosso Everest. Uma jornada coletiva rumo ao topo, com disciplina, trabalho em equipe e superação.
         A Operação Altitude reconhece performance com premiações semanais, mensais, trimestrais e um grande prêmio anual.
@@ -275,19 +312,19 @@ nav{
 
         <div class="meta-box">
           <div>Receita acumulada no ano</div>
-          <strong id="receita">R$ 9.332.582,00</strong>
+          <strong>R$ 9.332.582,00</strong>
         </div>
 
         <div class="meta-box">
           <div>Faltam para a meta</div>
-          <strong id="faltam">R$ 118.667.418,00</strong>
+          <strong>R$ 118.667.418,00</strong>
         </div>
 
         <div style="margin-top:20px;">Progresso rumo à meta</div>
-        <div id="percentual" style="font-size:32px;font-weight:800;color:#C7F000;">7.3%</div>
+        <div style="font-size:32px;font-weight:800;color:#C7F000;">7.3%</div>
 
         <div class="progress">
-          <div id="barra" class="progress-bar"></div>
+          <div class="progress-bar"></div>
         </div>
       </div>
     </div>
@@ -302,7 +339,43 @@ nav{
 <section class="section" id="manifestos">
   <div class="container">
     <h2 class="section-title">Manifestos das Tribos Altitude</h2>
-    <!-- Aqui entra exatamente o bloco dos cards que você enviou -->
+
+    <div class="manifesto-container">
+
+      <div class="manifesto-card">
+        <img src="https://drive.google.com/thumbnail?id=10TfeDJnS8ZtH320q_Azgxr10KoeZ4w2D&sz=w1000">
+        <h3 style="color:#2cc4f4;">Engenheiros do Gelo</h3>
+        <p class="manifesto-text">
+          Sem essa engenharia, não existiria o caminho.
+          Com coragem e estratégia, constroem as passagens que ligam desafios às conquistas.
+          Cada negociação é um passo firme sobre o terreno congelado.
+          Transformam oportunidades em resultados com precisão e confiança.
+        </p>
+      </div>
+
+      <div class="manifesto-card">
+        <img src="https://drive.google.com/thumbnail?id=1Y1IOvkVXzRMItc6RAaSgJJYBlsGhvrLZ&sz=w1000">
+        <h3 style="color:#cc0000;">Portadores do Fogo</h3>
+        <p class="manifesto-text">
+          São a chama que mantém viva a conexão.
+          Em meio ao frio das incertezas e às tempestades da jornada,
+          irradiam calor, proximidade e confiança.
+          Transformam cada desafio em luz e cada contato em vínculo.
+        </p>
+      </div>
+
+      <div class="manifesto-card">
+        <img src="https://drive.google.com/thumbnail?id=1KTzwb3S5HanMVfW0DkCjW2u4FOpba0Mb&sz=w1000">
+        <h3 style="color:#387a5e;">Domadores dos Ventos</h3>
+        <p class="manifesto-text">
+          Guardiões da estabilidade em meio ao imprevisível.
+          Onde as correntes mudam e tudo parece escapar,
+          mantêm o controle e garantem que a jornada continue firme.
+          Transformam turbulência em constância e sopros incertos em ventos favoráveis.
+        </p>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -313,18 +386,74 @@ nav{
 <section class="section" id="escalada">
   <div class="container">
     <h2 class="section-title">Como funciona a escalada</h2>
-    <!-- Aqui entra o grid da escalada -->
+
+    <div class="escalada-grid">
+
+      <div class="escalada-card">
+        <div class="escalada-number">01</div>
+        <h4>Entenda a jornada</h4>
+        <p>A Operação Altitude é dividida em Campo Base, Rota e Cume.</p>
+      </div>
+
+      <div class="escalada-card">
+        <div class="escalada-number">02</div>
+        <h4>Cumpra sua meta</h4>
+        <p>O desempenho é medido pelo atingimento da meta individual.</p>
+      </div>
+
+      <div class="escalada-card">
+        <div class="escalada-number">03</div>
+        <h4>Acumule cupons</h4>
+        <p>Ao bater sua meta no período você acumula cupons.</p>
+      </div>
+
+      <div class="escalada-card">
+        <div class="escalada-number">04</div>
+        <h4>Suba no ranking</h4>
+        <p>Rankings atualizados por mês e gerência.</p>
+      </div>
+
+      <div class="escalada-card">
+        <div class="escalada-number">05</div>
+        <h4>Resultados validados</h4>
+        <p>Todos os resultados passam por validação oficial.</p>
+      </div>
+
+      <div class="escalada-card">
+        <div class="escalada-number">06</div>
+        <h4>Desbloqueie premiações</h4>
+        <p>Cada etapa libera novas oportunidades de reconhecimento.</p>
+      </div>
+
+    </div>
   </div>
 </section>
-
 <!-- =====================================================
      REGRAS
 ===================================================== -->
 
 <section class="section" id="regras">
   <div class="container">
-    <h2 class="section-title">Regras da Campanha</h2>
-    <!-- Aqui entra o expansível das regras -->
+    <h2 class="section-title">Regras que você precisa saber</h2>
+
+    <div class="regras-exp">
+
+      <div class="regras-buttons">
+        <button onclick="showRegra(1)">Vínculo ativo</button>
+        <button onclick="showRegra(2)">Meta coletiva</button>
+        <button onclick="showRegra(3)">Meta individual</button>
+        <button onclick="showRegra(4)">Tempo mínimo</button>
+        <button onclick="showRegra(5)">Desligamento</button>
+        <button onclick="showRegra(6)">Natureza</button>
+        <button onclick="showRegra(7)">Transferência</button>
+        <button onclick="showRegra(8)">Comitê</button>
+      </div>
+
+      <div class="regras-content" id="regraContent">
+        Somente colaboradores com vínculo ativo na data da apuração final e da entrega do prêmio fazem jus à premiação.
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -334,8 +463,15 @@ nav{
 
 <section class="section" id="simulador">
   <div class="container">
-    <h2 class="section-title">Simule sua escalada</h2>
-    <!-- Aqui entra o simulador -->
+    <h2 class="section-title">Simule sua escalada rumo ao Everest</h2>
+
+    <input type="number" id="percentualInput" placeholder="Digite seu percentual" oninput="calcularCupons()" />
+
+    <div class="progress" style="margin-top:20px;">
+      <div id="barraSimulador" class="progress-bar"></div>
+    </div>
+
+    <div id="resultadoSimulador" style="margin-top:20px;"></div>
   </div>
 </section>
 
@@ -345,8 +481,15 @@ nav{
 
 <section class="section" id="ranking">
   <div class="container">
-    <h2 class="section-title">Ranking</h2>
-    <!-- Aqui entra ranking top 20 + destaques -->
+    <h2 class="section-title">Top 20 performances</h2>
+
+    <div class="ranking-list">
+      <div class="ranking-item"><strong>1º</strong> Nome 1 — 112%</div>
+      <div class="ranking-item"><strong>2º</strong> Nome 2 — 109%</div>
+      <div class="ranking-item"><strong>3º</strong> Nome 3 — 105%</div>
+      <div class="ranking-item">4º Nome 4 — 104%</div>
+      <div class="ranking-item">5º Nome 5 — 103%</div>
+    </div>
   </div>
 </section>
 
@@ -356,8 +499,16 @@ nav{
 
 <section class="section" id="premiacao">
   <div class="container">
-    <h2 class="section-title">Premiações</h2>
-    <!-- Aqui entra premiação anual + semanal/mensal/trimestral -->
+    <h2 class="section-title">Premiação Anual – O Topo da Montanha</h2>
+
+    <p><strong>🚗 1 CARRO 0 KM</strong></p>
+    <p>🏍 4 MOTOS 0 KM</p>
+    <p>✈ 2 viagens nacionais</p>
+    <p>🌎 2 viagens internacionais</p>
+
+    <h3 style="margin-top:40px;">⏳ Contagem regressiva</h3>
+    <div id="countdown"></div>
+
   </div>
 </section>
 
@@ -367,8 +518,18 @@ nav{
 
 <section class="section" id="faq">
   <div class="container">
-    <h2 class="section-title">FAQ</h2>
-    <!-- Aqui entra bloco FAQ -->
+    <h2 class="section-title">FAQ – Operação Altitude 2026</h2>
+
+    <div class="faq-item">
+      <strong>Quem pode participar?</strong>
+      <p>Colaboradores com vínculo CLT ativo.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Qual a vigência?</strong>
+      <p>De 01/01/2026 a 31/12/2026.</p>
+    </div>
+
   </div>
 </section>
 
@@ -383,8 +544,43 @@ nav{
   </a>
 </div>
 
+<!-- =====================================================
+     SCRIPTS
+===================================================== -->
+
 <script>
-document.getElementById("barra").style.width = "7.3%";
+
+function showRegra(n){
+  const textos = {
+    1:"Somente colaboradores com vínculo ativo na data da apuração final fazem jus à premiação.",
+    2:"A meta coletiva habilita os sorteios trimestrais.",
+    3:"Meta individual gera cupons.",
+    4:"É necessário cumprir 4 meses contínuos.",
+    5:"Desligamento elimina elegibilidade.",
+    6:"Premiação tem natureza não salarial.",
+    7:"Transferências podem alterar elegibilidade.",
+    8:"O Comitê valida resultados e sorteios."
+  };
+  document.getElementById("regraContent").innerText = textos[n];
+}
+
+function calcularCupons(){
+  const percentual = parseFloat(document.getElementById("percentualInput").value) || 0;
+  document.getElementById("barraSimulador").style.width = percentual + "%";
+  document.getElementById("resultadoSimulador").innerText =
+    "Percentual informado: " + percentual + "%";
+}
+
+const targetDate = new Date("December 31, 2026 23:59:59").getTime();
+
+setInterval(function(){
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  document.getElementById("countdown").innerText =
+    days + " dias restantes";
+},1000);
+
 </script>
 
 </body>
