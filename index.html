@@ -6,14 +6,21 @@
 <title>Operação Altitude 2026</title>
 
 <style>
+
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
+
 :root{
   --primary:#dd303e;
   --primary-hover:#ff5b68;
-  --dark:#0f1535;
+  --dark:#0B1C48;
   --accent:#C7F000;
 }
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth;}
+
 body{
   margin:0;
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
@@ -22,41 +29,73 @@ body{
 }
 
 .container{
-  max-width:1180px;
+  max-width:1200px;
   margin:0 auto;
   padding:0 20px;
 }
 
-/* HEADER */
+/* =====================================================
+   HEADER + MENU
+===================================================== */
+
 header{
-  background:#0b1339;
-  color:#fff;
+  background:#081433;
   padding:14px 0;
+  position:sticky;
+  top:0;
+  z-index:999;
 }
+
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
+
 .brand{
+  color:#fff;
   font-weight:700;
 }
 
-/* HERO IMAGE */
+.menu{
+  display:flex;
+  gap:18px;
+}
+
+.menu a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  opacity:.85;
+  transition:.3s;
+}
+
+.menu a:hover{
+  opacity:1;
+  color:var(--accent);
+}
+
+/* =====================================================
+   HERO IMAGEM
+===================================================== */
+
 .hero-title{
   min-height:380px;
   background:url("./Topo.png") center 80% / contain no-repeat;
 }
 
-/* HERO CONTENT */
+/* =====================================================
+   HERO PRINCIPAL + META
+===================================================== */
+
 .hero{
-  padding:60px 0;
+  padding:70px 0;
 }
+
 .hero-wrap{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:60px;
-  align-items:start;
 }
 
 .pill{
@@ -70,14 +109,13 @@ nav{
 .hero-heading{
   font-size:42px;
   font-weight:900;
-  margin:18px 0;
+  margin:20px 0;
 }
 
 .lead{
   font-size:16px;
-  color:#4a5373;
-  max-width:520px;
   line-height:1.6;
+  color:#4a5373;
 }
 
 .btn{
@@ -85,31 +123,22 @@ nav{
   margin-top:20px;
   background:var(--primary);
   color:#fff;
-  padding:12px 20px;
+  padding:12px 22px;
   border-radius:999px;
   text-decoration:none;
   font-weight:600;
 }
-.btn:hover{
-  background:var(--primary-hover);
-}
 
-/* META CARD */
 .meta-card{
   padding:32px;
   border-radius:22px;
   background:linear-gradient(135deg,#0B1C48,#081433);
   color:white;
-  box-shadow:0 25px 50px rgba(0,0,0,0.28);
-}
-
-.meta-card h3{
-  margin-top:0;
-  color:var(--accent);
+  box-shadow:0 25px 50px rgba(0,0,0,.28);
 }
 
 .meta-box{
-  background:rgba(255,255,255,0.05);
+  background:rgba(255,255,255,.05);
   padding:16px;
   border-radius:14px;
   margin-bottom:14px;
@@ -117,10 +146,11 @@ nav{
 
 .progress{
   height:14px;
-  background:rgba(255,255,255,0.2);
+  background:rgba(255,255,255,.2);
   border-radius:20px;
   overflow:hidden;
 }
+
 .progress-bar{
   height:100%;
   width:0%;
@@ -128,7 +158,24 @@ nav{
   transition:width 1.5s ease;
 }
 
-/* BOTÃO FLUTUANTE */
+/* =====================================================
+   SEÇÕES PADRÃO
+===================================================== */
+
+.section{
+  padding:80px 0;
+}
+
+.section-title{
+  font-size:28px;
+  margin-bottom:40px;
+  color:var(--dark);
+}
+
+/* =====================================================
+   BOTÃO FLUTUANTE
+===================================================== */
+
 .cta-floating{
   position:fixed;
   bottom:20px;
@@ -136,6 +183,7 @@ nav{
   transform:translateX(-50%);
   z-index:999;
 }
+
 .cta-floating a{
   background:var(--primary);
   color:#fff;
@@ -143,34 +191,62 @@ nav{
   border-radius:999px;
   text-decoration:none;
   font-weight:600;
-  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
 }
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
 
 @media(max-width:980px){
   .hero-wrap{
     grid-template-columns:1fr;
   }
+  .menu{
+    display:none;
+  }
 }
+
 </style>
 </head>
 <body>
+
+<!-- =====================================================
+     HEADER + MENU
+===================================================== -->
 
 <header>
   <div class="container">
     <nav>
       <div class="brand">Operação Altitude 2026</div>
+
+      <div class="menu">
+        <a href="#home">Início</a>
+        <a href="#manifestos">Manifestos</a>
+        <a href="#escalada">Escalada</a>
+        <a href="#regras">Regras</a>
+        <a href="#simulador">Simulador</a>
+        <a href="#ranking">Ranking</a>
+        <a href="#premiacao">Premiações</a>
+        <a href="#faq">FAQ</a>
+      </div>
     </nav>
   </div>
 </header>
 
-<!-- IMAGEM TOPO -->
+<!-- =====================================================
+     HERO IMAGEM
+===================================================== -->
+
 <section class="hero-title"></section>
 
-<!-- BLOCO PRINCIPAL -->
-<section class="hero">
+<!-- =====================================================
+     HERO PRINCIPAL + META
+===================================================== -->
+
+<section class="hero" id="home">
   <div class="container hero-wrap">
 
-    <!-- TEXTO ESQUERDA -->
     <div>
       <span class="pill">Campanha de Incentivos • 01 jan – 31 dez 2026</span>
 
@@ -181,12 +257,13 @@ nav{
         A Operação Altitude reconhece performance com premiações semanais, mensais, trimestrais e um grande prêmio anual.
       </p>
 
-      <a class="btn" href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank">
-        Regulamento
+      <a class="btn"
+         href="https://docs.google.com/document/d/1GiB-JRvpjppz62VAk55f9qui7JCrsgfi/edit?usp=sharing&ouid=109176490159837285946&rtpof=true&sd=true"
+         target="_blank">
+         Regulamento
       </a>
     </div>
 
-    <!-- META DIREITA -->
     <div>
       <div class="meta-card">
         <h3>Resultado acumulado da Operação Altitude</h3>
@@ -207,7 +284,7 @@ nav{
         </div>
 
         <div style="margin-top:20px;">Progresso rumo à meta</div>
-        <div id="percentual" style="font-size:32px; font-weight:800; color:#C7F000;">7.3%</div>
+        <div id="percentual" style="font-size:32px;font-weight:800;color:#C7F000;">7.3%</div>
 
         <div class="progress">
           <div id="barra" class="progress-bar"></div>
@@ -218,16 +295,96 @@ nav{
   </div>
 </section>
 
-<!-- BOTÃO FLUTUANTE -->
+<!-- =====================================================
+     MANIFESTOS
+===================================================== -->
+
+<section class="section" id="manifestos">
+  <div class="container">
+    <h2 class="section-title">Manifestos das Tribos Altitude</h2>
+    <!-- Aqui entra exatamente o bloco dos cards que você enviou -->
+  </div>
+</section>
+
+<!-- =====================================================
+     ESCALADA
+===================================================== -->
+
+<section class="section" id="escalada">
+  <div class="container">
+    <h2 class="section-title">Como funciona a escalada</h2>
+    <!-- Aqui entra o grid da escalada -->
+  </div>
+</section>
+
+<!-- =====================================================
+     REGRAS
+===================================================== -->
+
+<section class="section" id="regras">
+  <div class="container">
+    <h2 class="section-title">Regras da Campanha</h2>
+    <!-- Aqui entra o expansível das regras -->
+  </div>
+</section>
+
+<!-- =====================================================
+     SIMULADOR
+===================================================== -->
+
+<section class="section" id="simulador">
+  <div class="container">
+    <h2 class="section-title">Simule sua escalada</h2>
+    <!-- Aqui entra o simulador -->
+  </div>
+</section>
+
+<!-- =====================================================
+     RANKING
+===================================================== -->
+
+<section class="section" id="ranking">
+  <div class="container">
+    <h2 class="section-title">Ranking</h2>
+    <!-- Aqui entra ranking top 20 + destaques -->
+  </div>
+</section>
+
+<!-- =====================================================
+     PREMIAÇÕES
+===================================================== -->
+
+<section class="section" id="premiacao">
+  <div class="container">
+    <h2 class="section-title">Premiações</h2>
+    <!-- Aqui entra premiação anual + semanal/mensal/trimestral -->
+  </div>
+</section>
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section class="section" id="faq">
+  <div class="container">
+    <h2 class="section-title">FAQ</h2>
+    <!-- Aqui entra bloco FAQ -->
+  </div>
+</section>
+
+<!-- =====================================================
+     BOTÃO FLUTUANTE
+===================================================== -->
+
 <div class="cta-floating">
-  <a href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank">
-    Regulamento
+  <a href="https://docs.google.com/document/d/1GiB-JRvpjppz62VAk55f9qui7JCrsgfi/edit?usp=sharing&ouid=109176490159837285946&rtpof=true&sd=true"
+     target="_blank">
+     Regulamento
   </a>
 </div>
 
 <script>
-const percentual = 7.3;
-document.getElementById("barra").style.width = percentual + "%";
+document.getElementById("barra").style.width = "7.3%";
 </script>
 
 </body>
