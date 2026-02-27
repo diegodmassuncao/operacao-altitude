@@ -1,1418 +1,234 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Operação Altitude 2026</title>
-  <meta name="description" content="Operação Altitude 2026 – campanha de incentivos. Regulamento, metas, jornada, premiações e ranking.">
-  <meta name="theme-color" content="#114297">
-  <style>
-    :root{
-      --bg:#114297;
-      --primary:#dd303e;
-      --primary-hover:#ff5b68;
-      --text:#fff;
-      --card:#0f1535;
-      --radius:14px;
-      --shadow-1:0 6px 16px rgba(0,0,0,.12);
-      --shadow-2:0 10px 24px rgba(0,0,0,.2);
-      --line:#dfe3ff;
-      --accent:#D4D801;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Operação Altitude 2026</title>
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:#fff;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
-      color:#0f1535;
-      line-height:1.4;
-    }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+<style>
+:root{
+  --primary:#dd303e;
+  --primary-hover:#ff5b68;
+  --dark:#0f1535;
+  --accent:#C7F000;
+}
 
-    .container{
-      max-width:1180px;
-      margin:0 auto;
-      padding:0 20px;
-    }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:#fff;
+  color:#0f1535;
+}
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:60;
-      background:#0b1339;
-      border-bottom:1px solid rgba(255,255,255,.03);
-    }
-    nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:12px 0;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      color:#fff;
-    }
-    .brand-title{font-weight:700}
-    .brand-year{opacity:.6}
-    .navlinks a{
-      color:rgba(232,237,255,.82);
-      padding:.35rem .6rem;
-      border-radius:8px;
-      font-size:.85rem;
-    }
-    .navlinks a:hover{
-      background:rgba(255,255,255,.05);
-      color:#fff;
-    }
+.container{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 20px;
+}
 
-    .cta-bar{
-      position:fixed;
-      left:0;
-      right:0;
-      bottom:18px;
-      display:flex;
-      justify-content:center;
-      z-index:80;
-    }
-    .cta-bar .wrap{
-      display:flex;
-      gap:10px;
-      background:#0a0f3ceb;
-      border:1px solid rgba(255,255,255,.09);
-      border-radius:999px;
-      padding:8px 10px;
-      backdrop-filter:blur(6px);
-      box-shadow:var(--shadow-2);
-    }
-    .btn{
-      appearance:none;
-      border:0;
-      background:var(--primary);
-      color:#fff;
-      border-radius:999px;
-      padding:.55rem 1rem;
-      font-weight:600;
-      cursor:pointer;
-      transition:.16s ease;
-      font-size:.85rem;
-    }
-    .btn:hover{background:var(--primary-hover)}
-    .btn.secondary{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.18);
-    }
+/* HEADER */
+header{
+  background:#0b1339;
+  color:#fff;
+  padding:14px 0;
+}
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand{
+  font-weight:700;
+}
 
-    .hero-title{
-      position:relative;
-      min-height:360px;
-      background:url("./Topo.png") center 80% / contain no-repeat;
-      display:flex;
-      align-items:flex-end;
-      padding:0 20px 20px;
-    }
+/* HERO IMAGE */
+.hero-title{
+  min-height:380px;
+  background:url("./Topo.png") center 80% / contain no-repeat;
+}
 
-    .hero{
-      padding:36px 0 40px;
-      background:#fff;
-    }
-    .hero-wrap{
-      display:grid;
-      grid-template-columns:1.04fr .96fr;
-      gap:26px;
-      align-items:start;
-    }
+/* HERO CONTENT */
+.hero{
+  padding:60px 0;
+}
+.hero-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:start;
+}
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(17,66,151,.06);
-      border:1px dashed rgba(17,66,151,.25);
-      border-radius:999px;
-      padding:.35rem .7rem;
-      font-size:.75rem;
-      color:#0f1535;
-    }
+.pill{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:13px;
+  background:#eef2ff;
+}
 
-    .hero-title-lg{
-      font-size:clamp(2rem,3.4vw,3.2rem);
-      margin:12px 0 8px;
-      font-weight:900;
-      letter-spacing:.1px;
-    }
+.hero-heading{
+  font-size:42px;
+  font-weight:900;
+  margin:18px 0;
+}
 
-    .lead{
-      color:#4a5373;
-      font-size:.98rem;
-      max-width:580px;
-    }
+.lead{
+  font-size:16px;
+  color:#4a5373;
+  max-width:520px;
+  line-height:1.6;
+}
 
-    .hero-ctas{
-      display:flex;
-      gap:12px;
-      margin-top:14px;
-      flex-wrap:wrap;
-    }
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  background:var(--primary);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+}
+.btn:hover{
+  background:var(--primary-hover);
+}
 
-    /* ===== painel (versão final, única) ===== */
-    .hero-card{
-      position:relative;
-      border-radius:16px;
-      padding:18px;
-      color:#fff;
-      overflow:hidden;
+/* META CARD */
+.meta-card{
+  padding:32px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#0B1C48,#081433);
+  color:white;
+  box-shadow:0 25px 50px rgba(0,0,0,0.28);
+}
 
-      background:linear-gradient(180deg,#0f1535 0%,#091538 100%);
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow:0 12px 28px rgba(0,0,0,.18);
-    }
+.meta-card h3{
+  margin-top:0;
+  color:var(--accent);
+}
 
-    .hero-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:radial-gradient(900px 260px at 10% 0%, rgba(212,216,1,.18), transparent 55%);
-      pointer-events:none;
-    }
+.meta-box{
+  background:rgba(255,255,255,0.05);
+  padding:16px;
+  border-radius:14px;
+  margin-bottom:14px;
+}
 
-    .hero-card::after{
-      content:"";
-      position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      height:3px;
-      background:rgba(212,216,1,.9);
-      pointer-events:none;
-    }
+.progress{
+  height:14px;
+  background:rgba(255,255,255,0.2);
+  border-radius:20px;
+  overflow:hidden;
+}
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:var(--accent);
+  transition:width 1.5s ease;
+}
 
-    .hero-card > *{
-      position:relative;
-      z-index:2;
-    }
+/* BOTÃO FLUTUANTE */
+.cta-floating{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:999;
+}
+.cta-floating a{
+  background:var(--primary);
+  color:#fff;
+  padding:14px 26px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
 
-    .hero-card h3{
-      margin-top:0;
-      color:var(--accent);
-    }
-
-    .hero-card .lead{
-      color:rgba(255,255,255,.88);
-      max-width:none;
-    }
-
-    .kpi-tiles{
-      display:grid;
-      gap:10px;
-      margin-top:12px;
-    }
-
-    .tile{
-      padding:12px;
-      border-radius:14px;
-      background:rgba(255,255,255,.07);
-      border:1px solid rgba(255,255,255,.12);
-    }
-
-    .tile-label{
-      font-size:.72rem;
-      opacity:.82;
-      margin-bottom:4px;
-    }
-
-    .tile-value{
-      font-size:1.05rem;
-      font-weight:850;
-      letter-spacing:.2px;
-    }
-
-    /* termômetro da escalada */
-    .meter{
-      margin-top:10px;
-    }
-    .meter-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      margin-bottom:8px;
-    }
-    .meter-top .label{
-      font-size:.72rem;
-      opacity:.82;
-    }
-    .meter-top .value{
-      font-size:.95rem;
-      font-weight:850;
-    }
-    .meter-bar{
-      height:12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.12);
-      overflow:hidden;
-    }
-    .meter-fill{
-      height:100%;
-      width:var(--progress, 0%);
-      background:linear-gradient(90deg, rgba(212,216,1,.95), rgba(221,48,62,.95));
-      border-radius:999px;
-    }
-    .meter-legend{
-      display:flex;
-      justify-content:space-between;
-      font-size:.68rem;
-      opacity:.72;
-      margin-top:6px;
-    }
-
-    .tiny{
-      font-size:.7rem;
-      color:rgba(220,228,255,.72);
-      margin-top:10px;
-    }
-
-    .icone-campanha{
-      position:absolute;
-      right:12px;
-      bottom:12px;
-      width:96px;
-
-      opacity:.10;
-      filter:saturate(0) brightness(1.6);
-      pointer-events:none;
-      z-index:1;
-    }
-
-    /* tiny em fundo claro */
-    body .tiny{
-      color:#4a5373;
-    }
-    /* tiny dentro do painel escuro continua claro */
-    .hero-card .tiny{
-      color:rgba(220,228,255,.72);
-    }
-
-    section{padding:20px 0 28px}
-
-    /* seção "Como funciona" */
-    .steps-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:12px;
-    }
-
-    .step-card{
-      background:linear-gradient(180deg,#0c123f 0%,#090d2f 100%);
-      border-radius:var(--radius);
-      padding:14px;
-      color:#fff;
-      box-shadow:var(--shadow-1);
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-    }
-
-    .step-ico{
-      width:44px;
-      height:44px;
-      flex:0 0 44px;
-      object-fit:contain;
-    }
-
-    .step-card h4{
-      margin:2px 0 6px;
-    }
-
-    .step-card .tiny{
-      margin-top:0;
-      color:rgba(232,237,255,.78);
-    }
-
-    /* responsivo */
-    @media (max-width:980px){
-      .steps-grid{grid-template-columns:1fr}
-    }
-
-    /* destaques da semana */
-    .highlights{
-      padding:10px 0 28px;
-    }
-    .highlights-head{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:10px;
-    }
-    .highlights-head .lead{
-      margin:0;
-      max-width:720px;
-    }
-    .h-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:12px;
-    }
-    .h-card{
-      background:linear-gradient(180deg,#0c123f 0%,#090d2f 100%);
-      border-radius:16px;
-      padding:14px;
-      color:#fff;
-      box-shadow:var(--shadow-1);
-      border:1px solid rgba(255,255,255,.05);
-      min-height:110px;
-    }
-    .h-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      margin-bottom:8px;
-    }
-    .h-icon{
-      width:38px;
-      height:38px;
-      border-radius:12px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-    .h-icon img{
-      width:26px;
-      height:26px;
-      object-fit:contain;
-    }
-    .h-title{
-      font-size:.82rem;
-      opacity:.85;
-      margin:0;
-    }
-    .h-value{
-      font-size:1.15rem;
-      font-weight:900;
-      margin:0;
-    }
-    .h-note{
-      font-size:.72rem;
-      opacity:.72;
-      margin-top:8px;
-    }
-
-    /* responsivo destaques */
-    @media (max-width:980px){
-      .h-grid{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width:520px){
-      .h-grid{grid-template-columns:1fr}
-    }
-
-    h3{margin-bottom:6px}
-
-    .m-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-    .m-card{
-      background:linear-gradient(180deg,#121a58 0%,#0a1036 100%);
-      border-radius:var(--radius);
-      overflow:hidden;
-      color:#fff;
-      box-shadow:var(--shadow-1);
-    }
-    .m-photo{height:160px;background-size:cover;background-position:center}
-    .m-body{padding:14px}
-    .m-chip{
-      display:inline-block;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:999px;
-      padding:.2rem .6rem;
-      font-size:.68rem;
-      margin-bottom:6px;
-    }
-
-    .grid{display:grid;gap:16px}
-    .cols-3{grid-template-columns:repeat(3,1fr)}
-    .cols-2{grid-template-columns:repeat(2,1fr)}
-    .card{
-      background:linear-gradient(180deg,#0c123f 0%,#090d2f 100%);
-      border-radius:var(--radius);
-      padding:16px;
-      color:#fff;
-      box-shadow:var(--shadow-1);
-    }
-
-    .team-card header{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      margin-bottom:4px;
-    }
-    .team-card header i{
-      width:28px;
-      height:28px;
-      border-radius:8px;
-      background:rgba(255,255,255,.08);
-      display:inline-block;
-    }
-    .link-metas{
-      font-size:.78rem;
-      color:rgba(255,255,255,.85);
-      font-weight:600;
-    }
-
-    .quick-table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:10px;
-      border:1px solid rgba(255,255,255,.02);
-    }
-    .quick-table th,
-    .quick-table td{
-      padding:.5rem .6rem;
-      border-bottom:1px solid rgba(255,255,255,.02);
-      text-align:center;
-      font-size:.75rem;
-    }
-    .quick-table th{background:rgba(5,10,27,.4)}
-
-    .tabs{
-      display:flex;
-      gap:6px;
-      flex-wrap:wrap;
-      margin:14px 0 16px;
-    }
-    .tab{
-      background:#0f1535;
-      border:1px solid rgba(255,255,255,.02);
-      border-radius:10px;
-      padding:.45rem .7rem;
-      cursor:pointer;
-      color:#fff;
-      font-size:.78rem;
-    }
-    .tab[aria-selected="true"]{
-      background:var(--primary);
-      box-shadow:0 4px 16px rgba(221,48,62,.25);
-    }
-    .tabpanel[hidden]{display:none}
-
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:.5rem .5rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.03)}
-    th{background:rgba(7,10,38,.15);color:#fff}
-    tr:hover td{background:rgba(255,255,255,.01)}
-    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-    input[type="month"],select,input[type="file"]{
-      background:rgba(6,9,29,.6);
-      color:#fff;
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:10px;
-      padding:.45rem .5rem;
-    }
-
-    #toTop{
-      position:fixed;
-      right:20px;
-      bottom:92px;
-      display:none;
-      z-index:99;
-    }
-
-    footer{
-      padding:26px 0 36px;
-      text-align:center;
-      font-size:.74rem;
-      color:#6a759c;
-      background:#fff;
-      border-top:1px solid rgba(11,19,49,.04);
-    }
-
-    /* =========================================================
-       AJUSTE PEDIDO: card da meta no lado direito, dividindo espaço
-       ========================================================= */
-    #meta{
-      align-self:start;
-      width:100%;
-    }
-    #meta .meta-card{
-      width:100%;
-      max-width:none;
-    }
-
-    @media (max-width:980px){
-      .navlinks{display:none}
-      .hero-wrap{grid-template-columns:1fr}
-      .m-grid,.cols-3,.cols-2{grid-template-columns:1fr}
-      .cta-bar .wrap{width:96%;justify-content:center}
-    }
-  </style>
+@media(max-width:980px){
+  .hero-wrap{
+    grid-template-columns:1fr;
+  }
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <nav>
-        <div class="brand">
-          <img src="./assets/gran-logo.png" alt="Gran" style="height:28px" onerror="this.style.display='none'">
-          <span class="brand-title">Operação Altitude</span>
-          <span class="brand-year">2026</span>
-        </div>
-        <div class="navlinks" aria-label="Seções do site">
-          <a href="#sobre">Sobre</a>
-          <a href="#equipes">Equipes</a>
-          <a href="#jornada">Jornada</a>
-          <a href="#regulamento">Regulamento</a>
-          <a href="#premios">Premiações</a>
-          <a href="#ranking">Ranking</a>
-          <a href="#faq">FAQ</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <div class="cta-bar">
-    <div class="wrap">
-      <a class="btn" href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank" rel="noopener">Regulamento</a>
-    </div>
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand">Operação Altitude 2026</div>
+    </nav>
   </div>
+</header>
 
-  <section class="hero-title"></section>
+<!-- IMAGEM TOPO -->
+<section class="hero-title"></section>
 
-  <!-- bloco-desafio-2026 -->
-  <div id="desafio"></div>
+<!-- BLOCO PRINCIPAL -->
+<section class="hero">
+  <div class="container hero-wrap">
 
-  <style>
-    html { scroll-behavior: smooth; }
-  </style>
+    <!-- TEXTO ESQUERDA -->
+    <div>
+      <span class="pill">Campanha de Incentivos • 01 jan – 31 dez 2026</span>
 
-  <div style="padding:40px 0; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
+      <h1 class="hero-heading">Você ainda não conhece os seus limites!</h1>
 
-    <style>
-      .oa-hero{
-        position:relative;
-        background:linear-gradient(145deg,#0B1C48,#122A66);
-        color:#fff;
-        border-radius:26px;
-        padding:34px 34px 30px 34px;
-        box-shadow:0 14px 35px rgba(0,0,0,.15);
-        overflow:hidden;
-      }
-
-      .oa-hero::before{
-        content:"";
-        position:absolute;
-        left:0;
-        top:0;
-        height:100%;
-        width:6px;
-        background:#FFC72C;
-      }
-
-      .oa-kicker{
-        margin:0 0 10px 0;
-        font-size:13px;
-        opacity:.85;
-        letter-spacing:.2px;
-      }
-
-      .oa-title{
-        margin:0 0 10px 0;
-        font-size:30px;
-        font-weight:800;
-        line-height:1.15;
-      }
-
-      .oa-desc{
-        margin:0 0 18px 0;
-        font-size:15px;
-        opacity:.9;
-        line-height:1.5;
-        max-width:900px;
-      }
-
-      .oa-bullets{
-        margin:0 0 22px 0;
-        padding-left:18px;
-      }
-
-      .oa-bullets li{
-        margin:8px 0;
-        font-size:14px;
-        opacity:.92;
-        line-height:1.4;
-      }
-
-      @media(max-width:640px){
-        .oa-title{ font-size:26px; }
-      }
-    </style>
-
-    <div class="oa-hero">
-      <h2 class="oa-title">Nosso desafio em 2026 é crescer 36% em receita.</h2>
-
-      <p class="oa-desc">
-        A Operação Altitude é o plano coletivo para chegar lá. Aqui você entende as regras, acompanha sua evolução e sabe como destravar as premiações.
+      <p class="lead">
+        2026 será o nosso Everest. Uma jornada coletiva rumo ao topo, com disciplina, trabalho em equipe e superação.
+        A Operação Altitude reconhece performance com premiações semanais, mensais, trimestrais e um grande prêmio anual.
       </p>
 
-      <ul class="oa-bullets">
-        <li><strong>Meta do ano:</strong> +36% de receita</li>
-        <li><strong>Acompanhamento:</strong> ranking e destaques por gerência</li>
-        <li><strong>Premiações:</strong> semanal, mensal, trimestral e anual</li>
-      </ul>
+      <a class="btn" href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank">
+        Regulamento
+      </a>
     </div>
+
+    <!-- META DIREITA -->
+    <div>
+      <div class="meta-card">
+        <h3>Resultado acumulado da Operação Altitude</h3>
+
+        <div class="meta-box">
+          <div>Meta 2026</div>
+          <strong>R$ 128.000.000</strong>
+        </div>
+
+        <div class="meta-box">
+          <div>Receita acumulada no ano</div>
+          <strong id="receita">R$ 9.332.582,00</strong>
+        </div>
+
+        <div class="meta-box">
+          <div>Faltam para a meta</div>
+          <strong id="faltam">R$ 118.667.418,00</strong>
+        </div>
+
+        <div style="margin-top:20px;">Progresso rumo à meta</div>
+        <div id="percentual" style="font-size:32px; font-weight:800; color:#C7F000;">7.3%</div>
+
+        <div class="progress">
+          <div id="barra" class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
   </div>
+</section>
+
+<!-- BOTÃO FLUTUANTE -->
+<div class="cta-floating">
+  <a href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank">
+    Regulamento
+  </a>
+</div>
+
+<script>
+const percentual = 7.3;
+document.getElementById("barra").style.width = percentual + "%";
+</script>
 
-  <section class="hero" id="home">
-    <div class="container hero-wrap">
-
-      <!-- COLUNA ESQUERDA -->
-      <div>
-        <span class="pill">Campanha de Incentivos • 01 jan – 31 dez 2026</span>
-        <h2 class="hero-title-lg">Você ainda não conhece os seus limites!</h2>
-        <p class="lead">
-          2026 será o nosso Everest. Uma jornada coletiva rumo ao topo, com disciplina, trabalho em equipe e superação.
-          A Operação Altitude reconhece performance com premiações semanais, mensais, trimestrais e um grande prêmio anual.
-        </p>
-        <div class="hero-ctas">
-          <a class="btn" href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank" rel="noopener">Regulamento</a>
-        </div>
-      </div>
-
-      <!-- COLUNA DIREITA (META) -->
-      <div id="meta">
-        <div class="meta-card" style="
-          padding:36px;
-          border-radius:22px;
-          background:linear-gradient(135deg,#0B1C48,#081433);
-          color:white;
-          font-family:Arial, sans-serif;
-          box-shadow:0 25px 50px rgba(0,0,0,0.28);
-        ">
-
-          <div style="font-size:20px; font-weight:700; margin-bottom:24px; color:#C7F000;">
-            Resultado acumulado da Operação Altitude
-          </div>
-
-          <!-- META OFICIAL -->
-          <div style="background:rgba(255,255,255,0.04); padding:18px 20px; border-radius:16px; margin-bottom:14px;">
-            <div style="font-size:12px; opacity:0.6; margin-bottom:4px;">Meta 2026</div>
-            <div style="font-size:22px; font-weight:700;">R$ 128.000.000</div>
-            <div style="font-size:11px; opacity:0.5; margin-top:4px;">
-              Meta representa +35% sobre o resultado de 2025
-            </div>
-          </div>
-
-          <!-- RECEITA ACUMULADA -->
-          <div style="background:rgba(255,255,255,0.04); padding:18px 20px; border-radius:16px; margin-bottom:14px;">
-            <div style="font-size:12px; opacity:0.6; margin-bottom:4px;">Receita acumulada no ano</div>
-            <div id="receitaAnoTexto" style="font-size:22px; font-weight:700;">R$ 0</div>
-          </div>
-
-          <!-- FALTA PARA META -->
-          <div style="background:rgba(255,255,255,0.04); padding:16px 20px; border-radius:16px; margin-bottom:26px;">
-            <div style="font-size:12px; opacity:0.6; margin-bottom:4px;">Faltam para a meta</div>
-            <div id="faltaMeta" style="font-size:18px; font-weight:700;">R$ 0</div>
-          </div>
-
-          <div style="font-size:13px; opacity:0.6; margin-bottom:8px;">
-            Progresso rumo à meta 2026
-          </div>
-
-          <div id="percentualAnual" style="
-            font-size:36px;
-            font-weight:800;
-            color:#C7F000;
-            margin-bottom:10px;
-          ">0%</div>
-
-          <!-- STATUS AUTOMÁTICO -->
-          <div id="statusMeta" style="
-            margin-bottom:18px;
-            font-size:13px;
-            font-weight:600;
-            opacity:0.85;
-          "></div>
-
-          <div style="
-            width:100%;
-            background:rgba(255,255,255,0.12);
-            border-radius:20px;
-            height:14px;
-            overflow:hidden;
-          ">
-            <div id="barraAnual" style="
-              width:0%;
-              height:100%;
-              background:#C7F000;
-              border-radius:20px;
-              transition:width 1.8s ease-out;
-            "></div>
-          </div>
-
-          <div style="
-            display:flex;
-            justify-content:space-between;
-            font-size:11px;
-            opacity:0.5;
-            margin-top:6px;
-          ">
-            <span>0%</span>
-            <span>100%</span>
-          </div>
-
-        </div>
-      </div>
-
-      <script>
-        const meta = 128000000;
-
-        // ATUALIZE AQUI MENSALMENTE
-        const receitaAno = 9332582;
-
-        const percentual = (receitaAno / meta) * 100;
-        const falta = meta - receitaAno;
-
-        document.getElementById("receitaAnoTexto").innerText =
-          receitaAno.toLocaleString("pt-BR", {style:"currency", currency:"BRL"});
-
-        document.getElementById("faltaMeta").innerText =
-          falta.toLocaleString("pt-BR", {style:"currency", currency:"BRL"});
-
-        // STATUS INTELIGENTE
-        let mensagemStatus = "";
-
-        if (percentual < 25) {
-          mensagemStatus = "Início da jornada rumo aos R$ 128 milhões.";
-        }
-        else if (percentual < 75) {
-          mensagemStatus = "Ritmo consistente. Seguimos avançando.";
-        }
-        else if (percentual < 100) {
-          mensagemStatus = "Fase final. O topo está próximo.";
-        }
-        else {
-          mensagemStatus = "Meta atingida. Topo conquistado.";
-        }
-
-        document.getElementById("statusMeta").innerText = mensagemStatus;
-
-        // ANIMAÇÃO
-        let atual = 0;
-        const alvo = percentual;
-        const duracao = 1800;
-        const incremento = 20;
-        const passos = duracao / incremento;
-        const aumento = alvo / passos;
-
-        const contador = setInterval(() => {
-          atual += aumento;
-          if (atual >= alvo) {
-            atual = alvo;
-            clearInterval(contador);
-          }
-          document.getElementById("percentualAnual").innerText =
-            atual.toFixed(1) + "%";
-        }, incremento);
-
-        setTimeout(function(){
-          document.getElementById("barraAnual").style.width = alvo + "%";
-        }, 200);
-      </script>
-
-    </div>
-  </section>
-
-  <section class="highlights" id="destaques">
-    <div class="container">
-      <div class="highlights-head">
-        <div>
-          <h3>Destaques da semana</h3>
-          <p class="lead">Resumo rápido do que mais puxou o time pra cima nos últimos 7 dias.</p>
-        </div>
-        <a class="btn secondary" href="#ranking">Ver ranking</a>
-      </div>
-
-      <div class="h-grid">
-        <article class="h-card">
-          <div class="h-top">
-            <div>
-              <p class="h-title">Maior avanço</p>
-              <p class="h-value">+4,2 p.p.</p>
-            </div>
-            <div class="h-icon">
-              <img src="./assets/icones/Icone_escalada.png" alt="">
-            </div>
-          </div>
-          <div class="h-note">Comparado à semana anterior.</div>
-        </article>
-
-        <article class="h-card">
-          <div class="h-top">
-            <div>
-              <p class="h-title">Destaque do time</p>
-              <p class="h-value">Permanência</p>
-            </div>
-            <div class="h-icon">
-              <img src="./assets/icones/ico_destaques.png" alt="">
-            </div>
-          </div>
-          <div class="h-note">Maior consistência no período.</div>
-        </article>
-
-        <article class="h-card">
-          <div class="h-top">
-            <div>
-              <p class="h-title">Recorde semanal</p>
-              <p class="h-value">R$ 1,2M</p>
-            </div>
-            <div class="h-icon">
-              <img src="./assets/icones/ico_metas.png" alt="">
-            </div>
-          </div>
-          <div class="h-note">Maior receita em 7 dias.</div>
-        </article>
-
-        <article class="h-card">
-          <div class="h-top">
-            <div>
-              <p class="h-title">Meta mais perto</p>
-              <p class="h-value">79,34%</p>
-            </div>
-            <div class="h-icon">
-              <img src="./assets/icons/ico_premios.png" alt="">
-            </div>
-          </div>
-          <div class="h-note">Termômetro atualizado no topo.</div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="sobre">
-    <div class="container">
-      <h3>Manifesto Altitude</h3>
-      <p class="tiny">Campo Base, rota e cume. Tudo explicado em um lugar só.</p>
-      <p class="lead">Nossa campanha traduz coragem, constância e espírito de equipe. Cada ciclo é um passo rumo ao cume.</p>
-      <div class="m-grid">
-        <article class="m-card">
-          <div class="m-photo" style="background-image:url('assets/Passo.png');"></div>
-          <div class="m-body">
-            <span class="m-chip">Coragem</span>
-            <h4>O primeiro passo exige decisão.</h4>
-            <p class="lead" style="color:rgba(232,235,255,.9)">Começamos no Campo Base, alinhando objetivos e combinando como vamos vencer, juntos.</p>
-          </div>
-        </article>
-        <article class="m-card">
-          <div class="m-photo" style="background-image:url('assets/Avanco.png');"></div>
-          <div class="m-body">
-            <span class="m-chip">Constância</span>
-            <h4>Cada avanço é disciplina.</h4>
-            <p class="lead" style="color:rgba(232,235,255,.9)">Metas mensais, trimestrais e anual garantem experiência e sorteios.</p>
-          </div>
-        </article>
-        <article class="m-card">
-          <div class="m-photo" style="background-image:url('assets/Cume.png');"></div>
-          <div class="m-body">
-            <span class="m-chip">Orgulho</span>
-            <h4>Chegar ao cume é fazer história.</h4>
-            <p class="lead" style="color:rgba(232,235,255,.9)">Celebramos quem puxa a corda do time e entrega acima da média.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="como-funciona">
-    <div class="container">
-      <h3>Como funciona a escalada</h3>
-      <p class="lead">Em poucos passos você entende a dinâmica e onde acompanhar seus resultados.</p>
-
-      <div class="steps-grid">
-        <article class="step-card">
-          <img class="step-ico" src="./icons/ico_rota.png" alt="">
-          <div>
-            <h4>Entenda a rota</h4>
-            <p class="tiny">Campo Base, rota e cume. Tudo explicado em um lugar só.</p>
-          </div>
-        </article>
-
-        <article class="step-card">
-          <img class="step-ico" src="./icons/ico_metas.png" alt="">
-          <div>
-            <h4>Confira as metas</h4>
-            <p class="tiny">Clique em “Ver metas” para ir direto ao regulamento.</p>
-          </div>
-        </article>
-
-        <article class="step-card">
-          <img class="step-ico" src="./icons/ico_cupons.png" alt="">
-          <div>
-            <h4>Ganhe cupons</h4>
-            <p class="tiny">Bateu sua meta, você entra nas urnas e acumula chances.</p>
-          </div>
-        </article>
-
-        <article class="step-card">
-          <img class="step-ico" src="./icons/ico_ranking.png" alt="">
-          <div>
-            <h4>Acompanhe o ranking</h4>
-            <p class="tiny">Veja a tabela por mês e por gerência.</p>
-          </div>
-        </article>
-
-        <article class="step-card">
-          <img class="step-ico" src="./icons/ico_destaques.png" alt="">
-          <div>
-            <h4>Destaques da semana</h4>
-            <p class="tiny">O que mudou nos últimos dias e quem puxou o time.</p>
-          </div>
-        </article>
-
-        <article class="step-card">
-          <img class="step-ico" src="./icons/ico_premios.png" alt="">
-          <div>
-            <h4>Premiações</h4>
-            <p class="tiny">Semanal, mensal, trimestral e anual, conforme o regulamento.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="equipes">
-    <div class="container">
-      <h3>Equipes da Expedição</h3>
-      <p class="tiny">Clique em “Ver metas” para ir direto ao regulamento.</p>
-      <p class="lead">Três frentes, uma jornada. Cada time com seu papel na escalada.</p>
-      <div class="grid cols-3">
-        <article class="card team-card">
-          <header>
-            <i></i>
-            <h4 style="margin:0">Engenheiros do Gelo (Comercial)</h4>
-          </header>
-          <p>Constroem a passagem: coragem e estratégia que ligam desafios a conquistas.</p>
-          <a class="link-metas" href="#tab3">Ver metas do Comercial →</a>
-        </article>
-        <article class="card team-card">
-          <header>
-            <i></i>
-            <h4 style="margin:0">Domadores do Vento (Permanência)</h4>
-          </header>
-          <p>Seguram a barraca: estabilidade, retenção e visão de longo prazo.</p>
-          <a class="link-metas" href="#tab3">Ver metas de Permanência →</a>
-        </article>
-        <article class="card team-card">
-          <header>
-            <i></i>
-            <h4 style="margin:0">Portadores do Fogo (Relacionamento)</h4>
-          </header>
-          <p>Aquecem a jornada: ativação, experiência e proximidade com o aluno.</p>
-          <a class="link-metas" href="#tab3">Ver metas de Relacionamento →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="jornada">
-    <div class="container">
-      <h3>Jornada da Expedição</h3>
-      <p class="lead">Avance por cada acampamento. Feche bem os trimestres até o cume.</p>
-      <div class="grid cols-2">
-        <div class="card"><h4>Campo Base</h4><p class="tiny">Lançamento e alinhamentos.</p></div>
-        <div class="card"><h4>Acampamento 1</h4><p class="tiny">Meta de janeiro.</p></div>
-        <div class="card"><h4>Acampamento 2</h4><p class="tiny">Fechamento do 1º tri.</p></div>
-        <div class="card"><h4>Acampamento 3</h4><p class="tiny">Fechamento do 2º tri.</p></div>
-        <div class="card"><h4>Acampamento 4</h4><p class="tiny">Fechamento do 3º tri.</p></div>
-        <div class="card"><h4>Cume</h4><p class="tiny">Meta anual 2026 e grandes reconhecimentos.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="regulamento">
-    <div class="container">
-      <h3>Regulamento (versão institucional)</h3>
-      <p class="lead">Leia as abas para entender elegibilidade, metas, dinâmica, governança e critérios de premiação.</p>
-
-      <div class="card">
-        <h4>Resumo rápido – habilita sorteios?</h4>
-        <table class="quick-table">
-          <thead>
-            <tr><th>Gerência</th><th>Mensal</th><th>Trimestral</th><th>Anual</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Comercial</td><td>✅ Metas individuais</td><td>✅ Meta do período</td><td>✅ Meta anual</td></tr>
-            <tr><td>Permanência</td><td>✅ Metas individuais</td><td>✅ Meta do período</td><td>✅ Meta anual</td></tr>
-            <tr><td>Relacionamento</td><td>✅ Metas individuais</td><td>✅ Meta do período</td><td>✅ Meta anual</td></tr>
-            <tr><td>Lideranças*</td><td>⚠️ Regras específicas</td><td>⚠️ Regras específicas</td><td>⚠️ Regras específicas</td></tr>
-          </tbody>
-        </table>
-        <p class="tiny">*Critérios podem variar conforme comitê de performance.</p>
-      </div>
-
-      <div class="tabs" role="tablist" aria-label="Regulamento">
-        <button class="tab" role="tab" aria-selected="true" aria-controls="tab1" id="t1">Vigência e objetivo</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="tab2" id="t2">Público e elegibilidade</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="tab3" id="t3">Metas e gatilhos</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="tab4" id="t4">Dinâmica por gerência</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="tab5" id="t5">Governança</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="tab6" id="t6">Premiações</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="tab7" id="t7">Condições gerais</button>
-      </div>
-
-      <div id="tab1" class="tabpanel" role="tabpanel" aria-labelledby="t1">
-        <div class="card">
-          <h4>Vigência</h4>
-          <p>De 01/01/2026 a 31/12/2026.</p>
-          <h4>Objetivo</h4>
-          <p>Reconhecer performance de maneira contínua e transparente, estimulando protagonismo, superação e orgulho de fazer parte da jornada coletiva.</p>
-        </div>
-      </div>
-
-      <div id="tab2" class="tabpanel" role="tabpanel" hidden aria-labelledby="t2">
-        <div class="card">
-          <h4>Público-alvo</h4>
-          <ul>
-            <li>Esta campanha é destinada aos colaboradores que atuam como Consultores Comerciais, integrantes das Equipes de Permanência e da Equipe de Relacionamento, desde que estejam em atividade durante o período de vigência da campanha.</li>
-            <li>Ficam excluídos os cargos administrativos e demais funções que não possuam metas estabelecidas para o ano de 2026.</li>
-            <li>Consulte as regras de elegibilidade em nosso regulamento.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="tab3" class="tabpanel" role="tabpanel" hidden aria-labelledby="t3">
-        <div class="card">
-          <h4>Gatilhos de premiação</h4>
-          <ul>
-            <li><strong>Mensal:</strong> meta individual libera cupons.</li>
-            <li><strong>Trimestral:</strong> sorteios condicionados ao período.</li>
-            <li><strong>Anual:</strong> premiação principal condicionada à meta anual.</li>
-          </ul>
-          <h4>Metas por gerência</h4>
-          <div class="grid cols-2">
-            <div class="card"><h4>Comercial</h4><p>Receita de novas vendas como gatilho principal.</p></div>
-            <div class="card"><h4>Permanência</h4><p>Retenção, renovação, recuperação de crédito e CSAT.</p></div>
-            <div class="card"><h4>Relacionamento</h4><p>Ativação, reativação, uso de canais e reputação.</p></div>
-          </div>
-        </div>
-      </div>
-
-      <div id="tab4" class="tabpanel" role="tabpanel" hidden aria-labelledby="t4">
-        <div class="card">
-          <h4>Dinâmica</h4>
-          <ul>
-            <li>Meta de receita da diretoria habilita os sorteios do time.</li>
-            <li>Quem bate a meta individual recebe cupons.</li>
-            <li>Sem meta de receita da diretoria, o colaborador recebe só o reconhecimento mensal.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="tab5" class="tabpanel" role="tabpanel" hidden aria-labelledby="t5">
-        <div class="card">
-          <h4>Governança</h4>
-          <ul>
-            <li>A campanha contará com um Comitê de Performance, que se reunirá mensalmente com o objetivo de validar e homologar os resultados apurados.</li>
-            <li>Toda a comunicação oficial relacionada à campanha será realizada de forma centralizada por meio deste site, sendo este o canal válido para divulgação de informações, atualizações e comunicados.</li>
-            <li>A participação na campanha está condicionada à leitura e à assinatura deste regulamento, sendo obrigatória para todos os colaboradores elegíveis.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="tab6" class="tabpanel" role="tabpanel" hidden aria-labelledby="t6">
-        <div class="card">
-          <h4>Estrutura de premiações</h4>
-          <div class="grid cols-2">
-            <div class="card">
-              <h4>Semanal</h4>
-              <p>R$ 200,00 em vale presentes para o melhor desempenho.</p>
-            </div>
-            <div class="card">
-              <h4>Mensal – ranking</h4>
-              <ul>
-                <li>1º: R$ 1.000,00</li>
-                <li>2º: R$ 700,00</li>
-                <li>3º: R$ 500,00</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Mensal – urnas</h4>
-              <p>Urna Expedição (70% a 99%): 1 cupom a cada 10 p.p.</p>
-              <p>Urna Everest (≥100%): 1 cupom inicial + 5 cupons a cada 5 p.p. acima de 100% (ex.: 105% = 5 adicionais, 110% = 10 adicionais…)</p>
-            </div>
-            <div class="card">
-              <h4>Trimestral</h4>
-              <p>Premiação estimada de R$ 25.000,00 por trimestre.</p>
-            </div>
-            <div class="card" style="grid-column:1/-1">
-              <h4>Anual</h4>
-              <ul>
-                <li>4 motos</li>
-                <li>2 viagens com acompanhante nacionais</li>
-                <li>2 viagens com acompanhante internacionais (America do Sul)</li>
-                <li>1 automóvel 0 km</li>
-              </ul>
-              <p class="tiny">Condicionado à meta anual e à habilitação.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="tab7" class="tabpanel" role="tabpanel" hidden aria-labelledby="t7">
-        <div class="card">
-          <h4>Condições gerais</h4>
-          <ul>
-            <li>Regulamento completo prevalece sobre o resumo.</li>
-            <li>Em caso de empate, aplicar critérios do comitê.</li>
-            <li>Nome e imagem dos premiados podem ser usados internamente.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container" style="padding-top:10px">
-      <div class="card" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-        <div>
-          <h4 style="margin:0 0 6px 0">Pronto pra subir de nível?</h4>
-          <p class="tiny" style="margin:0">Assine o regulamento e acompanhe seu avanço no ranking.</p>
-        </div>
-        <a class="btn" href="https://forms.gle/oWtweD2dTn8FSu4N7" target="_blank" rel="noopener">Abrir regulamento</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="premios">
-    <div class="container">
-      <h3>Como desbloquear premiações</h3>
-      <p class="lead">Os prêmios são liberados conforme o avanço no ciclo e o atingimento das metas.</p>
-      <div class="grid cols-3">
-        <div class="card"><h4>1) Entregue sua meta</h4><p>Quanto maior a entrega da sua meta, maiores são as suas chances de ganhar!</p></div>
-        <div class="card"><h4>2) Fortaleça o time</h4><p>As gerências precisam fechar suas metas para habilitar sorteios.</p></div>
-        <div class="card"><h4>3) Feche o trimestre</h4><p>Trimestre bem fechado deixa a corda firme para a meta anual.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="ranking">
-    <div class="container">
-      <h3>Ranking de destaques</h3>
-      <p class="lead">Selecione o mês e a gerência. Você pode importar um CSV padrão para atualizar a tabela.</p>
-
-      <div class="toolbar">
-        <input type="month" id="monthPicker" aria-label="Selecionar mês">
-        <select id="areaFilter" aria-label="Filtrar por gerência">
-          <option value="">Todas as gerências</option>
-          <option>Comercial</option>
-          <option>Permanência</option>
-          <option>Relacionamento</option>
-        </select>
-        <input type="file" id="csvInput" accept=".csv" aria-label="Importar CSV">
-        <button class="btn" id="downloadTemplate" type="button">Baixar modelo CSV</button>
-      </div>
-      <p id="csvStatus" class="tiny" aria-live="polite"></p>
-
-      <div class="card" role="region" aria-live="polite">
-        <table id="rankTable">
-          <thead>
-            <tr>
-              <th>Posição</th>
-              <th>Nome</th>
-              <th>Gerência</th>
-              <th>Score</th>
-              <th>% da meta</th>
-              <th>Cupons</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <p class="tiny">Modelo CSV: mes(YYYY-MM),nome,gerencia,score,perc_meta,cupons</p>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="container">
-      <h3>FAQ – perguntas frequentes</h3>
-      <div class="grid cols-2">
-        <div class="card"><h4>O que preciso para participar?</h4><p>Assinar o regulamento, estar em uma das gerências participantes e ter meta definida.</p></div>
-        <div class="card"><h4>Como funcionam as urnas?</h4><p>Urna 1 de 70% a 99%. Urna 2 a partir de 100%. A cada 10 pontos acima de 80% você ganha cupom extra.</p></div>
-        <div class="card"><h4>Se a gerência não bater a meta macro perco tudo?</h4><p>Não. Você mantém reconhecimento e experiências mensais. Os sorteios maiores pedem meta macro.</p></div>
-        <div class="card"><h4>Quem valida os premiados?</h4><p>O comitê de performance homologa e publica aqui no site.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © 2026 – Operação Altitude. Site institucional da campanha de incentivos.
-  </footer>
-
-  <button id="toTop" class="btn" aria-label="Voltar ao topo">↑</button>
-
-  <script>
-    (function(){
-      const bar=document.querySelector('.cta-bar');
-      let lastY=window.scrollY;
-      window.addEventListener('scroll',()=>{
-        const y=window.scrollY;
-        if(window.innerWidth<980){
-          const down=y>lastY;
-          bar.style.transform=(down && y>140)?'translateY(120%)':'translateY(0)';
-          bar.style.opacity=(down && y>140)?'0':'1';
-          lastY=y;
-        }
-      },{passive:true});
-    })();
-
-    (function(){
-      const btn=document.getElementById('toTop');
-      window.addEventListener('scroll',()=>{
-        btn.style.display=window.scrollY>700?'block':'none';
-      },{passive:true});
-      btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-    })();
-
-    (function(){
-      const tabs=document.querySelectorAll('#regulamento [role="tab"]');
-      const panels=document.querySelectorAll('#regulamento .tabpanel');
-
-      function open(id){
-        tabs.forEach(t=>{
-          const on=t.getAttribute('aria-controls')===id;
-          t.setAttribute('aria-selected',on?'true':'false');
-        });
-        panels.forEach(p=>{
-          p.hidden=p.id!==id;
-        });
-      }
-
-      tabs.forEach(t=>{
-        t.addEventListener('click', e=>{
-          e.preventDefault();
-
-          const id = t.getAttribute('aria-controls');
-          open(id);
-
-          // Atualiza a URL sem causar scroll
-          history.replaceState(null, '', '#'+id);
-        });
-      });
-
-      const first=location.hash.slice(1) || tabs[0].getAttribute('aria-controls');
-      open(first);
-    })();
-
-    document.querySelectorAll('a.link-metas[href="#tab3"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        e.preventDefault();
-        location.hash='tab3';
-        document.querySelector('#t3').click();
-      });
-    });
-
-    (function(){
-      const sample=[
-        {mes:'2026-01',nome:'Junia Melo',gerencia:'Comercial',score:980,perc_meta:112,cupons:5},
-        {mes:'2026-01',nome:'Diego Assuncao',gerencia:'Permanência',score:940,perc_meta:105,cupons:4},
-        {mes:'2026-01',nome:'Heliabe Feu',gerencia:'Relacionamento',score:910,perc_meta:101,cupons:3},
-        {mes:'2026-01',nome:'Grasiele Valente',gerencia:'Permanência',score:905,perc_meta:99,cupons:2},
-        {mes:'2026-01',nome:'Yago Martins',gerencia:'Comercial',score:880,perc_meta:96,cupons:2}
-      ];
-      const state={data:[...sample],month:'',area:''};
-      const tbody=document.querySelector('#rankTable tbody');
-      const csvStatus=document.getElementById('csvStatus');
-
-      function medal(p){
-        if(p===1) return '🥇 1º';
-        if(p===2) return '🥈 2º';
-        if(p===3) return '🥉 3º';
-        return p+'º';
-      }
-
-      function render(){
-        const rows=state.data
-          .filter(r=>!state.month || r.mes===state.month)
-          .filter(r=>!state.area || r.gerencia===state.area)
-          .sort((a,b)=>b.score-a.score)
-          .map((r,i)=>({pos:i+1,...r}));
-        tbody.innerHTML=rows.map(r=>`
-          <tr>
-            <td>${medal(r.pos)}</td>
-            <td>${r.nome}</td>
-            <td>${r.gerencia}</td>
-            <td>${r.score}</td>
-            <td>${r.perc_meta}%</td>
-            <td>${r.cupons}</td>
-          </tr>
-        `).join('');
-      }
-      render();
-
-      document.getElementById('monthPicker').addEventListener('change',e=>{
-        state.month=e.target.value;
-        render();
-      });
-      document.getElementById('areaFilter').addEventListener('change',e=>{
-        state.area=e.target.value;
-        render();
-      });
-
-      document.getElementById('csvInput').addEventListener('change',async e=>{
-        const file=e.target.files?.[0];
-        if(!file) return;
-        const text=await file.text();
-        const lines=text.split(/\r?\n/).filter(Boolean);
-        const header='mes(YYYY-MM),nome,gerencia,score,perc_meta,cupons';
-        if(lines[0].trim()!==header){
-          csvStatus.textContent='Cabeçalho inválido. Use o modelo CSV.';
-          return;
-        }
-        const rows=[];
-        for(let i=1;i<lines.length;i++){
-          const [mes,nome,gerencia,score,perc_meta,cupons]=lines[i].split(',');
-          if(!mes || !nome) continue;
-          rows.push({
-            mes:mes.trim(),
-            nome:nome.trim(),
-            gerencia:(gerencia||'').trim(),
-            score:Number(score)||0,
-            perc_meta:Number(perc_meta)||0,
-            cupons:Number(cupons)||0
-          });
-        }
-        if(rows.length){
-          state.data=rows;
-          render();
-          csvStatus.textContent=`${rows.length} linhas carregadas.`;
-        }else{
-          csvStatus.textContent='Nenhuma linha válida encontrada.';
-        }
-      });
-
-      document.getElementById('downloadTemplate').addEventListener('click',()=>{
-        const header='mes(YYYY-MM),nome,gerencia,score,perc_meta,cupons\n';
-        const body=sample.map(r=>`${r.mes},${r.nome},${r.gerencia},${r.score},${r.perc_meta},${r.cupons}`).join('\n');
-        const blob=new Blob([header+body],{type:'text/csv'});
-        const url=URL.createObjectURL(blob);
-        const a=document.createElement('a');
-        a.href=url;
-        a.download='modelo_ranking_operacao_altitude.csv';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-      });
-    })();
-  </script>
 </body>
 </html>
