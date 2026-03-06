@@ -1081,157 +1081,185 @@
   <!-- SEÇÃO: RANKING (TOP 20) -->
   <!-- ========================= -->
   <div id="ranking"></div>
-  <section aria-label="Ranking Top 20">
-    <div style="padding:60px 0; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
+<section aria-label="Ranking">
+<div style="padding:60px 0; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
 
-      <style>
-      .ranking-everest{
-        background:linear-gradient(145deg,#0B1C48,#122A66);
-        color:white;
-        border-radius:28px;
-        padding:45px 55px;
-        box-shadow:0 25px 60px rgba(0,0,0,.2);
-      }
+<style>
+.ranking-everest{
+background:linear-gradient(145deg,#0B1C48,#122A66);
+color:white;
+border-radius:28px;
+padding:45px 55px;
+box-shadow:0 25px 60px rgba(0,0,0,.2);
+}
 
-      .ranking-header{
-        margin-bottom:30px;
-      }
+.ranking-header{
+margin-bottom:30px;
+}
 
-      .ranking-header h2{
-        margin:0 0 8px 0;
-        font-size:26px;
-      }
+.ranking-header h2{
+margin:0 0 8px 0;
+font-size:26px;
+}
 
-      .ranking-header p{
-        margin:0;
-        opacity:.75;
-        font-size:15px;
-      }
+.ranking-header p{
+margin:0;
+opacity:.75;
+font-size:15px;
+}
 
-      .filtros{
-        display:flex;
-        gap:12px;
-        flex-wrap:wrap;
-        margin-bottom:30px;
-      }
+.filtros{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
 
-      .filtro-btn{
-        padding:8px 16px;
-        border-radius:999px;
-        background:rgba(255,255,255,.08);
-        cursor:pointer;
-        font-size:13px;
-        transition:.3s;
-      }
+.filtro-btn{
+padding:8px 16px;
+border-radius:999px;
+background:rgba(255,255,255,.08);
+cursor:pointer;
+font-size:13px;
+transition:.3s;
+}
 
-      .filtro-btn.active,
-      .filtro-btn:hover{
-        background:#C7F000;
-        color:#0B1C48;
-        font-weight:700;
-      }
+.filtro-btn.active,
+.filtro-btn:hover{
+background:#C7F000;
+color:#0B1C48;
+font-weight:700;
+}
 
-      .ranking-list{
-        display:flex;
-        flex-direction:column;
-      }
+.ranking-list{
+display:flex;
+flex-direction:column;
+}
 
-      .ranking-item{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:14px 0;
-        border-bottom:1px solid rgba(255,255,255,.08);
-        font-size:15px;
-        transition:.3s;
-      }
+.ranking-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 0;
+border-bottom:1px solid rgba(255,255,255,.08);
+font-size:15px;
+}
 
-      .ranking-position{
-        width:50px;
-        font-weight:700;
-      }
+.ranking-name{
+flex:1;
+}
 
-      .ranking-name{
-        flex:1;
-      }
+.hidden{
+display:none;
+}
+</style>
 
-      .ranking-percent{
-        font-weight:600;
-      }
+<div class="ranking-everest">
 
-      .top1{
-        background:linear-gradient(90deg, rgba(199,240,0,.18), transparent);
-        border-left:4px solid #C7F000;
-        padding-left:10px;
-      }
+<div class="ranking-header">
+<h2>Top performances da Diretoria Comercial e Sucesso do Aluno</h2>
+<p id="mes-titulo">Janeiro 2026</p>
+</div>
 
-      .top2{
-        background:linear-gradient(90deg, rgba(255,255,255,.08), transparent);
-        border-left:4px solid #FFFFFF;
-        padding-left:10px;
-      }
+<div class="filtros">
+<div class="filtro-btn active" onclick="filtrarGerencia('todos',this)">Todos</div>
+<div class="filtro-btn" onclick="filtrarGerencia('Comercial',this)">Comercial</div>
+<div class="filtro-btn" onclick="filtrarGerencia('Permanência',this)">Permanência</div>
+<div class="filtro-btn" onclick="filtrarGerencia('Relacionamento',this)">Relacionamento</div>
+</div>
 
-      .top3{
-        background:linear-gradient(90deg, rgba(230,150,60,.18), transparent);
-        border-left:4px solid #E6963C;
-        padding-left:10px;
-      }
+<div class="filtros">
+<div class="filtro-btn active" onclick="filtrarMes('01_2026',this)">Jan 2026</div>
+</div>
 
-      .hidden{
-        display:none;
-      }
-      </style>
+<div class="ranking-list" id="ranking-list"></div>
 
-      <div class="ranking-everest">
+</div>
+</div>
+</section>
 
-        <div class="ranking-header">
-          <h2>Top 20 performances da Diretoria Comercial e Sucesso do Aluno</h2>
-          <p>Janeiro 2026</p>
-        </div>
+<script>
 
-        <div class="filtros">
-          <div class="filtro-btn active" onclick="filtrar('todos', this)">Todos</div>
-          <div class="filtro-btn" onclick="filtrar('comercial', this)">Comercial</div>
-          <div class="filtro-btn" onclick="filtrar('permanencia', this)">Permanência</div>
-          <div class="filtro-btn" onclick="filtrar('relacionamento', this)">Relacionamento</div>
-        </div>
+const dados = [
+{mes:"01_2026",nome:"Rayssa Iara",gerencia:"Permanência"},
+{mes:"01_2026",nome:"Jéssica Lopes",gerencia:"Permanência"},
+{mes:"01_2026",nome:"Thauane Fernandes",gerencia:"Permanência"},
+{mes:"01_2026",nome:"Ana Luiza dos Santos",gerencia:"Permanência"},
+{mes:"01_2026",nome:"Luana Carolina de Souza",gerencia:"Permanência"},
+{mes:"01_2026",nome:"Karolina Mendonca",gerencia:"Permanência"},
+{mes:"01_2026",nome:"Rafael Francisco",gerencia:"Permanência"},
+{mes:"01_2026",nome:"Marcos Vinicius do Vale",gerencia:"Permanência"},
+{mes:"01_2026",nome:"Elaine Cristina",gerencia:"Permanência"},
+{mes:"01_2026",nome:"Débora Fernandes",gerencia:"Permanência"},
+{mes:"01_2026",nome:"Vinicius Junio de Lima",gerencia:"Relacionamento"},
+{mes:"01_2026",nome:"Maria Eduarda Braz",gerencia:"Relacionamento"},
+{mes:"01_2026",nome:"Viviane",gerencia:"Comercial"},
+{mes:"01_2026",nome:"Gustavo Henrique dos Santos",gerencia:"Comercial"},
+{mes:"01_2026",nome:"Fernanda Vicente",gerencia:"Comercial"},
+{mes:"01_2026",nome:"Allan Charles",gerencia:"Comercial"},
+{mes:"01_2026",nome:"Marcia Sabino",gerencia:"Comercial"},
+{mes:"01_2026",nome:"Lorrayne Andressa",gerencia:"Comercial"}
+]
 
-        <div class="ranking-list">
+let filtroGerenciaAtual = "todos"
+let filtroMesAtual = "01_2026"
 
-          <div class="ranking-item top1 comercial">
-            <span class="ranking-position">1º</span>
-            <span class="ranking-name">Nome 1</span>
-            <span class="ranking-percent">112%</span>
-          </div>
+function renderRanking(){
 
-          <div class="ranking-item top2 comercial">
-            <span class="ranking-position">2º</span>
-            <span class="ranking-name">Nome 2</span>
-            <span class="ranking-percent">109%</span>
-          </div>
+const lista = document.getElementById("ranking-list")
 
-          <div class="ranking-item top3 permanencia">
-            <span class="ranking-position">3º</span>
-            <span class="ranking-name">Nome 3</span>
-            <span class="ranking-percent">105%</span>
-          </div>
+lista.innerHTML=""
 
-          <div class="ranking-item relacionamento">
-            <span class="ranking-position">4º</span>
-            <span class="ranking-name">Nome 4</span>
-            <span class="ranking-percent">104%</span>
-          </div>
+const filtrados = dados
+.filter(d => d.mes === filtroMesAtual)
+.filter(d => filtroGerenciaAtual === "todos" || d.gerencia === filtroGerenciaAtual)
+.sort((a,b)=>a.nome.localeCompare(b.nome))
 
-          <div class="ranking-item comercial">
-            <span class="ranking-position">5º</span>
-            <span class="ranking-name">Nome 5</span>
-            <span class="ranking-percent">103%</span>
-          </div>
+filtrados.forEach(d=>{
 
-        </div>
+const item = document.createElement("div")
+item.className="ranking-item"
 
-      </div>
-    </div>
+item.innerHTML = `
+<span class="ranking-name">${d.nome}</span>
+<span>${d.gerencia}</span>
+`
+
+lista.appendChild(item)
+
+})
+
+}
+
+function filtrarGerencia(gerencia,el){
+
+filtroGerenciaAtual = gerencia
+
+document.querySelectorAll(".filtros:first-of-type .filtro-btn")
+.forEach(b=>b.classList.remove("active"))
+
+el.classList.add("active")
+
+renderRanking()
+
+}
+
+function filtrarMes(mes,el){
+
+filtroMesAtual = mes
+
+document.querySelectorAll(".filtros:nth-of-type(2) .filtro-btn")
+.forEach(b=>b.classList.remove("active"))
+
+el.classList.add("active")
+
+renderRanking()
+
+}
+
+renderRanking()
+
+</script>
 
     <script>
       function filtrar(tipo, btn){
