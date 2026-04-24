@@ -821,120 +821,148 @@
     </script>
   </section>
 
-  <!-- ========================= -->
-  <!-- SEÇÃO: RANKING -->
-  <!-- ========================= -->
-  <div id="ranking"></div>
-  <section aria-label="Ranking">
-    <div style="padding:60px 20px; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
-      <style>
-      .ranking-everest{
-        background:linear-gradient(145deg,#0B1C48,#122A66);color:white;border-radius:28px;
-        padding:45px 55px;box-shadow:0 25px 60px rgba(0,0,0,.2);
-      }
-      .ranking-header{margin-bottom:30px;}
-      .ranking-header h2{margin:0 0 8px 0;font-size:26px;}
-      .ranking-header p{margin:0;opacity:.85;font-size:15px;}
-      .filtros{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
-      .filtro-btn{
-        padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.1);
-        cursor:pointer;font-size:13px;transition:.3s;color:white;
-      }
-      .filtro-btn.active,.filtro-btn:hover{background:#C7F000;color:#0B1C48;font-weight:700;}
-      .ranking-list{display:flex;flex-direction:column;}
-      .ranking-item{
-        display:flex;justify-content:space-between;align-items:center;
-        padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:15px;
-      }
-      .ranking-name{flex:1;}
-      .ranking-gerencia{opacity:.85;font-size:13px;}
-      @media(max-width:640px){.ranking-everest{padding:32px 22px;}}
-      </style>
-      <div class="ranking-everest">
-        <div class="ranking-header">
-          <h2>Top performances da Diretoria Comercial e Sucesso do Aluno</h2>
-          <p id="mes-titulo">Janeiro 2026</p>
-        </div>
-        <div class="filtros" id="filtros-gerencia">
-          <div class="filtro-btn active" data-gerencia="todos">Todos</div>
-          <div class="filtro-btn" data-gerencia="Comercial">Comercial</div>
-          <div class="filtro-btn" data-gerencia="Permanência">Permanência</div>
-          <div class="filtro-btn" data-gerencia="Relacionamento">Relacionamento</div>
-        </div>
-        <div class="filtros" id="filtros-mes">
-          <div class="filtro-btn active" data-mes="01_2026">Jan 2026</div>
-        </div>
-        <div class="ranking-list" id="ranking-list"></div>
+ <!-- ========================= -->
+<!-- SEÇÃO: RANKING -->
+<!-- ========================= -->
+<div id="ranking"></div>
+<section aria-label="Ranking">
+  <div style="padding:60px 20px; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
+
+    <div class="ranking-everest">
+
+      <div class="ranking-header">
+        <h2>Top performances da Diretoria Comercial e Sucesso do Aluno</h2>
+        <p id="mes-titulo">Janeiro 2026</p>
       </div>
+
+      <!-- FILTRO GERÊNCIA -->
+      <div class="filtros" id="filtros-gerencia">
+        <div class="filtro-btn active" data-gerencia="todos">Todos</div>
+        <div class="filtro-btn" data-gerencia="Comercial">Comercial</div>
+        <div class="filtro-btn" data-gerencia="Permanência">Permanência</div>
+        <div class="filtro-btn" data-gerencia="Relacionamento">Relacionamento</div>
+      </div>
+
+      <!-- FILTRO MÊS -->
+      <div class="filtros" id="filtros-mes">
+        <div class="filtro-btn active" data-mes="01_2026">Jan 2026</div>
+        <div class="filtro-btn" data-mes="02_2026">Fev 2026</div>
+        <div class="filtro-btn" data-mes="03_2026">Mar 2026</div>
+      </div>
+
+      <div class="ranking-list" id="ranking-list"></div>
+
     </div>
-  </section>
-  <script>
-    const dados = [
-      {mes:"01_2026",nome:"Viviane Pereira da Silva",gerencia:"Comercial"},
-      {mes:"01_2026",nome:"Gustavo Borges",gerencia:"Comercial"},
-      {mes:"01_2026",nome:"Gustavo Pacheco",gerencia:"Comercial"},
-      {mes:"01_2026",nome:"Gustavo Henrique dos Santos",gerencia:"Comercial"},
-      {mes:"01_2026",nome:"Fernanda Vicente",gerencia:"Comercial"},
-      {mes:"01_2026",nome:"Allan Charles",gerencia:"Comercial"},
-      {mes:"01_2026",nome:"Marcia Sabino",gerencia:"Comercial"},
-      {mes:"01_2026",nome:"Lorrayne Andressa",gerencia:"Comercial"},
-      {mes:"01_2026",nome:"Rayssa Iara",gerencia:"Permanência"},
-      {mes:"01_2026",nome:"Jéssica Lopes",gerencia:"Permanência"},
-      {mes:"01_2026",nome:"Luana Carolina de Souza",gerencia:"Permanência"},
-      {mes:"01_2026",nome:"Thauane Fernandes",gerencia:"Permanência"},
-      {mes:"01_2026",nome:"Ana Luiza dos Santos",gerencia:"Permanência"},
-      {mes:"01_2026",nome:"Karolina Mendonca",gerencia:"Permanência"},
-      {mes:"01_2026",nome:"Rafael Francisco",gerencia:"Permanência"},
-      {mes:"01_2026",nome:"Marcos Vinicius do Vale",gerencia:"Permanência"},
-      {mes:"01_2026",nome:"Elaine Cristina",gerencia:"Permanência"},
-      {mes:"01_2026",nome:"Débora Fernandes",gerencia:"Permanência"},
-      {mes:"01_2026",nome:"Angêla Carla",gerencia:"Relacionamento"},
-      {mes:"01_2026",nome:"Aline Barros",gerencia:"Relacionamento"},
-      {mes:"01_2026",nome:"Maria Eduarda Braz de Andrade",gerencia:"Relacionamento"},
-      {mes:"01_2026",nome:"Vinicius Junio de Lima",gerencia:"Relacionamento"}
-    ];
+  </div>
+</section>
 
-    let filtroGerenciaAtual = "todos";
-    let filtroMesAtual = "01_2026";
+<script>
+const dados = [
+  // JANEIRO
+  {mes:"01_2026",nome:"Viviane Pereira da Silva",gerencia:"Comercial"},
+  {mes:"01_2026",nome:"Gustavo Borges",gerencia:"Comercial"},
+  {mes:"01_2026",nome:"Marcia Sabino",gerencia:"Comercial"},
+  {mes:"01_2026",nome:"Lorrayne Andressa",gerencia:"Comercial"},
+  {mes:"01_2026",nome:"Rayssa Iara",gerencia:"Permanência"},
+  {mes:"01_2026",nome:"Jéssica Lopes",gerencia:"Permanência"},
+  {mes:"01_2026",nome:"Aline Barros",gerencia:"Relacionamento"},
 
-    function renderRanking(){
-      const lista = document.getElementById("ranking-list");
-      lista.innerHTML = "";
-      const filtrados = dados
-        .filter(d => d.mes === filtroMesAtual)
-        .filter(d => filtroGerenciaAtual === "todos" || d.gerencia === filtroGerenciaAtual)
-        .sort((a,b) => a.nome.localeCompare(b.nome));
-      filtrados.forEach(d => {
-        const item = document.createElement("div");
-        item.className = "ranking-item";
-        item.innerHTML = `
-          <span class="ranking-name">${d.nome}</span>
-          <span class="ranking-gerencia">${d.gerencia}</span>
-        `;
-        lista.appendChild(item);
-      });
-    }
+  // FEVEREIRO
+  {mes:"02_2026",nome:"Andressa Cruz",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Viviane Silva",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Liciele Monteiro",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Marcia Sabino",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Debora Silva",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Lorrayne Soares",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Kauele Vasconcelos",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Gustavo Borges",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Taianara Oliveira",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Juan Nepomuceno",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Yasminne Barreto",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Andreia Dias",gerencia:"Comercial"},
+  {mes:"02_2026",nome:"Aline Barros",gerencia:"Relacionamento"},
+  {mes:"02_2026",nome:"Samuel Abreu",gerencia:"Relacionamento"},
+  {mes:"02_2026",nome:"Danielle Leite",gerencia:"Relacionamento"},
+  {mes:"02_2026",nome:"Rayssa Silva",gerencia:"Permanência"},
+  {mes:"02_2026",nome:"Rosiele Maria",gerencia:"Permanência"},
+  {mes:"02_2026",nome:"Rafael Vieira",gerencia:"Permanência"},
+  {mes:"02_2026",nome:"Michelle Ramos",gerencia:"Permanência"},
+  {mes:"02_2026",nome:"Gabriele Souza",gerencia:"Permanência"},
 
-    document.querySelectorAll("#filtros-gerencia .filtro-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        filtroGerenciaAtual = btn.dataset.gerencia;
-        document.querySelectorAll("#filtros-gerencia .filtro-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderRanking();
-      });
-    });
+  // MARÇO
+  {mes:"03_2026",nome:"Andressa Cruz",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Gustavo Pacheco",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Rosangela Cruz",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Lorrayne Soares",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Amanda Costa",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Kauele Vasconcelos",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Erika Souza",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Leticia Silva",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Brenda Ribeiro",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Gustavo Borges",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Ana Oliveira",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Brener Martins",gerencia:"Comercial"},
+  {mes:"03_2026",nome:"Lorena Xavier",gerencia:"Relacionamento"},
+  {mes:"03_2026",nome:"Jessika Diniz",gerencia:"Permanência"},
+  {mes:"03_2026",nome:"Rayssa Silva",gerencia:"Permanência"},
+  {mes:"03_2026",nome:"Thauane Meneses",gerencia:"Permanência"},
+  {mes:"03_2026",nome:"Gabriel Araujo",gerencia:"Permanência"},
+  {mes:"03_2026",nome:"Ana Tamires Soares",gerencia:"Permanência"}
+];
 
-    document.querySelectorAll("#filtros-mes .filtro-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        filtroMesAtual = btn.dataset.mes;
-        document.querySelectorAll("#filtros-mes .filtro-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderRanking();
-      });
-    });
+const titulosMes = {
+  "01_2026": "Janeiro 2026",
+  "02_2026": "Fevereiro 2026",
+  "03_2026": "Março 2026"
+};
 
+let filtroGerenciaAtual = "todos";
+let filtroMesAtual = "01_2026";
+
+function renderRanking(){
+  const lista = document.getElementById("ranking-list");
+  lista.innerHTML = "";
+
+  document.getElementById("mes-titulo").innerText = titulosMes[filtroMesAtual];
+
+  const filtrados = dados
+    .filter(d => d.mes === filtroMesAtual)
+    .filter(d => filtroGerenciaAtual === "todos" || d.gerencia === filtroGerenciaAtual)
+    .sort((a,b) => a.nome.localeCompare(b.nome));
+
+  filtrados.forEach(d => {
+    const item = document.createElement("div");
+    item.className = "ranking-item";
+    item.innerHTML = `
+      <span class="ranking-name">${d.nome}</span>
+      <span class="ranking-gerencia">${d.gerencia}</span>
+    `;
+    lista.appendChild(item);
+  });
+}
+
+// eventos
+document.querySelectorAll("#filtros-gerencia .filtro-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    filtroGerenciaAtual = btn.dataset.gerencia;
+    document.querySelectorAll("#filtros-gerencia .filtro-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
     renderRanking();
-  </script>
+  });
+});
+
+document.querySelectorAll("#filtros-mes .filtro-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    filtroMesAtual = btn.dataset.mes;
+    document.querySelectorAll("#filtros-mes .filtro-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    renderRanking();
+  });
+});
+
+// inicial
+renderRanking();
+</script>
 
   <!-- ========================= -->
   <!-- SEÇÃO: DESTAQUES DO MÊS -->
