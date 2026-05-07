@@ -137,7 +137,7 @@
       display:grid;
       grid-template-columns:1.04fr .96fr;
       gap:26px;
-      align-items:start;
+      align-items:stretch;
     }
     .pill{
       display:inline-flex;
@@ -264,46 +264,47 @@
         <span class="update-tag">Dados atualizados em 23/04/2026</span>
       </div>
 
-      <div id="meta" class="reveal delay-2">
+      <div id="meta" class="reveal delay-2" style="display:flex;align-items:center;justify-content:center;">
         <div style="
+          width:100%;
           max-width:520px;
-          padding:36px;
+          padding:28px 30px;
           border-radius:22px;
           background:linear-gradient(135deg,#0B1C48,#081433);
           color:white;
           font-family:Arial, sans-serif;
           box-shadow:0 25px 50px rgba(0,0,0,0.28);
         ">
-          <div style="font-size:20px; font-weight:700; margin-bottom:24px; color:#C7F000;">
+          <div style="font-size:18px; font-weight:700; margin-bottom:18px; color:#C7F000;">
             Resultado acumulado da Operação Altitude
           </div>
-          <div style="background:rgba(255,255,255,0.04); padding:18px 20px; border-radius:16px; margin-bottom:14px;">
-            <div style="font-size:12px; opacity:0.85; margin-bottom:4px;">Meta 2026</div>
-            <div style="font-size:22px; font-weight:700;">R$ 128.000.000</div>
-            <div style="font-size:11px; opacity:0.8; margin-top:4px;">
+          <div style="background:rgba(255,255,255,0.04); padding:14px 16px; border-radius:14px; margin-bottom:10px;">
+            <div style="font-size:11px; opacity:0.85; margin-bottom:3px;">Meta 2026</div>
+            <div style="font-size:20px; font-weight:700;">R$ 128.000.000</div>
+            <div style="font-size:10px; opacity:0.8; margin-top:3px;">
               Crescimento de +35% sobre o resultado de 2025
             </div>
           </div>
-          <div style="background:rgba(255,255,255,0.04); padding:18px 20px; border-radius:16px; margin-bottom:14px;">
-            <div style="font-size:12px; opacity:0.85; margin-bottom:4px;">Receita acumulada no ano</div>
-            <div id="receitaAnoTexto" style="font-size:22px; font-weight:700;">R$ 0</div>
+          <div style="background:rgba(255,255,255,0.04); padding:14px 16px; border-radius:14px; margin-bottom:10px;">
+            <div style="font-size:11px; opacity:0.85; margin-bottom:3px;">Receita acumulada no ano</div>
+            <div id="receitaAnoTexto" style="font-size:20px; font-weight:700;">R$ 0</div>
           </div>
-          <div style="background:rgba(255,255,255,0.04); padding:16px 20px; border-radius:16px; margin-bottom:26px;">
-            <div style="font-size:12px; opacity:0.85; margin-bottom:4px;">Faltam para a meta</div>
-            <div id="faltaMeta" style="font-size:18px; font-weight:700;">R$ 0</div>
+          <div style="background:rgba(255,255,255,0.04); padding:12px 16px; border-radius:14px; margin-bottom:18px;">
+            <div style="font-size:11px; opacity:0.85; margin-bottom:3px;">Faltam para a meta</div>
+            <div id="faltaMeta" style="font-size:16px; font-weight:700;">R$ 0</div>
           </div>
-          <div style="font-size:13px; opacity:0.85; margin-bottom:8px;">
+          <div style="font-size:12px; opacity:0.85; margin-bottom:6px;">
             Progresso rumo à meta 2026
           </div>
           <div id="percentualAnual" style="
-            font-size:36px;
+            font-size:30px;
             font-weight:800;
             color:#C7F000;
-            margin-bottom:10px;
+            margin-bottom:6px;
           ">0%</div>
           <div id="statusMeta" style="
-            margin-bottom:18px;
-            font-size:13px;
+            margin-bottom:12px;
+            font-size:12px;
             font-weight:600;
             opacity:0.95;
           "></div>
@@ -311,7 +312,7 @@
             width:100%;
             background:rgba(255,255,255,0.18);
             border-radius:20px;
-            height:14px;
+            height:12px;
             overflow:hidden;
           ">
             <div id="barraAnual" style="
@@ -325,9 +326,9 @@
           <div style="
             display:flex;
             justify-content:space-between;
-            font-size:11px;
+            font-size:10px;
             opacity:0.8;
-            margin-top:6px;
+            margin-top:5px;
           ">
             <span>0%</span>
             <span>100%</span>
@@ -340,7 +341,7 @@
   <script>
     /* ===== Card Meta Principal ===== */
     const meta = 128000000;
-    const receitaAno = 25839133;
+    const receitaAno = 37179753;
     const percentual = (receitaAno / meta) * 100;
     const falta = meta - receitaAno;
 
@@ -589,15 +590,15 @@
         <p>Cada urna trimestral só é aberta quando a meta financeira acumulada do período é atingida.</p>
       </div>
       <div class="gatilhos-grid">
-        <div class="gatilho vigente">
+        <div class="gatilho atingido">
           <div class="gatilho-label">Reinvenção</div>
           <div class="gatilho-valor">R$ 11 mi</div>
-          <div class="gatilho-status status-vigente">Em andamento</div>
+          <div class="gatilho-status status-atingido">Atingida</div>
         </div>
-        <div class="gatilho">
+        <div class="gatilho vigente">
           <div class="gatilho-label">1º Trimestre</div>
           <div class="gatilho-valor">R$ 32 mi</div>
-          <div class="gatilho-status status-pendente">Pendente</div>
+          <div class="gatilho-status status-vigente">Em andamento</div>
         </div>
         <div class="gatilho">
           <div class="gatilho-label">2º Trimestre</div>
@@ -1049,17 +1050,68 @@
     .oa-premios{max-width:1200px;margin:0 auto;padding:60px 30px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;}
     .oa-annual{
       background:linear-gradient(135deg,#0b1f47,#163a7a);border-radius:28px;
-      padding:70px 60px;color:#fff;box-shadow:0 35px 70px rgba(0,0,0,.35);
+      padding:60px 50px;color:#fff;box-shadow:0 35px 70px rgba(0,0,0,.35);
       border:1px solid rgba(212,175,55,.45);margin-bottom:40px;
     }
-    .oa-title{text-align:center;font-size:40px;font-weight:700;margin-bottom:55px;}
-    .oa-prizes{text-align:center;margin-bottom:35px;}
-    .oa-grand{font-size:28px;font-weight:700;margin-bottom:18px;}
-    .oa-mid{font-size:22px;margin-bottom:18px;opacity:.95;}
-    .oa-small{font-size:18px;opacity:.92;}
+    .oa-title{text-align:center;font-size:40px;font-weight:700;margin-bottom:12px;}
+    .oa-subtitle{text-align:center;font-size:15px;opacity:.85;margin-bottom:45px;}
+
+    /* Grid de prêmios anuais com imagens */
+    .oa-prizes-grid{
+      display:grid;
+      grid-template-columns:1.4fr 1fr;
+      gap:22px;
+      margin-bottom:35px;
+    }
+    .oa-prize-card{
+      position:relative;
+      border-radius:20px;
+      overflow:hidden;
+      min-height:260px;
+      background:#0a1738;
+      box-shadow:0 18px 40px rgba(0,0,0,.4);
+      border:1px solid rgba(255,199,44,.25);
+    }
+    .oa-prize-card.featured{
+      grid-row:span 2;
+      min-height:540px;
+    }
+    .oa-prize-card .oa-prize-img{
+      position:absolute;inset:0;
+      background-size:cover;
+      background-position:center;
+      transition:transform .5s ease;
+    }
+    .oa-prize-card:hover .oa-prize-img{transform:scale(1.05);}
+    .oa-prize-card .oa-prize-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(11,31,71,.15) 0%,rgba(11,31,71,.55) 55%,rgba(8,20,51,.95) 100%);
+    }
+    .oa-prize-card .oa-prize-content{
+      position:absolute;left:0;right:0;bottom:0;
+      padding:24px 26px;
+      z-index:2;
+    }
+    .oa-prize-card .oa-prize-tag{
+      display:inline-block;
+      font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+      background:#FFC72C;color:#0B1C48;
+      padding:4px 10px;border-radius:999px;margin-bottom:10px;
+    }
+    .oa-prize-card.featured .oa-prize-tag{
+      background:#D4AF37;color:#0B1C48;
+    }
+    .oa-prize-card .oa-prize-name{
+      font-size:20px;font-weight:800;margin-bottom:4px;line-height:1.2;
+    }
+    .oa-prize-card.featured .oa-prize-name{font-size:28px;}
+    .oa-prize-card .oa-prize-desc{
+      font-size:13px;opacity:.92;line-height:1.4;
+    }
+
     .oa-note{
-      text-align:center;font-size:13px;opacity:.95;margin:30px auto;
-      max-width:720px;background:rgba(255,199,44,.1);padding:14px 20px;
+      text-align:center;font-size:13px;opacity:.95;margin:30px auto 35px;
+      max-width:760px;background:rgba(255,199,44,.1);padding:14px 20px;
       border-radius:12px;border:1px solid rgba(255,199,44,.3);
     }
     .oa-counter-title{text-align:center;font-size:19px;font-weight:600;margin-bottom:20px;}
@@ -1086,20 +1138,73 @@
       .oa-grid{grid-template-columns:1fr;}
       .oa-extras{grid-template-columns:1fr;}
       .oa-countdown{flex-wrap:wrap;}
-      .oa-annual{padding:48px 28px;}
+      .oa-annual{padding:42px 24px;}
       .oa-title{font-size:30px;}
+      .oa-prizes-grid{grid-template-columns:1fr;}
+      .oa-prize-card.featured{grid-row:auto;min-height:340px;}
     }
     </style>
     <div class="oa-annual">
       <div class="oa-title">Premiação Anual — O Topo da Montanha</div>
-      <div class="oa-prizes">
-        <div class="oa-grand">🚗 1 CARRO 0 KM</div>
-        <div class="oa-mid">🏍 4 MOTOS 0 KM</div>
-        <div class="oa-small">
-          ✈ 2 viagens nacionais<br>
-          🌎 2 viagens internacionais
+      <div class="oa-subtitle">Os prêmios que aguardam quem chegar ao cume.</div>
+
+      <div class="oa-prizes-grid">
+        <!-- CARRO - destaque grande -->
+        <div class="oa-prize-card featured">
+          <div class="oa-prize-img" style="background-image:url('https://source.unsplash.com/featured/1200x900/?citroen,c4,sedan');"></div>
+          <div class="oa-prize-overlay"></div>
+          <div class="oa-prize-content">
+            <span class="oa-prize-tag">Prêmio máximo</span>
+            <div class="oa-prize-name">1 Carro 0 km</div>
+            <div class="oa-prize-desc">Exclusivo para Comercial e Permanência do Aluno.</div>
+          </div>
+        </div>
+
+        <!-- MOTOS -->
+        <div class="oa-prize-card">
+          <div class="oa-prize-img" style="background-image:url('https://source.unsplash.com/featured/800x600/?red,motorcycle,sport');"></div>
+          <div class="oa-prize-overlay"></div>
+          <div class="oa-prize-content">
+            <span class="oa-prize-tag">Premiação anual</span>
+            <div class="oa-prize-name">4 Motos vermelhas 0 km</div>
+            <div class="oa-prize-desc">Para todas as gerências elegíveis.</div>
+          </div>
+        </div>
+
+        <!-- VIAGENS INTERNACIONAIS -->
+        <div class="oa-prize-card">
+          <div class="oa-prize-img" style="background-image:url('https://source.unsplash.com/featured/800x600/?buenos-aires,argentina');"></div>
+          <div class="oa-prize-overlay"></div>
+          <div class="oa-prize-content">
+            <span class="oa-prize-tag">Viagem internacional</span>
+            <div class="oa-prize-name">América do Sul</div>
+            <div class="oa-prize-desc">2 viagens internacionais para destinos sul-americanos icônicos.</div>
+          </div>
         </div>
       </div>
+
+      <!-- Linha secundária: 2 viagens nacionais -->
+      <div class="oa-prizes-grid" style="grid-template-columns:1fr 1fr;">
+        <div class="oa-prize-card">
+          <div class="oa-prize-img" style="background-image:url('https://source.unsplash.com/featured/800x600/?maceio,beach,brazil');"></div>
+          <div class="oa-prize-overlay"></div>
+          <div class="oa-prize-content">
+            <span class="oa-prize-tag">Viagem nacional</span>
+            <div class="oa-prize-name">Viagem Nacional</div>
+            <div class="oa-prize-desc">Praias paradisíacas no litoral nordestino.</div>
+          </div>
+        </div>
+        <div class="oa-prize-card">
+          <div class="oa-prize-img" style="background-image:url('https://source.unsplash.com/featured/800x600/?arraial-da-ajuda,bahia');"></div>
+          <div class="oa-prize-overlay"></div>
+          <div class="oa-prize-content">
+            <span class="oa-prize-tag">Viagem nacional</span>
+            <div class="oa-prize-name">Viagem Nacional</div>
+            <div class="oa-prize-desc">O charme da Bahia em um dos destinos mais desejados do país.</div>
+          </div>
+        </div>
+      </div>
+
       <div class="oa-note">
         <strong>Importante:</strong> o carro 0 km é exclusivo para as gerências Comercial e Permanência do Aluno. Motos, viagens e demais prêmios anuais contemplam todas as gerências elegíveis.
       </div>
