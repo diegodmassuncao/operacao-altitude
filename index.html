@@ -1,4 +1,4 @@
-!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
@@ -6,7 +6,6 @@
   <title>Operação Altitude 2026</title>
   <meta name="description" content="Operação Altitude 2026 – campanha de incentivos. Regulamento, metas, jornada, premiações e ranking.">
   <meta name="theme-color" content="#114297">
-
   <style>
     :root{
       --bg:#114297;
@@ -20,7 +19,6 @@
       --line:#dfe3ff;
       --accent:#D4D801;
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;}
     body{
@@ -32,13 +30,11 @@
     }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-
     .container{
       max-width:1180px;
       margin:0 auto;
       padding:0 20px;
     }
-
     header{
       position:sticky;
       top:0;
@@ -60,23 +56,22 @@
       color:#fff;
     }
     .brand-title{font-weight:700}
-    .brand-year{opacity:.6}
+    .brand-year{opacity:.7}
     .navlinks{
       display:flex;
       gap:6px;
       flex-wrap:wrap;
     }
     .navlinks a{
-      color:rgba(232,237,255,.82);
+      color:rgba(232,237,255,.88);
       padding:.35rem .6rem;
       border-radius:8px;
       font-size:.85rem;
     }
     .navlinks a:hover{
-      background:rgba(255,255,255,.05);
+      background:rgba(255,255,255,.08);
       color:#fff;
     }
-
     .cta-bar{
       position:fixed;
       left:0;
@@ -85,6 +80,12 @@
       display:flex;
       justify-content:center;
       z-index:80;
+      transition:transform .3s ease, opacity .3s ease;
+    }
+    .cta-bar.hidden{
+      transform:translateY(120%);
+      opacity:0;
+      pointer-events:none;
     }
     .cta-bar .wrap{
       display:flex;
@@ -96,7 +97,6 @@
       backdrop-filter:blur(6px);
       box-shadow:var(--shadow-2);
     }
-
     .btn{
       appearance:none;
       border:0;
@@ -115,11 +115,11 @@
     }
     .btn:hover{background:var(--primary-hover)}
     .btn.secondary{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.22);
+      color:#fff;
     }
-
-    /* Montanha do topo */
+    .btn.secondary:hover{background:rgba(255,255,255,.15)}
     .hero-title{
       position:relative;
       min-height:360px;
@@ -129,53 +129,44 @@
       padding:0 20px 20px;
       will-change:background-position;
     }
-
     .hero{
       padding:36px 0 40px;
       background:#fff;
     }
-
-    /* Hero com 2 colunas, texto e meta */
     .hero-wrap{
       display:grid;
       grid-template-columns:1.04fr .96fr;
       gap:26px;
       align-items:start;
     }
-
     .pill{
       display:inline-flex;
       align-items:center;
       gap:6px;
-      background:rgba(17,66,151,.06);
-      border:1px dashed rgba(17,66,151,.25);
+      background:rgba(17,66,151,.08);
+      border:1px dashed rgba(17,66,151,.3);
       border-radius:999px;
       padding:.35rem .7rem;
       font-size:.75rem;
       color:#0f1535;
     }
-
     .hero-title-lg{
       font-size:clamp(2rem,3.4vw,3.2rem);
       margin:12px 0 8px;
       font-weight:900;
       letter-spacing:.1px;
     }
-
     .lead{
       color:#4a5373;
       font-size:.98rem;
       max-width:580px;
     }
-
     .hero-ctas{
       display:flex;
       gap:12px;
       margin-top:14px;
       flex-wrap:wrap;
     }
-
-    /* ===== AJUSTE 1: bloco esquerdo com "peso" equivalente (sem mexer no card da meta) ===== */
     .hero-left-card{
       background:rgba(255,255,255,.92);
       border:1px solid rgba(15,21,53,.08);
@@ -185,12 +176,17 @@
     }
     .hero-left-card .lead{font-size:1.05rem; max-width:none;}
     .hero-left-card .hero-title-lg{margin-top:14px;}
+    .update-tag{
+      display:inline-block;
+      margin-top:14px;
+      font-size:.72rem;
+      color:#6a759c;
+      opacity:.95;
+    }
     @media (max-width:520px){
       .hero-left-card{padding:22px;}
       .hero-left-card .lead{font-size:1rem;}
     }
-
-    /* ===== AJUSTE 2: micro animação elegante de entrada (ambos os cards) ===== */
     .reveal{
       opacity:0;
       transform:translateY(12px);
@@ -205,12 +201,10 @@
     }
     .reveal.delay-1{transition-delay:.06s;}
     .reveal.delay-2{transition-delay:.14s;}
-
     @media (prefers-reduced-motion: reduce){
       .reveal{transition:none; opacity:1; transform:none; filter:none;}
       .hero-title{will-change:auto;}
     }
-
     @media (max-width:980px){
       .navlinks{display:none}
       .hero-wrap{grid-template-columns:1fr}
@@ -218,9 +212,7 @@
     }
   </style>
 </head>
-
 <body>
-
   <!-- HEADER + MENU -->
   <header>
     <div class="container">
@@ -230,15 +222,13 @@
           <span class="brand-title">Operação Altitude</span>
           <span class="brand-year">2026</span>
         </div>
-
         <div class="navlinks" aria-label="Seções do site">
           <a href="#home">Início</a>
-          <a href="#tribos">Manifestos</a>
+          <a href="#tribos">Tribos</a>
           <a href="#regras">Como funciona</a>
-          <a href="#regras-exp">Regras</a>
+          <a href="#gatilhos">Gatilhos</a>
           <a href="#simulador">Simulador</a>
           <a href="#ranking">Ranking</a>
-          <a href="#destaques-mes">Destaques</a>
           <a href="#premiacao">Premiação</a>
           <a href="#faq">FAQ</a>
         </div>
@@ -247,9 +237,10 @@
   </header>
 
   <!-- BOTÃO FLUTUANTE -->
-  <div class="cta-bar">
+  <div class="cta-bar" id="ctaBar">
     <div class="wrap">
-      <a class="btn" href="https://docs.google.com/document/d/1GiB-JRvpjppz62VAk55f9qui7JCrsgfi/edit?usp=sharing&ouid=109176490159837285946&rtpof=true&sd=true" target="_blank" rel="noopener">Regulamento</a>
+      <a class="btn" href="https://drive.google.com/file/d/1Pjn1XB4JpNTIOtzifM66Xt7NWzxGly8y/view?usp=sharing" target="_blank" rel="noopener">Regulamento</a>
+      <a class="btn secondary" href="#simulador">Simular meus cupons</a>
     </div>
   </div>
 
@@ -259,8 +250,6 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="container hero-wrap">
-
-      <!-- Texto (bloco esquerdo) -->
       <div class="hero-left-card reveal delay-1" id="heroLeft">
         <span class="pill">Campanha de Incentivos • 01 jan – 31 dez 2026</span>
         <h2 class="hero-title-lg">Você ainda não conhece os seus limites!</h2>
@@ -269,11 +258,12 @@
           A Operação Altitude reconhece performance com premiações semanais, mensais, trimestrais e um grande prêmio anual.
         </p>
         <div class="hero-ctas">
-          <a class="btn" href="https://docs.google.com/document/d/1GiB-JRvpjppz62VAk55f9qui7JCrsgfi/edit?usp=sharing&ouid=109176490159837285946&rtpof=true&sd=true" target="_blank" rel="noopener">Regulamento</a>
+          <a class="btn" href="https://drive.google.com/file/d/1Pjn1XB4JpNTIOtzifM66Xt7NWzxGly8y/view?usp=sharing" target="_blank" rel="noopener">Regulamento</a>
+          <a class="btn" href="#simulador" style="background:#0B1C48;">Simular meus cupons</a>
         </div>
+        <span class="update-tag">Dados atualizados em 23/04/2026</span>
       </div>
 
-      <!-- Card Meta (não mexi no conteúdo/estilo interno) -->
       <div id="meta" class="reveal delay-2">
         <div style="
           max-width:520px;
@@ -284,54 +274,42 @@
           font-family:Arial, sans-serif;
           box-shadow:0 25px 50px rgba(0,0,0,0.28);
         ">
-
           <div style="font-size:20px; font-weight:700; margin-bottom:24px; color:#C7F000;">
             Resultado acumulado da Operação Altitude
           </div>
-
-          <!-- META OFICIAL -->
           <div style="background:rgba(255,255,255,0.04); padding:18px 20px; border-radius:16px; margin-bottom:14px;">
-            <div style="font-size:12px; opacity:0.6; margin-bottom:4px;">Meta 2026</div>
+            <div style="font-size:12px; opacity:0.85; margin-bottom:4px;">Meta 2026</div>
             <div style="font-size:22px; font-weight:700;">R$ 128.000.000</div>
-            <div style="font-size:11px; opacity:0.5; margin-top:4px;">
-              Meta representa +35% sobre o resultado de 2025
+            <div style="font-size:11px; opacity:0.8; margin-top:4px;">
+              Crescimento de +35% sobre o resultado de 2025
             </div>
           </div>
-
-          <!-- RECEITA ACUMULADA -->
           <div style="background:rgba(255,255,255,0.04); padding:18px 20px; border-radius:16px; margin-bottom:14px;">
-            <div style="font-size:12px; opacity:0.6; margin-bottom:4px;">Receita acumulada no ano</div>
+            <div style="font-size:12px; opacity:0.85; margin-bottom:4px;">Receita acumulada no ano</div>
             <div id="receitaAnoTexto" style="font-size:22px; font-weight:700;">R$ 0</div>
           </div>
-
-          <!-- FALTA PARA META -->
           <div style="background:rgba(255,255,255,0.04); padding:16px 20px; border-radius:16px; margin-bottom:26px;">
-            <div style="font-size:12px; opacity:0.6; margin-bottom:4px;">Faltam para a meta</div>
+            <div style="font-size:12px; opacity:0.85; margin-bottom:4px;">Faltam para a meta</div>
             <div id="faltaMeta" style="font-size:18px; font-weight:700;">R$ 0</div>
           </div>
-
-          <div style="font-size:13px; opacity:0.6; margin-bottom:8px;">
+          <div style="font-size:13px; opacity:0.85; margin-bottom:8px;">
             Progresso rumo à meta 2026
           </div>
-
           <div id="percentualAnual" style="
             font-size:36px;
             font-weight:800;
             color:#C7F000;
             margin-bottom:10px;
           ">0%</div>
-
-          <!-- STATUS AUTOMÁTICO -->
           <div id="statusMeta" style="
             margin-bottom:18px;
             font-size:13px;
             font-weight:600;
-            opacity:0.85;
+            opacity:0.95;
           "></div>
-
           <div style="
             width:100%;
-            background:rgba(255,255,255,0.12);
+            background:rgba(255,255,255,0.18);
             border-radius:20px;
             height:14px;
             overflow:hidden;
@@ -344,36 +322,30 @@
               transition:width 1.8s ease-out;
             "></div>
           </div>
-
           <div style="
             display:flex;
             justify-content:space-between;
             font-size:11px;
-            opacity:0.5;
+            opacity:0.8;
             margin-top:6px;
           ">
             <span>0%</span>
             <span>100%</span>
           </div>
-
         </div>
       </div>
     </div>
   </section>
 
   <script>
-    /* ===== metas (seu script original) ===== */
+    /* ===== Card Meta Principal ===== */
     const meta = 128000000;
-
-    // ATUALIZE AQUI MENSALMENTE
-    const receitaAno = 16986549;
-
+    const receitaAno = 25839133;
     const percentual = (receitaAno / meta) * 100;
     const falta = meta - receitaAno;
 
     document.getElementById("receitaAnoTexto").innerText =
       receitaAno.toLocaleString("pt-BR", {style:"currency", currency:"BRL"});
-
     document.getElementById("faltaMeta").innerText =
       falta.toLocaleString("pt-BR", {style:"currency", currency:"BRL"});
 
@@ -382,7 +354,6 @@
     else if (percentual < 75) mensagemStatus = "Ritmo consistente. Seguimos avançando.";
     else if (percentual < 100) mensagemStatus = "Fase final. O topo está próximo.";
     else mensagemStatus = "Meta atingida. Topo conquistado.";
-
     document.getElementById("statusMeta").innerText = mensagemStatus;
 
     let atual = 0;
@@ -391,7 +362,6 @@
     const incremento = 20;
     const passos = duracao / incremento;
     const aumento = alvo / passos;
-
     const contador = setInterval(() => {
       atual += aumento;
       if (atual >= alvo) {
@@ -400,12 +370,11 @@
       }
       document.getElementById("percentualAnual").innerText = atual.toFixed(1) + "%";
     }, incremento);
-
     setTimeout(function(){
       document.getElementById("barraAnual").style.width = alvo + "%";
     }, 200);
 
-    /* ===== AJUSTE 2: animação de entrada para os dois cards ===== */
+    /* ===== Animação de entrada ===== */
     (function(){
       const els = document.querySelectorAll('.reveal');
       if (!('IntersectionObserver' in window)) {
@@ -423,123 +392,78 @@
       els.forEach(el => io.observe(el));
     })();
 
-    /* ===== AJUSTE 3: profundidade leve no hero ao scroll (parallax na montanha) ===== */
+    /* ===== Parallax leve no hero ===== */
     (function(){
       const hero = document.getElementById('heroTopo');
       if (!hero) return;
-
       let ticking = false;
-
       function onScroll(){
         if (ticking) return;
         ticking = true;
-
         requestAnimationFrame(() => {
           const y = window.scrollY || 0;
-
-          // deslocamento bem leve, para não "quebrar" o contain
-          const base = 80;           // seu original
-          const offset = Math.min(y * 0.03, 18); // limite do efeito
+          const base = 80;
+          const offset = Math.min(y * 0.03, 18);
           hero.style.backgroundPosition = `center ${base - offset}%`;
-
           ticking = false;
         });
       }
-
       window.addEventListener('scroll', onScroll, { passive:true });
       onScroll();
+    })();
+
+    /* ===== Esconder CTA flutuante no scroll down (mobile) ===== */
+    (function(){
+      const bar = document.getElementById('ctaBar');
+      let lastY = window.scrollY;
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          if (window.innerWidth < 768) {
+            if (y > lastY + 10 && y > 400) bar.classList.add('hidden');
+            else if (y < lastY - 10) bar.classList.remove('hidden');
+          } else {
+            bar.classList.remove('hidden');
+          }
+          lastY = y;
+          ticking = false;
+        });
+      }, { passive:true });
     })();
   </script>
 
   <!-- ========================= -->
-  <!-- SEÇÃO: MANIFESTOS (TRIBOS) -->
+  <!-- SEÇÃO: TRIBOS -->
   <!-- ========================= -->
-  <section id="tribos" aria-label="Manifestos das Tribos Altitude">
+  <section id="tribos" aria-label="Tribos Altitude">
     <div style="padding:70px 0; font-family:Arial, sans-serif;">
-
       <style>
-      .manifesto-wrapper{
-        max-width:1200px;
-        margin:0 auto;
-      }
-
-      .manifesto-container{
-        display:flex;
-        gap:30px;
-      }
-
+      .manifesto-wrapper{max-width:1200px;margin:0 auto;padding:0 20px;}
+      .manifesto-container{display:flex;gap:30px;}
       .manifesto-card{
-        flex:1;
-        background:#0B1C48;
-        border-radius:30px;
-        padding:42px 36px 36px 36px;
-        color:white;
-        text-align:center;
-        box-shadow:0 20px 45px rgba(0,0,0,0.18);
-        transition:all 0.3s ease;
+        flex:1;background:#0B1C48;border-radius:30px;
+        padding:42px 36px 36px 36px;color:white;text-align:center;
+        box-shadow:0 20px 45px rgba(0,0,0,0.18);transition:all 0.3s ease;
       }
-
-      .manifesto-card:hover{
-        transform:translateY(-6px);
-        box-shadow:0 28px 55px rgba(0,0,0,0.28);
-      }
-
-      .team-badge{
-        width:110px;
-        margin-bottom:24px;
-      }
-
-      .team-name{
-        font-size:22px;
-        font-weight:700;
-        margin-bottom:10px;
-      }
-
-      .manifesto-highlight{
-        font-size:18px;
-        font-weight:600;
-        margin-bottom:18px;
-      }
-
-      .manifesto-text{
-        font-size:15px;
-        line-height:1.7;
-        opacity:0.92;
-        text-align:left;
-      }
-
-      .color-line{
-        width:60px;
-        height:3px;
-        margin:18px auto 22px auto;
-        border-radius:3px;
-      }
-
-      @media(max-width:900px){
-        .manifesto-container{
-          flex-direction:column;
-        }
-      }
+      .manifesto-card:hover{transform:translateY(-6px);box-shadow:0 28px 55px rgba(0,0,0,0.28);}
+      .team-badge{width:110px;margin-bottom:24px;margin-left:auto;margin-right:auto;}
+      .team-name{font-size:22px;font-weight:700;margin-bottom:10px;}
+      .manifesto-highlight{font-size:18px;font-weight:600;margin-bottom:18px;}
+      .manifesto-text{font-size:15px;line-height:1.7;opacity:0.95;text-align:left;}
+      .color-line{width:60px;height:3px;margin:18px auto 22px auto;border-radius:3px;}
+      @media(max-width:900px){.manifesto-container{flex-direction:column;}}
       </style>
-
       <div class="manifesto-wrapper">
-
-        <h2 style="color:#0B1C48; margin-bottom:50px;">
-          Manifestos das Tribos Altitude
-        </h2>
-
+        <h2 style="color:#0B1C48; margin-bottom:50px;">Conheça as Tribos Altitude</h2>
         <div class="manifesto-container">
-
-          <!-- Engenheiros do Gelo -->
           <div class="manifesto-card">
             <img class="team-badge" src="https://drive.google.com/thumbnail?id=10TfeDJnS8ZtH320q_Azgxr10KoeZ4w2D&sz=w1000" alt="">
-            <div class="team-name" style="color:#2cc4f4;">
-              Engenheiros do Gelo
-            </div>
+            <div class="team-name" style="color:#2cc4f4;">Engenheiros do Gelo</div>
             <div class="color-line" style="background:#2cc4f4;"></div>
-            <div class="manifesto-highlight">
-              Aqueles que constroem a passagem.
-            </div>
+            <div class="manifesto-highlight">Aqueles que constroem a passagem.</div>
             <div class="manifesto-text">
               Sem essa engenharia, não existiria o caminho.
               Com coragem e estratégia, constroem as passagens que ligam desafios às conquistas.
@@ -547,17 +471,11 @@
               Transformam oportunidades em resultados com precisão e confiança.
             </div>
           </div>
-
-          <!-- Portadores do Fogo -->
           <div class="manifesto-card">
             <img class="team-badge" src="https://drive.google.com/thumbnail?id=1Y1IOvkVXzRMItc6RAaSgJJYBlsGhvrLZ&sz=w1000" alt="">
-            <div class="team-name" style="color:#cc0000;">
-              Portadores do Fogo
-            </div>
-            <div class="color-line" style="background:#cc0000;"></div>
-            <div class="manifesto-highlight">
-              Aqueles cuja resiliência acende confiança.
-            </div>
+            <div class="team-name" style="color:#ff6b7a;">Portadores do Fogo</div>
+            <div class="color-line" style="background:#ff6b7a;"></div>
+            <div class="manifesto-highlight">Aqueles cuja resiliência acende confiança.</div>
             <div class="manifesto-text">
               São a chama que mantém viva a conexão.
               Em meio ao frio das incertezas e às tempestades da jornada,
@@ -565,17 +483,11 @@
               Transformam cada desafio em luz e cada contato em vínculo.
             </div>
           </div>
-
-          <!-- Domadores dos Ventos -->
           <div class="manifesto-card">
             <img class="team-badge" src="https://drive.google.com/thumbnail?id=1KTzwb3S5HanMVfW0DkCjW2u4FOpba0Mb&sz=w1000" alt="">
-            <div class="team-name" style="color:#387a5e;">
-              Domadores dos Ventos
-            </div>
-            <div class="color-line" style="background:#387a5e;"></div>
-            <div class="manifesto-highlight">
-              Aqueles que dominam a corrente.
-            </div>
+            <div class="team-name" style="color:#5cc99a;">Domadores dos Ventos</div>
+            <div class="color-line" style="background:#5cc99a;"></div>
+            <div class="manifesto-highlight">Aqueles que dominam a corrente.</div>
             <div class="manifesto-text">
               Guardiões da estabilidade em meio ao imprevisível.
               Onde as correntes mudam e tudo parece escapar,
@@ -583,140 +495,125 @@
               Transformam turbulência em constância e sopros incertos em ventos favoráveis.
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================ -->
-  <!-- SEÇÃO: COMO FUNCIONA (ESCALADA) -->
-  <!-- ============================ -->
+  <!-- ========================= -->
+  <!-- SEÇÃO: COMO FUNCIONA -->
+  <!-- ========================= -->
   <div id="regras"></div>
   <section aria-label="Como funciona a escalada">
-    <div style="padding:60px 0; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
-
+    <div style="padding:60px 20px; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
       <style>
-      .escalada-title{
-        font-size:28px;
-        font-weight:700;
-        margin-bottom:10px;
-      }
-
-      .escalada-sub{
-        font-size:16px;
-        opacity:.7;
-        margin-bottom:40px;
-      }
-
-      .escalada-grid{
-        display:grid;
-        grid-template-columns:repeat(3, 1fr);
-        gap:22px;
-      }
-
+      .escalada-title{font-size:28px;font-weight:700;margin-bottom:10px;}
+      .escalada-sub{font-size:16px;opacity:.8;margin-bottom:40px;}
+      .escalada-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:22px;}
       .escalada-card{
-        position:relative;
-        background:linear-gradient(145deg,#0B1C48,#122A66);
-        color:white;
-        border-radius:26px;
-        padding:26px 28px 26px 34px;
-        box-shadow:0 14px 35px rgba(0,0,0,.15);
-        transition:all .25s ease;
-        overflow:hidden;
+        position:relative;background:linear-gradient(145deg,#0B1C48,#122A66);
+        color:white;border-radius:26px;padding:26px 28px 26px 34px;
+        box-shadow:0 14px 35px rgba(0,0,0,.15);transition:all .25s ease;overflow:hidden;
       }
-
-      .escalada-card::before{
-        content:"";
-        position:absolute;
-        left:0;
-        top:0;
-        height:100%;
-        width:5px;
-        background:#FFC72C;
-      }
-
-      .escalada-number{
-        position:absolute;
-        right:22px;
-        top:18px;
-        font-size:52px;
-        font-weight:800;
-        opacity:.06;
-      }
-
-      .escalada-card:hover{
-        transform:translateY(-4px);
-        box-shadow:0 20px 45px rgba(0,0,0,.22);
-      }
-
-      .escalada-card h4{
-        margin:0 0 8px 0;
-        font-size:17px;
-        font-weight:700;
-      }
-
-      .escalada-card p{
-        margin:0;
-        font-size:14px;
-        opacity:.85;
-        line-height:1.5;
-      }
-
-      @media(max-width:1000px){
-        .escalada-grid{
-          grid-template-columns:repeat(2,1fr);
-        }
-      }
-
-      @media(max-width:640px){
-        .escalada-grid{
-          grid-template-columns:1fr;
-        }
-      }
+      .escalada-card::before{content:"";position:absolute;left:0;top:0;height:100%;width:5px;background:#FFC72C;}
+      .escalada-number{position:absolute;right:22px;top:18px;font-size:52px;font-weight:800;opacity:.08;}
+      .escalada-card:hover{transform:translateY(-4px);box-shadow:0 20px 45px rgba(0,0,0,.22);}
+      .escalada-card h4{margin:0 0 8px 0;font-size:17px;font-weight:700;}
+      .escalada-card p{margin:0;font-size:14px;opacity:.92;line-height:1.5;}
+      @media(max-width:1000px){.escalada-grid{grid-template-columns:repeat(2,1fr);}}
+      @media(max-width:640px){.escalada-grid{grid-template-columns:1fr;}}
       </style>
-
-      <div class="escalada-title">Cada etapa da escalada aproxima você do topo! Como funciona a escalada</div>
+      <div class="escalada-title">Cada etapa da escalada aproxima você do topo</div>
       <div class="escalada-sub">Entenda as regras, acompanhe sua evolução e saiba como subir até o topo.</div>
-
       <div class="escalada-grid">
-
         <div class="escalada-card">
           <div class="escalada-number">01</div>
           <h4>Entenda a jornada</h4>
           <p>A Operação Altitude é dividida em Campo Base, Rota e Cume. Cada etapa representa avanço consistente nos resultados.</p>
         </div>
-
         <div class="escalada-card">
           <div class="escalada-number">02</div>
           <h4>Cumpra sua meta</h4>
           <p>O desempenho é medido pelo atingimento da meta individual e pelo impacto direto na receita da operação.</p>
         </div>
-
         <div class="escalada-card">
           <div class="escalada-number">03</div>
           <h4>Acumule cupons</h4>
           <p>Ao bater sua meta no período, você acumula cupons e aumenta suas chances nas premiações trimestrais.</p>
         </div>
-
         <div class="escalada-card">
           <div class="escalada-number">04</div>
           <h4>Suba no ranking</h4>
           <p>Os rankings são atualizados por mês e por gerência, destacando consistência e performance.</p>
         </div>
-
         <div class="escalada-card">
           <div class="escalada-number">05</div>
           <h4>Resultados validados</h4>
           <p>Todos os resultados passam por consolidação e validação antes da divulgação oficial.</p>
         </div>
-
         <div class="escalada-card">
           <div class="escalada-number">06</div>
           <h4>Desbloqueie premiações</h4>
           <p>Semanal, mensal, trimestral e anual. Cada etapa da escalada libera novas oportunidades de reconhecimento.</p>
         </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ========================= -->
+  <!-- SEÇÃO: GATILHOS TRIMESTRAIS -->
+  <!-- ========================= -->
+  <section id="gatilhos" aria-label="Gatilhos trimestrais">
+    <div style="padding:20px 20px 40px; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
+      <style>
+      .gatilhos-header h2{font-size:26px;color:#0B1C48;margin:0 0 8px 0;}
+      .gatilhos-header p{color:#555;margin:0 0 30px 0;}
+      .gatilhos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+      .gatilho{
+        background:#fff;border:2px solid #E5E8F0;border-radius:20px;
+        padding:22px 18px;text-align:center;position:relative;transition:all .3s ease;
+      }
+      .gatilho.atingido{border-color:#5cc99a;background:linear-gradient(145deg,#f0fff7,#ffffff);}
+      .gatilho.vigente{border-color:#FFC72C;background:linear-gradient(145deg,#fffbeb,#ffffff);box-shadow:0 10px 25px rgba(255,199,44,.18);}
+      .gatilho-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#6B7280;margin-bottom:8px;}
+      .gatilho-valor{font-size:18px;font-weight:800;color:#0B1C48;margin-bottom:6px;}
+      .gatilho-status{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;display:inline-block;}
+      .status-atingido{background:#5cc99a;color:white;}
+      .status-vigente{background:#FFC72C;color:#0B1C48;}
+      .status-pendente{background:#E5E8F0;color:#6B7280;}
+      @media(max-width:900px){.gatilhos-grid{grid-template-columns:repeat(2,1fr);}}
+      @media(max-width:480px){.gatilhos-grid{grid-template-columns:1fr;}}
+      </style>
+      <div class="gatilhos-header">
+        <h2>Gatilhos de abertura das urnas</h2>
+        <p>Cada urna trimestral só é aberta quando a meta financeira acumulada do período é atingida.</p>
+      </div>
+      <div class="gatilhos-grid">
+        <div class="gatilho vigente">
+          <div class="gatilho-label">Reinvenção</div>
+          <div class="gatilho-valor">R$ 11 mi</div>
+          <div class="gatilho-status status-vigente">Em andamento</div>
+        </div>
+        <div class="gatilho">
+          <div class="gatilho-label">1º Trimestre</div>
+          <div class="gatilho-valor">R$ 32 mi</div>
+          <div class="gatilho-status status-pendente">Pendente</div>
+        </div>
+        <div class="gatilho">
+          <div class="gatilho-label">2º Trimestre</div>
+          <div class="gatilho-valor">R$ 60 mi</div>
+          <div class="gatilho-status status-pendente">Pendente</div>
+        </div>
+        <div class="gatilho">
+          <div class="gatilho-label">3º Trimestre</div>
+          <div class="gatilho-valor">R$ 92 mi</div>
+          <div class="gatilho-status status-pendente">Pendente</div>
+        </div>
+        <div class="gatilho">
+          <div class="gatilho-label">Anual</div>
+          <div class="gatilho-valor">R$ 120,4 mi</div>
+          <div class="gatilho-status status-pendente">Pendente</div>
+        </div>
       </div>
     </div>
   </section>
@@ -725,77 +622,25 @@
   <!-- SEÇÃO: REGRAS (EXPAND) -->
   <!-- ========================= -->
   <section id="regras-exp" aria-label="Regras que você precisa saber">
-    <div style="padding:60px 0; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
-
+    <div style="padding:60px 20px; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
       <style>
-      .regras-header{
-        margin-bottom:32px;
-      }
-
-      .regras-header h2{
-        font-size:26px;
-        margin:0 0 10px 0;
-        font-weight:700;
-        color:#0B1C48;
-      }
-
-      .regras-header p{
-        margin:0;
-        font-size:15px;
-        color:#444;
-      }
-
-      .regras-exp input{
-        display:none;
-      }
-
-      .regras-exp-labels{
-        display:flex;
-        flex-wrap:wrap;
-        gap:12px;
-        margin-bottom:28px;
-      }
-
+      .regras-header{margin-bottom:32px;}
+      .regras-header h2{font-size:26px;margin:0 0 10px 0;font-weight:700;color:#0B1C48;}
+      .regras-header p{margin:0;font-size:15px;color:#444;}
+      .regras-exp input{display:none;}
+      .regras-exp-labels{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;}
       .regras-exp-labels label{
-        padding:10px 18px;
-        border-radius:999px;
-        background:#0B1C48;
-        color:white;
-        font-size:14px;
-        cursor:pointer;
-        transition:all .3s ease;
+        padding:10px 18px;border-radius:999px;background:#0B1C48;color:white;
+        font-size:14px;cursor:pointer;transition:all .3s ease;
       }
-
-      .regras-exp input:checked + label{
-        background:#E63946;
-      }
-
+      .regras-exp input:checked + label{background:#E63946;}
       .regras-exp-content{
-        background:linear-gradient(145deg,#0B1C48,#122A66);
-        color:white;
-        border-radius:28px;
-        padding:40px 50px;
-        box-shadow:0 20px 50px rgba(0,0,0,.18);
-        display:none;
-        animation:fade .3s ease-in-out;
-        position:relative;
+        background:linear-gradient(145deg,#0B1C48,#122A66);color:white;border-radius:28px;
+        padding:40px 50px;box-shadow:0 20px 50px rgba(0,0,0,.18);display:none;
+        animation:fade .3s ease-in-out;position:relative;
       }
-
-      .regras-exp-content::before{
-        content:"";
-        position:absolute;
-        left:0;
-        top:0;
-        height:100%;
-        width:6px;
-        background:#E63946;
-      }
-
-      @keyframes fade{
-        from{opacity:0; transform:translateY(6px);}
-        to{opacity:1; transform:translateY(0);}
-      }
-
+      .regras-exp-content::before{content:"";position:absolute;left:0;top:0;height:100%;width:6px;background:#E63946;}
+      @keyframes fade{from{opacity:0; transform:translateY(6px);}to{opacity:1; transform:translateY(0);}}
       #reg1:checked ~ .regras-exp-container #regcontent1,
       #reg2:checked ~ .regras-exp-container #regcontent2,
       #reg3:checked ~ .regras-exp-container #regcontent3,
@@ -803,29 +648,16 @@
       #reg5:checked ~ .regras-exp-container #regcontent5,
       #reg6:checked ~ .regras-exp-container #regcontent6,
       #reg7:checked ~ .regras-exp-container #regcontent7,
-      #reg8:checked ~ .regras-exp-container #regcontent8{
-        display:block;
-      }
-
-      .regras-exp-title{
-        font-size:20px;
-        font-weight:700;
-        margin-bottom:18px;
-      }
-
-      .regras-exp-text{
-        font-size:16px;
-        line-height:1.8;
-      }
+      #reg8:checked ~ .regras-exp-container #regcontent8{display:block;}
+      .regras-exp-title{font-size:20px;font-weight:700;margin-bottom:18px;}
+      .regras-exp-text{font-size:16px;line-height:1.8;}
+      @media(max-width:640px){.regras-exp-content{padding:28px 24px;}}
       </style>
-
       <div class="regras-header">
         <h2>Regras que você precisa saber</h2>
         <p>Antes de acompanhar os rankings e premiações, entenda os pontos que impactam diretamente sua elegibilidade.</p>
       </div>
-
       <div class="regras-exp">
-
         <input type="radio" name="regras" id="reg1" checked>
         <input type="radio" name="regras" id="reg2">
         <input type="radio" name="regras" id="reg3">
@@ -834,7 +666,6 @@
         <input type="radio" name="regras" id="reg6">
         <input type="radio" name="regras" id="reg7">
         <input type="radio" name="regras" id="reg8">
-
         <div class="regras-exp-labels">
           <label for="reg1">Vínculo ativo</label>
           <label for="reg2">Meta coletiva</label>
@@ -845,65 +676,55 @@
           <label for="reg7">Transferência</label>
           <label for="reg8">Comitê</label>
         </div>
-
         <div class="regras-exp-container">
-
           <div class="regras-exp-content" id="regcontent1">
             <div class="regras-exp-title">Vínculo ativo é obrigatório</div>
             <div class="regras-exp-text">
-              Somente colaboradores com vínculo ativo na data da apuração final e da entrega do prêmio fazem jus à premiação.
+              Somente colaboradores com vínculo CLT ativo na data da apuração final e da entrega do prêmio fazem jus à premiação.
             </div>
           </div>
-
           <div class="regras-exp-content" id="regcontent2">
             <div class="regras-exp-title">Meta coletiva habilita sorteios</div>
             <div class="regras-exp-text">
-              A abertura das urnas trimestrais depende do atingimento da meta financeira acumulada da Diretoria.
+              A abertura das urnas trimestrais depende do atingimento da meta financeira acumulada da Diretoria, conforme os gatilhos publicados neste site.
             </div>
           </div>
-
           <div class="regras-exp-content" id="regcontent3">
             <div class="regras-exp-title">Meta individual gera cupons</div>
             <div class="regras-exp-text">
-              O atingimento da meta individual é condição para acúmulo de cupons e participação nos sorteios.
+              O atingimento da meta individual é condição para acúmulo de cupons e participação nos sorteios. Entre 70% e 99%, cupons na Urna Expedição. A partir de 100%, cupons adicionais na Urna Everest.
             </div>
           </div>
-
           <div class="regras-exp-content" id="regcontent4">
-            <div class="regras-exp-title">Tempo mínimo de 4 meses</div>
+            <div class="regras-exp-title">Tempo mínimo e admissão</div>
             <div class="regras-exp-text">
-              É necessário cumprir ao menos 4 meses contínuos de atuação na operação elegível.
+              É necessário cumprir ao menos 4 meses contínuos de atuação na operação elegível. Colaboradores admitidos após 31 de agosto de 2026 não são elegíveis às premiações anuais. Afastamentos por saúde, licença-maternidade ou INSS preservam a elegibilidade, desde que cumpridos os critérios de performance do ciclo.
             </div>
           </div>
-
           <div class="regras-exp-content" id="regcontent5">
             <div class="regras-exp-title">Desligamento elimina elegibilidade</div>
             <div class="regras-exp-text">
-              Colaboradores desligados antes da entrega do prêmio perdem automaticamente o direito à premiação.
+              Colaboradores desligados, de forma voluntária ou involuntária, antes da entrega do prêmio perdem automaticamente o direito à premiação, ainda que tenham atingido as metas.
             </div>
           </div>
-
           <div class="regras-exp-content" id="regcontent6">
             <div class="regras-exp-title">Natureza não salarial</div>
             <div class="regras-exp-text">
-              As premiações possuem caráter eventual e não se incorporam à remuneração.
+              As premiações possuem caráter eventual e não salarial, em observância ao Art. 457, § 4º da CLT, não se incorporando à remuneração para quaisquer fins.
             </div>
           </div>
-
           <div class="regras-exp-content" id="regcontent7">
             <div class="regras-exp-title">Transferência pode alterar elegibilidade</div>
             <div class="regras-exp-text">
-              Mudanças de área podem impactar participação em ciclos ou premiações específicas.
+              Transferências dentro da Diretoria Comercial e de Sucesso do Aluno preservam cupons acumulados. Transferências para áreas fora da Diretoria tornam o colaborador inelegível a partir da data efetiva, sem compensação de cupons. Para o prêmio do automóvel, há exigência adicional de 4 meses na Gerência Comercial ou Permanência.
             </div>
           </div>
-
           <div class="regras-exp-content" id="regcontent8">
             <div class="regras-exp-title">Decisão do Comitê é soberana</div>
             <div class="regras-exp-text">
-              A validação dos resultados e eventuais desclassificações são deliberadas pelo Comitê da Campanha.
+              O Comitê da Campanha é responsável por validar resultados, homologar apurações e supervisionar sorteios. Suas decisões são soberanas, definitivas e irrecorríveis.
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -914,139 +735,52 @@
   <!-- ========================= -->
   <div id="simulador"></div>
   <section aria-label="Simulador de cupons">
-    <div style="padding:60px 0; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
-
+    <div style="padding:60px 20px; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
       <style>
       .simulador{
-        background:linear-gradient(145deg,#0B1C48,#122A66);
-        color:white;
-        border-radius:28px;
-        padding:50px 60px;
-        box-shadow:0 25px 60px rgba(0,0,0,.2);
+        background:linear-gradient(145deg,#0B1C48,#122A66);color:white;border-radius:28px;
+        padding:50px 60px;box-shadow:0 25px 60px rgba(0,0,0,.2);
       }
-
-      .simulador h2{
-        margin:0 0 20px 0;
-        font-size:26px;
-      }
-
-      .simulador p{
-        margin:0 0 25px 0;
-        opacity:.8;
-        font-size:15px;
-        line-height:1.6;
-      }
-
-      .simulador-controls{
-        display:flex;
-        gap:14px;
-        flex-wrap:wrap;
-        align-items:center;
-        margin-bottom:10px;
-      }
-
-      .simulador input{
-        padding:12px 14px;
-        border-radius:12px;
-        border:none;
-        font-size:16px;
-        width:140px;
-        text-align:center;
-        outline:none;
-      }
-
-      .hint{
-        font-size:12px;
-        opacity:.75;
-      }
-
-      .barra{
-        width:100%;
-        height:18px;
-        background:rgba(255,255,255,.15);
-        border-radius:20px;
-        overflow:hidden;
-        margin:22px 0 18px 0;
-      }
-
-      .barra-preenchida{
-        height:100%;
-        width:0%;
-        border-radius:20px;
-        transition:all 0.6s ease;
-      }
-
-      .badges{
-        display:flex;
-        gap:10px;
-        flex-wrap:wrap;
-        margin-bottom:14px;
-      }
-
-      .badge{
-        font-size:12px;
-        padding:7px 12px;
-        border-radius:999px;
-        background:rgba(255,255,255,.08);
-        opacity:.9;
-      }
-
-      .badge strong{
-        color:#C7F000;
-      }
-
-      .resultado{
-        margin-top:10px;
-        font-size:15px;
-        line-height:1.8;
-      }
-
-      .destaque{
-        color:#C7F000;
-        font-weight:700;
-      }
-
-      .total{
-        margin-top:14px;
-        padding-top:14px;
-        border-top:1px solid rgba(255,255,255,.10);
-        font-size:16px;
-      }
+      .simulador h2{margin:0 0 20px 0;font-size:26px;}
+      .simulador p{margin:0 0 25px 0;opacity:.9;font-size:15px;line-height:1.6;}
+      .simulador-controls{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:10px;}
+      .simulador input{padding:12px 14px;border-radius:12px;border:none;font-size:16px;width:140px;text-align:center;outline:none;color:#0B1C48;font-weight:700;}
+      .hint{font-size:12px;opacity:.85;}
+      .barra{width:100%;height:18px;background:rgba(255,255,255,.15);border-radius:20px;overflow:hidden;margin:22px 0 18px 0;}
+      .barra-preenchida{height:100%;width:0%;border-radius:20px;transition:all 0.6s ease;}
+      .badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+      .badge{font-size:12px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.1);opacity:.95;}
+      .badge strong{color:#C7F000;}
+      .resultado{margin-top:10px;font-size:15px;line-height:1.8;}
+      .destaque{color:#C7F000;font-weight:700;}
+      .total{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15);font-size:16px;}
+      .detalhe-cupom{font-size:12px;opacity:.85;margin-left:4px;}
+      @media(max-width:640px){.simulador{padding:36px 24px;}}
       </style>
-
       <div class="simulador">
         <h2>Simule sua escalada rumo ao Everest</h2>
-        <p>Digite seu percentual de atingimento e veja quantos cupons você acumula na Expedição e no Everest. Ao chegar em 100%, você não perde a Expedição, você soma.</p>
-
+        <p>Digite seu percentual de atingimento e veja quantos cupons você acumula na Expedição e no Everest. Ao chegar em 100%, você não perde a Expedição — você soma.</p>
         <div class="simulador-controls">
           <input type="number" id="percentualInput" placeholder="Ex: 100" min="0" max="300" oninput="calcularCupons()">
-          <div class="hint">Dica: teste 85, 99, 100, 105, 110</div>
+          <div class="hint">Teste 85, 99, 100, 105, 110</div>
         </div>
-
         <div class="barra">
           <div id="barraInterna" class="barra-preenchida"></div>
         </div>
-
         <div class="badges">
           <div class="badge">Expedição: <strong>70% a 99%</strong></div>
           <div class="badge">Everest: <strong>≥ 100%</strong></div>
         </div>
-
         <div class="resultado" id="resultadoSimulador"></div>
       </div>
-
     </div>
-
     <script>
       function calcularCupons(){
         const percentual = parseFloat(document.getElementById("percentualInput").value) || 0;
-
         const barra = document.getElementById("barraInterna");
         const resultado = document.getElementById("resultadoSimulador");
-
         const corAbaixo = "#C7F000";
         const corAcima  = "#00E676";
-
         barra.style.width = Math.min(percentual, 150) + "%";
         barra.style.background = (percentual >= 100) ? corAcima : corAbaixo;
 
@@ -1056,21 +790,30 @@
           cuponsExpedicao = 1 + Math.floor((baseExp - 70) / 10);
         }
 
-        let cuponsEverest = 0;
+        // Everest: 1 cupom inicial ao bater 100% + 5 adicionais a cada 5% acima
+        let cupomInicialEverest = 0;
+        let cuponsAdicionaisEverest = 0;
         if (percentual >= 100) {
-          cuponsEverest = 1 + (Math.floor((percentual - 100) / 5) * 5);
+          cupomInicialEverest = 1;
+          cuponsAdicionaisEverest = Math.floor((percentual - 100) / 5) * 5;
         }
+        const cuponsEverestTotal = cupomInicialEverest + cuponsAdicionaisEverest;
 
         let etapa = "Abaixo do Campo Base";
         if (percentual >= 70 && percentual < 100) etapa = "Urna Expedição";
         if (percentual >= 100) etapa = "Urna Everest";
 
-        const total = cuponsExpedicao + cuponsEverest;
+        const total = cuponsExpedicao + cuponsEverestTotal;
+
+        let detalheEverest = "";
+        if (percentual >= 100) {
+          detalheEverest = `<span class="detalhe-cupom">(1 inicial + ${cuponsAdicionaisEverest} adicionais)</span>`;
+        }
 
         resultado.innerHTML = `
           <div>Etapa atual: <span class="destaque">${etapa}</span></div>
           <div>Cupons Urna Expedição: <span class="destaque">${cuponsExpedicao}</span></div>
-          <div>Cupons Urna Everest: <span class="destaque">${cuponsEverest}</span></div>
+          <div>Cupons Urna Everest: <span class="destaque">${cuponsEverestTotal}</span> ${detalheEverest}</div>
           <div class="total">Total de cupons acumulados: <span class="destaque">${total}</span></div>
         `;
       }
@@ -1078,331 +821,220 @@
   </section>
 
   <!-- ========================= -->
-  <!-- SEÇÃO: RANKING (TOP 20) -->
+  <!-- SEÇÃO: RANKING -->
   <!-- ========================= -->
   <div id="ranking"></div>
-<section aria-label="Ranking">
-<div style="padding:60px 0; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
-
-<style>
-.ranking-everest{
-background:linear-gradient(145deg,#0B1C48,#122A66);
-color:white;
-border-radius:28px;
-padding:45px 55px;
-box-shadow:0 25px 60px rgba(0,0,0,.2);
-}
-
-.ranking-header{
-margin-bottom:30px;
-}
-
-.ranking-header h2{
-margin:0 0 8px 0;
-font-size:26px;
-}
-
-.ranking-header p{
-margin:0;
-opacity:.75;
-font-size:15px;
-}
-
-.filtros{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-margin-bottom:30px;
-}
-
-.filtro-btn{
-padding:8px 16px;
-border-radius:999px;
-background:rgba(255,255,255,.08);
-cursor:pointer;
-font-size:13px;
-transition:.3s;
-}
-
-.filtro-btn.active,
-.filtro-btn:hover{
-background:#C7F000;
-color:#0B1C48;
-font-weight:700;
-}
-
-.ranking-list{
-display:flex;
-flex-direction:column;
-}
-
-.ranking-item{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:14px 0;
-border-bottom:1px solid rgba(255,255,255,.08);
-font-size:15px;
-}
-
-.ranking-name{
-flex:1;
-}
-
-.hidden{
-display:none;
-}
-</style>
-
-<div class="ranking-everest">
-
-<div class="ranking-header">
-<h2>Top performances da Diretoria Comercial e Sucesso do Aluno</h2>
-<p id="mes-titulo">Janeiro 2026</p>
-</div>
-
-<div class="filtros">
-<div class="filtro-btn active" onclick="filtrarGerencia('todos',this)">Todos</div>
-<div class="filtro-btn" onclick="filtrarGerencia('Comercial',this)">Comercial</div>
-<div class="filtro-btn" onclick="filtrarGerencia('Permanência',this)">Permanência</div>
-<div class="filtro-btn" onclick="filtrarGerencia('Relacionamento',this)">Relacionamento</div>
-</div>
-
-<div class="filtros">
-<div class="filtro-btn active" onclick="filtrarMes('01_2026',this)">Jan 2026</div>
-</div>
-
-<div class="ranking-list" id="ranking-list"></div>
-
-</div>
-</div>
-</section>
-
-<script>
-
-const dados = [
-{mes:"01_2026",nome:"Rayssa Iara",gerencia:"Permanência"},
-{mes:"01_2026",nome:"Jéssica Lopes",gerencia:"Permanência"},
-{mes:"01_2026",nome:"Thauane Fernandes",gerencia:"Permanência"},
-{mes:"01_2026",nome:"Ana Luiza dos Santos",gerencia:"Permanência"},
-{mes:"01_2026",nome:"Luana Carolina de Souza",gerencia:"Permanência"},
-{mes:"01_2026",nome:"Karolina Mendonca",gerencia:"Permanência"},
-{mes:"01_2026",nome:"Rafael Francisco",gerencia:"Permanência"},
-{mes:"01_2026",nome:"Marcos Vinicius do Vale",gerencia:"Permanência"},
-{mes:"01_2026",nome:"Elaine Cristina",gerencia:"Permanência"},
-{mes:"01_2026",nome:"Débora Fernandes",gerencia:"Permanência"},
-{mes:"01_2026",nome:"Vinicius Junio de Lima",gerencia:"Relacionamento"},
-{mes:"01_2026",nome:"Maria Eduarda Braz",gerencia:"Relacionamento"},
-{mes:"01_2026",nome:"Viviane",gerencia:"Comercial"},
-{mes:"01_2026",nome:"Gustavo Henrique dos Santos",gerencia:"Comercial"},
-{mes:"01_2026",nome:"Fernanda Vicente",gerencia:"Comercial"},
-{mes:"01_2026",nome:"Allan Charles",gerencia:"Comercial"},
-{mes:"01_2026",nome:"Marcia Sabino",gerencia:"Comercial"},
-{mes:"01_2026",nome:"Lorrayne Andressa",gerencia:"Comercial"}
-]
-
-let filtroGerenciaAtual = "todos"
-let filtroMesAtual = "01_2026"
-
-function renderRanking(){
-
-const lista = document.getElementById("ranking-list")
-
-lista.innerHTML=""
-
-const filtrados = dados
-.filter(d => d.mes === filtroMesAtual)
-.filter(d => filtroGerenciaAtual === "todos" || d.gerencia === filtroGerenciaAtual)
-.sort((a,b)=>a.nome.localeCompare(b.nome))
-
-filtrados.forEach(d=>{
-
-const item = document.createElement("div")
-item.className="ranking-item"
-
-item.innerHTML = `
-<span class="ranking-name">${d.nome}</span>
-<span>${d.gerencia}</span>
-`
-
-lista.appendChild(item)
-
-})
-
-}
-
-function filtrarGerencia(gerencia,el){
-
-filtroGerenciaAtual = gerencia
-
-document.querySelectorAll(".filtros:first-of-type .filtro-btn")
-.forEach(b=>b.classList.remove("active"))
-
-el.classList.add("active")
-
-renderRanking()
-
-}
-
-function filtrarMes(mes,el){
-
-filtroMesAtual = mes
-
-document.querySelectorAll(".filtros:nth-of-type(2) .filtro-btn")
-.forEach(b=>b.classList.remove("active"))
-
-el.classList.add("active")
-
-renderRanking()
-
-}
-
-renderRanking()
-
-</script>
-
-    <script>
-      function filtrar(tipo, btn){
-        const botoes = document.querySelectorAll('.filtro-btn');
-        botoes.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const itens = document.querySelectorAll('.ranking-item');
-
-        itens.forEach(item => {
-          if(tipo === 'todos'){
-            item.classList.remove('hidden');
-          } else {
-            if(item.classList.contains(tipo)){
-              item.classList.remove('hidden');
-            } else {
-              item.classList.add('hidden');
-            }
-          }
-        });
+  <section aria-label="Ranking">
+    <div style="padding:60px 20px; font-family:Arial, sans-serif; max-width:1200px; margin:0 auto;">
+      <style>
+      .ranking-everest{
+        background:linear-gradient(145deg,#0B1C48,#122A66);color:white;border-radius:28px;
+        padding:45px 55px;box-shadow:0 25px 60px rgba(0,0,0,.2);
       }
-    </script>
+      .ranking-header{margin-bottom:30px;}
+      .ranking-header h2{margin:0 0 8px 0;font-size:26px;}
+      .ranking-header p{margin:0;opacity:.85;font-size:15px;}
+      .filtros{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
+      .filtro-btn{
+        padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.1);
+        cursor:pointer;font-size:13px;transition:.3s;color:white;
+      }
+      .filtro-btn.active,.filtro-btn:hover{background:#C7F000;color:#0B1C48;font-weight:700;}
+      .ranking-list{display:flex;flex-direction:column;}
+      .ranking-item{
+        display:flex;justify-content:space-between;align-items:center;
+        padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:15px;
+      }
+      .ranking-name{flex:1;}
+      .ranking-gerencia{opacity:.85;font-size:13px;}
+      @media(max-width:640px){.ranking-everest{padding:32px 22px;}}
+      </style>
+      <div class="ranking-everest">
+        <div class="ranking-header">
+          <h2>Top performances da Diretoria Comercial e Sucesso do Aluno</h2>
+          <p id="mes-titulo">Março 2026</p>
+        </div>
+        <div class="filtros" id="filtros-gerencia">
+          <div class="filtro-btn active" data-gerencia="todos">Todos</div>
+          <div class="filtro-btn" data-gerencia="Comercial">Comercial</div>
+          <div class="filtro-btn" data-gerencia="Permanência">Permanência</div>
+          <div class="filtro-btn" data-gerencia="Relacionamento">Relacionamento</div>
+        </div>
+        <div class="filtros" id="filtros-mes">
+          <div class="filtro-btn" data-mes="01_2026" data-label="Janeiro 2026">Jan 2026</div>
+          <div class="filtro-btn" data-mes="02_2026" data-label="Fevereiro 2026">Fev 2026</div>
+          <div class="filtro-btn active" data-mes="03_2026" data-label="Março 2026">Mar 2026</div>
+        </div>
+        <div class="ranking-list" id="ranking-list"></div>
+      </div>
+    </div>
   </section>
+  <script>
+    const dados = [
+      // ===== JANEIRO 2026 =====
+      {mes:"01_2026",nome:"Viviane Pereira da Silva",gerencia:"Comercial"},
+      {mes:"01_2026",nome:"Gustavo Borges",gerencia:"Comercial"},
+      {mes:"01_2026",nome:"Gustavo Pacheco",gerencia:"Comercial"},
+      {mes:"01_2026",nome:"Gustavo Henrique dos Santos",gerencia:"Comercial"},
+      {mes:"01_2026",nome:"Fernanda Vicente",gerencia:"Comercial"},
+      {mes:"01_2026",nome:"Allan Charles",gerencia:"Comercial"},
+      {mes:"01_2026",nome:"Marcia Sabino",gerencia:"Comercial"},
+      {mes:"01_2026",nome:"Lorrayne Andressa",gerencia:"Comercial"},
+      {mes:"01_2026",nome:"Rayssa Iara",gerencia:"Permanência"},
+      {mes:"01_2026",nome:"Jéssica Lopes",gerencia:"Permanência"},
+      {mes:"01_2026",nome:"Luana Carolina de Souza",gerencia:"Permanência"},
+      {mes:"01_2026",nome:"Thauane Fernandes",gerencia:"Permanência"},
+      {mes:"01_2026",nome:"Ana Luiza dos Santos",gerencia:"Permanência"},
+      {mes:"01_2026",nome:"Karolina Mendonca",gerencia:"Permanência"},
+      {mes:"01_2026",nome:"Rafael Francisco",gerencia:"Permanência"},
+      {mes:"01_2026",nome:"Marcos Vinicius do Vale",gerencia:"Permanência"},
+      {mes:"01_2026",nome:"Elaine Cristina",gerencia:"Permanência"},
+      {mes:"01_2026",nome:"Débora Fernandes",gerencia:"Permanência"},
+      {mes:"01_2026",nome:"Angêla Carla",gerencia:"Relacionamento"},
+      {mes:"01_2026",nome:"Aline Barros",gerencia:"Relacionamento"},
+      {mes:"01_2026",nome:"Maria Eduarda Braz de Andrade",gerencia:"Relacionamento"},
+      {mes:"01_2026",nome:"Vinicius Junio de Lima",gerencia:"Relacionamento"},
+
+      // ===== FEVEREIRO 2026 =====
+      {mes:"02_2026",nome:"Andressa Cruz",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Viviane Silva",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Liciele Monteiro",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Marcia Sabino",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Debora Silva",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Lorrayne Soares",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Kauele Vasconcelos",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Gustavo Borges",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Taianara Oliveira",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Juan Nepomuceno",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Yasminne Barreto",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Andreia Dias",gerencia:"Comercial"},
+      {mes:"02_2026",nome:"Rayssa Silva",gerencia:"Permanência"},
+      {mes:"02_2026",nome:"Rosiele Maria",gerencia:"Permanência"},
+      {mes:"02_2026",nome:"Rafael Vieira",gerencia:"Permanência"},
+      {mes:"02_2026",nome:"Michelle Ramos",gerencia:"Permanência"},
+      {mes:"02_2026",nome:"Gabriele Souza",gerencia:"Permanência"},
+      {mes:"02_2026",nome:"Aline Barros",gerencia:"Relacionamento"},
+      {mes:"02_2026",nome:"Samuel Abreu",gerencia:"Relacionamento"},
+      {mes:"02_2026",nome:"Danielle Leite",gerencia:"Relacionamento"},
+
+      // ===== MARÇO 2026 =====
+      {mes:"03_2026",nome:"Andressa Cruz",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Gustavo Pacheco",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Rosangela Cruz",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Lorrayne Soares",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Amanda Costa",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Kauele Vasconcelos",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Erika Souza",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Leticia Silva",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Brenda Ribeiro",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Gustavo Borges",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Ana Oliveira",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Brener Martins",gerencia:"Comercial"},
+      {mes:"03_2026",nome:"Jessika Diniz",gerencia:"Permanência"},
+      {mes:"03_2026",nome:"Rayssa Silva",gerencia:"Permanência"},
+      {mes:"03_2026",nome:"Thauane Meneses",gerencia:"Permanência"},
+      {mes:"03_2026",nome:"Gabriel Araujo",gerencia:"Permanência"},
+      {mes:"03_2026",nome:"Ana Tamires Soares",gerencia:"Permanência"},
+      {mes:"03_2026",nome:"Lorena Xavier",gerencia:"Relacionamento"}
+    ];
+
+    let filtroGerenciaAtual = "todos";
+    let filtroMesAtual = "03_2026";
+
+    function renderRanking(){
+      const lista = document.getElementById("ranking-list");
+      lista.innerHTML = "";
+      const filtrados = dados
+        .filter(d => d.mes === filtroMesAtual)
+        .filter(d => filtroGerenciaAtual === "todos" || d.gerencia === filtroGerenciaAtual)
+        .sort((a,b) => a.nome.localeCompare(b.nome));
+      filtrados.forEach(d => {
+        const item = document.createElement("div");
+        item.className = "ranking-item";
+        item.innerHTML = `
+          <span class="ranking-name">${d.nome}</span>
+          <span class="ranking-gerencia">${d.gerencia}</span>
+        `;
+        lista.appendChild(item);
+      });
+    }
+
+    document.querySelectorAll("#filtros-gerencia .filtro-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        filtroGerenciaAtual = btn.dataset.gerencia;
+        document.querySelectorAll("#filtros-gerencia .filtro-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderRanking();
+      });
+    });
+
+    document.querySelectorAll("#filtros-mes .filtro-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        filtroMesAtual = btn.dataset.mes;
+        document.querySelectorAll("#filtros-mes .filtro-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById("mes-titulo").innerText = btn.dataset.label;
+        renderRanking();
+      });
+    });
+
+    renderRanking();
+  </script>
 
   <!-- ========================= -->
   <!-- SEÇÃO: DESTAQUES DO MÊS -->
   <!-- ========================= -->
-  <section id="destaques-mes" aria-label="Destaques do mês">
-    <div style="padding:30px 0 10px 0; font-family:Arial, sans-serif;">
-
+  <section id="destaques-mes" aria-label="Destaques do mês" style="display:none;">
+    <div style="padding:30px 20px 10px 20px; font-family:Arial, sans-serif;">
       <style>
-      .ranking-wrapper {
-        max-width:1200px;
-        margin:0 auto;
-      }
-
-      .ranking-container {
-        display:flex;
-        gap:24px;
-      }
-
+      .ranking-wrapper {max-width:1200px;margin:0 auto;}
+      .ranking-container {display:flex;gap:24px;}
       .ranking-card {
-        flex:1;
-        background:#0B1C48;
-        padding:28px;
-        border-radius:24px;
-        color:white;
-        box-shadow:0 10px 25px rgba(0,0,0,0.15);
-        transition:all 0.3s ease;
-        display:flex;
-        flex-direction:column;
+        flex:1;background:#0B1C48;padding:28px;border-radius:24px;color:white;
+        box-shadow:0 10px 25px rgba(0,0,0,0.15);transition:all 0.3s ease;
+        display:flex;flex-direction:column;
       }
-
-      .ranking-card:hover {
-        transform:translateY(-5px);
-        box-shadow:0 18px 35px rgba(0,0,0,0.25);
-      }
-
-      .ranking-title {
-        font-size:18px;
-        font-weight:600;
-        display:flex;
-        align-items:center;
-        gap:8px;
-        margin-bottom:14px;
-      }
-
-      .divider {
-        height:1px;
-        background:rgba(255,255,255,0.08);
-        margin-bottom:18px;
-      }
-
-      .ranking-list {
-        display:flex;
-        flex-direction:column;
-        gap:12px;
-      }
-
-      .ranking-item {
-        display:flex;
-        align-items:center;
-        gap:10px;
-        font-size:15px;
-      }
-
-      .first {
-        color:#9EDC3A;
-        font-weight:600;
-      }
-
-      .second { opacity:0.85; }
-      .third  { opacity:0.65; }
-
-      @media(max-width:900px){
-        .ranking-container{
-          flex-direction:column;
-        }
-      }
+      .ranking-card:hover {transform:translateY(-5px);box-shadow:0 18px 35px rgba(0,0,0,0.25);}
+      .ranking-title {font-size:18px;font-weight:600;display:flex;align-items:center;gap:8px;margin-bottom:14px;}
+      .divider {height:1px;background:rgba(255,255,255,0.12);margin-bottom:18px;}
+      .ranking-list-destaques {display:flex;flex-direction:column;gap:12px;}
+      .ranking-item-destaques {display:flex;align-items:center;gap:10px;font-size:15px;}
+      .first {color:#9EDC3A;font-weight:600;}
+      .second {opacity:0.9;}
+      .third {opacity:0.8;}
+      @media(max-width:900px){.ranking-container{flex-direction:column;}}
       </style>
-
       <div class="ranking-wrapper">
-
-        <h2 style="color:#0B1C48; margin-bottom:6px;">
-          Destaques do mês – Janeiro
-        </h2>
-
-        <p style="color:#6B7280; margin-bottom:24px;">
-          Top 3 por gerência – Reconhecimento mensal de performance.
-        </p>
-
+        <h2 style="color:#0B1C48; margin-bottom:6px;">Destaques do mês – Janeiro</h2>
+        <p style="color:#6B7280; margin-bottom:24px;">Top 3 por gerência — Reconhecimento mensal de performance.</p>
         <div class="ranking-container">
-
           <div class="ranking-card">
             <div class="ranking-title">🏆 Comercial</div>
             <div class="divider"></div>
-            <div class="ranking-list">
-              <div class="ranking-item first">🥇 Viviane Pereira da Silva</div>
-              <div class="ranking-item second">🥈 Gustavo Borges</div>
-              <div class="ranking-item third">🥉 Gustavo Pacheco</div>
+            <div class="ranking-list-destaques">
+              <div class="ranking-item-destaques first">🥇 Viviane Pereira da Silva</div>
+              <div class="ranking-item-destaques second">🥈 Gustavo Borges</div>
+              <div class="ranking-item-destaques third">🥉 Gustavo Pacheco</div>
             </div>
           </div>
-
-          <div class="ranking-card">
-            <div class="ranking-title">🏆 Relacionamento</div>
-            <div class="divider"></div>
-            <div class="ranking-list">
-              <div class="ranking-item first">🥇 Angêla Carla</div>
-              <div class="ranking-item second">🥈 Aline Barros</div>
-              <div class="ranking-item third">🥉 Maria Eduarda Braz De Andrade</div>
-            </div>
-          </div>
-
           <div class="ranking-card">
             <div class="ranking-title">🏆 Permanência</div>
             <div class="divider"></div>
-            <div class="ranking-list">
-              <div class="ranking-item first">🥇 Rayssa Iara</div>
-              <div class="ranking-item second">🥈 Jéssica Lopes</div>
-              <div class="ranking-item third">🥉 Luana Carolina</div>
+            <div class="ranking-list-destaques">
+              <div class="ranking-item-destaques first">🥇 Rayssa Iara</div>
+              <div class="ranking-item-destaques second">🥈 Jéssica Lopes</div>
+              <div class="ranking-item-destaques third">🥉 Luana Carolina de Souza</div>
             </div>
           </div>
-
+          <div class="ranking-card">
+            <div class="ranking-title">🏆 Relacionamento</div>
+            <div class="divider"></div>
+            <div class="ranking-list-destaques">
+              <div class="ranking-item-destaques first">🥇 Angêla Carla</div>
+              <div class="ranking-item-destaques second">🥈 Aline Barros</div>
+              <div class="ranking-item-destaques third">🥉 Maria Eduarda Braz de Andrade</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1414,133 +1046,52 @@ renderRanking()
   <div id="premiacao"></div>
   <section class="oa-premios" aria-label="Premiações da campanha">
     <style>
-    .oa-premios{
-      max-width:1200px;
-      margin:0 auto;
-      padding:60px 30px;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial
-    }
-
+    .oa-premios{max-width:1200px;margin:0 auto;padding:60px 30px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;}
     .oa-annual{
-      background:linear-gradient(135deg,#0b1f47,#163a7a);
-      border-radius:28px;
-      padding:70px 60px;
-      color:#fff;
-      box-shadow:0 35px 70px rgba(0,0,0,.35);
-      border:1px solid rgba(212,175,55,.45);
-      margin-bottom:70px
+      background:linear-gradient(135deg,#0b1f47,#163a7a);border-radius:28px;
+      padding:70px 60px;color:#fff;box-shadow:0 35px 70px rgba(0,0,0,.35);
+      border:1px solid rgba(212,175,55,.45);margin-bottom:40px;
     }
-
-    .oa-title{
-      text-align:center;
-      font-size:40px;
-      font-weight:700;
-      margin-bottom:55px
-    }
-
-    .oa-prizes{
-      text-align:center;
-      margin-bottom:35px
-    }
-
-    .oa-grand{
-      font-size:28px;
-      font-weight:700;
-      margin-bottom:18px
-    }
-
-    .oa-mid{
-      font-size:22px;
-      margin-bottom:18px;
-      opacity:.95
-    }
-
-    .oa-small{
-      font-size:18px;
-      opacity:.9
-    }
-
+    .oa-title{text-align:center;font-size:40px;font-weight:700;margin-bottom:55px;}
+    .oa-prizes{text-align:center;margin-bottom:35px;}
+    .oa-grand{font-size:28px;font-weight:700;margin-bottom:18px;}
+    .oa-mid{font-size:22px;margin-bottom:18px;opacity:.95;}
+    .oa-small{font-size:18px;opacity:.92;}
     .oa-note{
-      text-align:center;
-      font-size:13px;
-      opacity:.8;
-      margin:30px 0
+      text-align:center;font-size:13px;opacity:.95;margin:30px auto;
+      max-width:720px;background:rgba(255,199,44,.1);padding:14px 20px;
+      border-radius:12px;border:1px solid rgba(255,199,44,.3);
     }
-
-    .oa-counter-title{
-      text-align:center;
-      font-size:19px;
-      font-weight:600;
-      margin-bottom:20px
-    }
-
-    .oa-countdown{
-      display:flex;
-      justify-content:center;
-      gap:24px
-    }
-
-    .oa-countdown div{
-      background:rgba(255,255,255,.12);
-      padding:20px 26px;
-      border-radius:16px;
-      text-align:center;
-      min-width:100px
-    }
-
-    .oa-countdown span{
-      display:block;
-      font-size:36px;
-      font-weight:700
-    }
-
-    .oa-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:26px
-    }
-
+    .oa-counter-title{text-align:center;font-size:19px;font-weight:600;margin-bottom:20px;}
+    .oa-countdown{display:flex;justify-content:center;gap:24px;}
+    .oa-countdown div{background:rgba(255,255,255,.12);padding:20px 26px;border-radius:16px;text-align:center;min-width:100px;}
+    .oa-countdown span{display:block;font-size:36px;font-weight:700;}
+    .oa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-bottom:40px;}
     .oa-card{
-      background:#071a3b;
-      color:#fff;
-      padding:32px 28px;
-      border-radius:20px;
-      box-shadow:0 20px 45px rgba(0,0,0,.25);
-      transition:transform .2s ease, box-shadow .2s ease
+      background:#071a3b;color:#fff;padding:32px 28px;border-radius:20px;
+      box-shadow:0 20px 45px rgba(0,0,0,.25);transition:transform .2s ease, box-shadow .2s ease;
     }
-
-    .oa-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 28px 55px rgba(0,0,0,.35)
+    .oa-card:hover{transform:translateY(-4px);box-shadow:0 28px 55px rgba(0,0,0,.35);}
+    .oa-card h4{margin-bottom:16px;font-size:20px;}
+    .oa-card ul{padding-left:18px;margin-bottom:10px;}
+    .oa-card li{margin:6px 0;font-size:14px;}
+    .oa-extras{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+    .oa-extra{
+      background:linear-gradient(145deg,#f8f9fb,#ffffff);border:1px solid #E5E8F0;
+      border-radius:20px;padding:28px;color:#0B1C48;
     }
-
-    .oa-card h4{
-      margin-bottom:16px;
-      font-size:20px
-    }
-
-    .oa-card ul{
-      padding-left:18px;
-      margin-bottom:10px
-    }
-
-    .oa-card li{
-      margin:6px 0;
-      font-size:14px
-    }
-
+    .oa-extra h4{margin:0 0 10px 0;font-size:18px;font-weight:700;}
+    .oa-extra p{margin:0;font-size:14px;line-height:1.6;color:#4B5563;}
     @media(max-width:950px){
-      .oa-grid{grid-template-columns:1fr}
-      .oa-countdown{flex-wrap:wrap}
+      .oa-grid{grid-template-columns:1fr;}
+      .oa-extras{grid-template-columns:1fr;}
+      .oa-countdown{flex-wrap:wrap;}
+      .oa-annual{padding:48px 28px;}
+      .oa-title{font-size:30px;}
     }
     </style>
-
     <div class="oa-annual">
-
-      <div class="oa-title">
-        Premiação Anual – O Topo da Montanha
-      </div>
-
+      <div class="oa-title">Premiação Anual — O Topo da Montanha</div>
       <div class="oa-prizes">
         <div class="oa-grand">🚗 1 CARRO 0 KM</div>
         <div class="oa-mid">🏍 4 MOTOS 0 KM</div>
@@ -1549,22 +1100,18 @@ renderRanking()
           🌎 2 viagens internacionais
         </div>
       </div>
-
       <div class="oa-note">
-        Carro exclusivo para as gerências Comercial e Permanência.
+        <strong>Importante:</strong> o carro 0 km é exclusivo para as gerências Comercial e Permanência do Aluno. Motos, viagens e demais prêmios anuais contemplam todas as gerências elegíveis.
       </div>
-
       <div class="oa-counter-title">
         ⏳ Faltam <strong><span id="daysText"></span> dias</strong> para o topo.
       </div>
-
       <div class="oa-countdown">
         <div><span id="days"></span>Dias</div>
         <div><span id="hours"></span>Horas</div>
         <div><span id="minutes"></span>Min</div>
         <div><span id="seconds"></span>Seg</div>
       </div>
-
     </div>
 
     <div class="oa-grid">
@@ -1577,7 +1124,6 @@ renderRanking()
           <li>Relacionamento</li>
         </ul>
       </div>
-
       <div class="oa-card">
         <h4>Premiação Mensal</h4>
         <ul>
@@ -1585,38 +1131,43 @@ renderRanking()
           <li>2º lugar: R$ 700</li>
           <li>3º lugar: R$ 500</li>
         </ul>
-        <p>Experiências para os 20 melhores da Diretoria.</p>
-        <p>Home office por 30 dias para 40% do ranking, com meta batida.</p>
+        <p style="margin-top:10px;">20 experiências para os melhores da Diretoria.</p>
       </div>
-
       <div class="oa-card">
         <h4>Premiação Trimestral</h4>
         <p>Até R$ 100.000 distribuídos em sorteios ao longo do ano.</p>
-        <p style="margin-top:8px;opacity:.85">
+        <p style="margin-top:8px;opacity:.95;font-size:13px;">
           A urna só abre se a meta financeira do período for atingida.
         </p>
       </div>
     </div>
 
+    <div class="oa-extras">
+      <div class="oa-extra">
+        <h4>🏠 Home Office por 30 dias</h4>
+        <p>40% dos melhores colocados no ranking mensal de cada gerência, que atingirem no mínimo 100% da meta, ganham regime de home office por 30 dias.</p>
+      </div>
+      <div class="oa-extra">
+        <h4>✨ 20 Experiências Mensais</h4>
+        <p>Experiências exclusivas distribuídas entre os melhores da Diretoria: 12 vagas para Comercial, 5 para Permanência e 3 para Relacionamento.</p>
+      </div>
+    </div>
+
     <script>
       const targetDate = new Date("December 31, 2026 23:59:59").getTime();
-
       function updateCountdown(){
         const now = new Date().getTime();
         const distance = targetDate - now;
-
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
         document.getElementById("days").innerHTML = days;
         document.getElementById("hours").innerHTML = hours;
         document.getElementById("minutes").innerHTML = minutes;
         document.getElementById("seconds").innerHTML = seconds;
         document.getElementById("daysText").innerHTML = days;
       }
-
       updateCountdown();
       setInterval(updateCountdown,1000);
     </script>
@@ -1625,190 +1176,105 @@ renderRanking()
   <!-- ========================= -->
   <!-- SEÇÃO: FAQ -->
   <!-- ========================= -->
-  <section id="faq" aria-label="Perguntas frequentes" style="max-width:1100px;margin:70px auto;font-family:Arial, sans-serif;">
-
+  <section id="faq" aria-label="Perguntas frequentes" style="max-width:1100px;margin:70px auto;padding:0 20px;font-family:Arial, sans-serif;">
     <style>
-    .faq-title {
-      font-size:28px;
-      margin-bottom:8px;
-      color:#111;
-    }
-
-    .faq-subtitle {
-      color:#555;
-      margin-bottom:35px;
-    }
-
+    .faq-title {font-size:28px;margin-bottom:8px;color:#111;}
+    .faq-subtitle {color:#555;margin-bottom:35px;}
     .faq-item {
-      background:#0B1F4D;
-      border-radius:20px;
-      padding:22px 26px;
-      margin-bottom:18px;
-      color:#fff;
-      position:relative;
-      cursor:pointer;
-      transition:all .3s ease;
-      overflow:hidden;
+      background:#0B1F4D;border-radius:20px;padding:22px 26px;margin-bottom:18px;
+      color:#fff;position:relative;cursor:pointer;transition:all .3s ease;overflow:hidden;
     }
-
-    .faq-item:hover {
-      transform:translateY(-3px);
-      box-shadow:0 18px 35px rgba(0,0,0,0.25);
-    }
-
+    .faq-item:hover {transform:translateY(-3px);box-shadow:0 18px 35px rgba(0,0,0,0.25);}
     .faq-item::before {
-      content:"";
-      position:absolute;
-      left:0;
-      top:0;
-      height:100%;
-      width:6px;
-      background:#F2B705;
-      border-radius:20px 0 0 20px;
+      content:"";position:absolute;left:0;top:0;height:100%;width:6px;
+      background:#F2B705;border-radius:20px 0 0 20px;
     }
-
     .faq-number {
-      position:absolute;
-      right:20px;
-      top:5px;
-      font-size:80px;
-      font-weight:700;
-      color:rgba(255,255,255,0.05);
-      pointer-events:none;
+      position:absolute;right:20px;top:5px;font-size:80px;font-weight:700;
+      color:rgba(255,255,255,0.05);pointer-events:none;
     }
-
-    .faq-header {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .faq-question {
-      font-weight:bold;
-      font-size:16px;
-    }
-
-    .faq-arrow {
-      transition:transform .3s ease;
-      font-size:18px;
-    }
-
-    .faq-item.active .faq-arrow {
-      transform:rotate(90deg);
-    }
-
+    .faq-header {display:flex;justify-content:space-between;align-items:center;}
+    .faq-question {font-weight:bold;font-size:16px;}
+    .faq-arrow {transition:transform .3s ease;font-size:18px;}
+    .faq-item.active .faq-arrow {transform:rotate(90deg);}
     .faq-answer {
-      max-height:0;
-      overflow:hidden;
-      transition:max-height .4s ease;
-      margin-top:12px;
-      color:#D6DBE8;
-      line-height:1.6;
+      max-height:0;overflow:hidden;transition:max-height .4s ease;
+      margin-top:12px;color:#D6DBE8;line-height:1.6;
     }
-
-    .faq-item.active .faq-answer {
-      max-height:500px;
-    }
+    .faq-item.active .faq-answer {max-height:500px;}
     </style>
-
     <h2 class="faq-title">FAQ – Operação Altitude 2026</h2>
     <p class="faq-subtitle">Regras claras. Performance reconhecida.</p>
 
     <div class="faq-item">
       <div class="faq-number">01</div>
-      <div class="faq-header">
-        <div class="faq-question">Quem pode participar?</div>
-        <div class="faq-arrow">›</div>
-      </div>
+      <div class="faq-header"><div class="faq-question">Quem pode participar?</div><div class="faq-arrow">›</div></div>
       <div class="faq-answer">
-        Colaboradores das operações Comercial, Permanência do Aluno e Relacionamento com o Aluno com vínculo CLT ativo durante o período da campanha.
+        Colaboradores das operações Comercial, Permanência do Aluno e Relacionamento com o Aluno, nas funções de consultores, ouvidores e assistentes de suporte técnico, com vínculo CLT ativo durante o período da campanha.
       </div>
     </div>
-
     <div class="faq-item">
       <div class="faq-number">02</div>
-      <div class="faq-header">
-        <div class="faq-question">Qual é a vigência da campanha?</div>
-        <div class="faq-arrow">›</div>
-      </div>
-      <div class="faq-answer">
-        De 01/01/2026 a 31/12/2026.
-      </div>
+      <div class="faq-header"><div class="faq-question">Qual é a vigência da campanha?</div><div class="faq-arrow">›</div></div>
+      <div class="faq-answer">De 01/01/2026 a 31/12/2026.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-number">03</div>
-      <div class="faq-header">
-        <div class="faq-question">Como funcionam as urnas?</div>
-        <div class="faq-arrow">›</div>
-      </div>
+      <div class="faq-header"><div class="faq-question">Como funcionam as urnas?</div><div class="faq-arrow">›</div></div>
       <div class="faq-answer">
-        Urna Expedição: desempenho entre 70% e 99%.<br><br>
-        Urna Everest: 100% ou mais, com 1 cupom inicial + 5 cupons adicionais a cada 5% acima de 100%.
+        Urna Expedição: desempenho entre 70% e 99% da meta individual.<br><br>
+        Urna Everest: 100% ou mais, com 1 cupom inicial ao bater 100% + 5 cupons adicionais a cada 5% acima de 100%.
       </div>
     </div>
-
     <div class="faq-item">
       <div class="faq-number">04</div>
-      <div class="faq-header">
-        <div class="faq-question">Posso ganhar mais de um prêmio?</div>
-        <div class="faq-arrow">›</div>
-      </div>
+      <div class="faq-header"><div class="faq-question">Posso ganhar mais de um prêmio?</div><div class="faq-arrow">›</div></div>
       <div class="faq-answer">
         Sim. Desde que você tenha cupons válidos suficientes e esteja elegível no momento da apuração e entrega.
       </div>
     </div>
-
     <div class="faq-item">
       <div class="faq-number">05</div>
-      <div class="faq-header">
-        <div class="faq-question">Se eu sair da empresa antes da entrega, recebo o prêmio?</div>
-        <div class="faq-arrow">›</div>
-      </div>
+      <div class="faq-header"><div class="faq-question">Se eu sair da empresa antes da entrega, recebo o prêmio?</div><div class="faq-arrow">›</div></div>
       <div class="faq-answer">
         Não. A elegibilidade exige vínculo ativo até a entrega oficial da premiação.
       </div>
     </div>
-
     <div class="faq-item">
       <div class="faq-number">06</div>
-      <div class="faq-header">
-        <div class="faq-question">Preciso bater a meta da diretoria para concorrer?</div>
-        <div class="faq-arrow">›</div>
-      </div>
+      <div class="faq-header"><div class="faq-question">Preciso bater a meta da diretoria para concorrer?</div><div class="faq-arrow">›</div></div>
       <div class="faq-answer">
-        Sim. A meta da diretoria habilita os sorteios. Sem essa habilitação, há apenas reconhecimento mensal.
+        Sim. A meta financeira da Diretoria é o gatilho que habilita os sorteios trimestrais. Sem essa habilitação, há apenas reconhecimento mensal.
       </div>
     </div>
-
     <div class="faq-item">
       <div class="faq-number">07</div>
-      <div class="faq-header">
-        <div class="faq-question">Quem valida os resultados e sorteios?</div>
-        <div class="faq-arrow">›</div>
-      </div>
+      <div class="faq-header"><div class="faq-question">Quem valida os resultados e sorteios?</div><div class="faq-arrow">›</div></div>
       <div class="faq-answer">
-        O Comitê de Performance é responsável por validar metas, homologar resultados e acompanhar os sorteios.
+        O Comitê da Campanha é responsável por validar metas, homologar resultados e acompanhar os sorteios. Suas decisões são soberanas e definitivas.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-number">08</div>
+      <div class="faq-header"><div class="faq-question">Sou da gerência de Relacionamento. Concorro ao carro?</div><div class="faq-arrow">›</div></div>
+      <div class="faq-answer">
+        O carro 0 km é exclusivo para as gerências Comercial e Permanência do Aluno. Colaboradores do Relacionamento permanecem elegíveis a motos, viagens e demais premiações anuais vinculadas à Urna Everest.
       </div>
     </div>
 
     <script>
       const items = document.querySelectorAll(".faq-item");
-
       items.forEach(item => {
         item.addEventListener("click", () => {
-          items.forEach(el => {
-            if(el !== item) el.classList.remove("active");
-          });
+          items.forEach(el => { if(el !== item) el.classList.remove("active"); });
           item.classList.toggle("active");
         });
       });
     </script>
   </section>
 
-  <footer style="padding:26px 0 36px;text-align:center;font-size:.74rem;color:#6a759c;background:#fff;border-top:1px solid rgba(11,19,49,.04);">
-    © 2026 – Operação Altitude. Site institucional da campanha de incentivos.
+  <footer style="padding:26px 0 100px;text-align:center;font-size:.74rem;color:#6a759c;background:#fff;border-top:1px solid rgba(11,19,49,.04);">
+    © 2026 — Operação Altitude. Site institucional da campanha de incentivos. Dados atualizados em 23/04/2026.
   </footer>
-
 </body>
 </html>
